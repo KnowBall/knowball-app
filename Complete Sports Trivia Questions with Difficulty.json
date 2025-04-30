@@ -1,0 +1,2870 @@
+[
+  {
+    "question": "Which NFL team won Super Bowl LIV in 2020?",
+    "options": [
+      "Kansas City Chiefs",
+      "San Francisco 49ers",
+      "New England Patriots",
+      "Philadelphia Eagles"
+    ],
+    "answer": "Kansas City Chiefs",
+    "explanation": "The Kansas City Chiefs won Super Bowl LIV, defeating the San Francisco 49ers 31-20, led by Patrick Mahomes.",
+    "difficulty": "easy",
+    "id": "201d8cf119c1"
+  },
+  {
+    "question": "Which NBA player won the 2023 MVP award?",
+    "options": [
+      "Joel Embiid",
+      "Nikola Jokić",
+      "Giannis Antetokounmpo",
+      "Luka Dončić"
+    ],
+    "answer": "Joel Embiid",
+    "explanation": "Joel Embiid won the 2023 NBA MVP for his dominant performance with the Philadelphia 76ers.",
+    "difficulty": "easy",
+    "id": "078f279c3d28"
+  },
+  {
+    "question": "Which NFL player holds the record for most career passing yards?",
+    "options": [
+      "Tom Brady",
+      "Drew Brees",
+      "Peyton Manning",
+      "Brett Favre"
+    ],
+    "answer": "Tom Brady",
+    "explanation": "Tom Brady holds the NFL record with 89,214 career passing yards, amassed over 23 seasons.",
+    "difficulty": "easy",
+    "id": "b2e56334f359"
+  },
+  {
+    "question": "Which NBA team won the 2022 NBA Finals?",
+    "options": [
+      "Golden State Warriors",
+      "Boston Celtics",
+      "Miami Heat",
+      "Milwaukee Bucks"
+    ],
+    "answer": "Golden State Warriors",
+    "explanation": "The Golden State Warriors won the 2022 NBA Finals, defeating the Boston Celtics in six games.",
+    "difficulty": "easy",
+    "id": "efcf15fcb2b3"
+  },
+  {
+    "question": "Which MLB player hit the most home runs in the 2022 season?",
+    "options": [
+      "Aaron Judge",
+      "Shohei Ohtani",
+      "Kyle Schwarber",
+      "Pete Alonso"
+    ],
+    "answer": "Aaron Judge",
+    "explanation": "Aaron Judge hit 62 home runs in 2022, breaking the AL single-season record.",
+    "difficulty": "easy",
+    "id": "5097cab05a55"
+  },
+  {
+    "question": "Which NFL quarterback won the 2022 MVP award?",
+    "options": [
+      "Patrick Mahomes",
+      "Josh Allen",
+      "Joe Burrow",
+      "Aaron Rodgers"
+    ],
+    "answer": "Patrick Mahomes",
+    "explanation": "Patrick Mahomes won the 2022 NFL MVP for his exceptional performance with the Kansas City Chiefs.",
+    "difficulty": "easy",
+    "id": "bbf1bf1124da"
+  },
+  {
+    "question": "Which NBA player holds the record for most career points?",
+    "options": [
+      "LeBron James",
+      "Kareem Abdul-Jabbar",
+      "Kobe Bryant",
+      "Michael Jordan"
+    ],
+    "answer": "LeBron James",
+    "explanation": "LeBron James surpassed Kareem Abdul-Jabbar in 2023 to become the NBA's all-time leading scorer.",
+    "difficulty": "easy",
+    "id": "b24dcc687d01"
+  },
+  {
+    "question": "Which NHL team won the 2023 Stanley Cup?",
+    "options": [
+      "Vegas Golden Knights",
+      "Florida Panthers",
+      "Colorado Avalanche",
+      "Tampa Bay Lightning"
+    ],
+    "answer": "Vegas Golden Knights",
+    "explanation": "The Vegas Golden Knights won the 2023 Stanley Cup, defeating the Florida Panthers in five games.",
+    "difficulty": "easy",
+    "id": "076502a10b67"
+  },
+  {
+    "question": "Which soccer country won the 2022 FIFA World Cup?",
+    "options": [
+      "Argentina",
+      "France",
+      "Brazil",
+      "England"
+    ],
+    "answer": "Argentina",
+    "explanation": "Argentina, led by Lionel Messi, won the 2022 FIFA World Cup, defeating France in the final.",
+    "difficulty": "easy",
+    "id": "f3ca8ca434e6"
+  },
+  {
+    "question": "Which tennis player won the 2023 Wimbledon Men's Singles title?",
+    "options": [
+      "Carlos Alcaraz",
+      "Novak Djokovic",
+      "Daniil Medvedev",
+      "Jannik Sinner"
+    ],
+    "answer": "Carlos Alcaraz",
+    "explanation": "Carlos Alcaraz won the 2023 Wimbledon title, defeating Novak Djokovic in a five-set final.",
+    "difficulty": "easy",
+    "id": "4d9872d9d99b"
+  },
+  {
+    "question": "Which NFL team won Super Bowl LVI in 2022?",
+    "options": [
+      "Los Angeles Rams",
+      "Cincinnati Bengals",
+      "Kansas City Chiefs",
+      "Tampa Bay Buccaneers"
+    ],
+    "answer": "Los Angeles Rams",
+    "explanation": "The Los Angeles Rams won Super Bowl LVI, defeating the Cincinnati Bengals 23-20.",
+    "difficulty": "easy",
+    "id": "7057a28760ca"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Black Mamba'?",
+    "options": [
+      "Kobe Bryant",
+      "Michael Jordan",
+      "Vince Carter",
+      "Tracy McGrady"
+    ],
+    "answer": "Kobe Bryant",
+    "explanation": "Kobe Bryant was nicknamed 'The Black Mamba' for his fierce competitiveness and clutch performances.",
+    "difficulty": "easy",
+    "id": "3ab73173ad4e"
+  },
+  {
+    "question": "Which NFL player holds the record for most career sacks?",
+    "options": [
+      "Bruce Smith",
+      "Reggie White",
+      "Deacon Jones",
+      "Lawrence Taylor"
+    ],
+    "answer": "Bruce Smith",
+    "explanation": "Bruce Smith recorded 200 career sacks, the most in NFL history, primarily with the Buffalo Bills.",
+    "difficulty": "medium",
+    "id": "eda964602fc1"
+  },
+  {
+    "question": "Which NBA team won the 2021 NBA Finals?",
+    "options": [
+      "Milwaukee Bucks",
+      "Phoenix Suns",
+      "Atlanta Hawks",
+      "Los Angeles Clippers"
+    ],
+    "answer": "Milwaukee Bucks",
+    "explanation": "The Milwaukee Bucks, led by Giannis Antetokounmpo, won the 2021 NBA Finals against the Suns.",
+    "difficulty": "easy",
+    "id": "a6fc7abad55e"
+  },
+  {
+    "question": "Which MLB team won the 2022 World Series?",
+    "options": [
+      "Houston Astros",
+      "Philadelphia Phillies",
+      "New York Yankees",
+      "Los Angeles Dodgers"
+    ],
+    "answer": "Houston Astros",
+    "explanation": "The Houston Astros won the 2022 World Series, defeating the Philadelphia Phillies in six games.",
+    "difficulty": "easy",
+    "id": "501391fafc79"
+  },
+  {
+    "question": "Which NFL team won Super Bowl XXXVI in 2002?",
+    "options": [
+      "New England Patriots",
+      "St. Louis Rams",
+      "Philadelphia Eagles",
+      "Pittsburgh Steelers"
+    ],
+    "answer": "New England Patriots",
+    "explanation": "The Patriots won Super Bowl XXXVI, upsetting the Rams with a game-winning field goal.",
+    "difficulty": "medium",
+    "id": "9ded69b50090"
+  },
+  {
+    "question": "Which NBA player won the 2020 MVP award?",
+    "options": [
+      "Giannis Antetokounmpo",
+      "LeBron James",
+      "James Harden",
+      "Kevin Durant"
+    ],
+    "answer": "Giannis Antetokounmpo",
+    "explanation": "Giannis Antetokounmpo won the 2020 MVP for his dominant performance with the Milwaukee Bucks.",
+    "difficulty": "easy",
+    "id": "18ed2cab9874"
+  },
+  {
+    "question": "Which NHL player won the 2022 Conn Smythe Trophy?",
+    "options": [
+      "Cale Makar",
+      "Nathan MacKinnon",
+      "Mikko Rantanen",
+      "Gabriel Landeskog"
+    ],
+    "answer": "Cale Makar",
+    "explanation": "Cale Makar won the 2022 Conn Smythe Trophy as playoffs MVP for the Colorado Avalanche.",
+    "difficulty": "medium",
+    "id": "64783367e354"
+  },
+  {
+    "question": "Which soccer club won the 2023 UEFA Champions League?",
+    "options": [
+      "Manchester City",
+      "Inter Milan",
+      "Real Madrid",
+      "Paris Saint-Germain"
+    ],
+    "answer": "Manchester City",
+    "explanation": "Manchester City won the 2023 UEFA Champions League, defeating Inter Milan 1-0.",
+    "difficulty": "easy",
+    "id": "c83fbff5fc88"
+  },
+  {
+    "question": "Which tennis player won the 2024 Australian Open Women's Singles title?",
+    "options": [
+      "Aryna Sabalenka",
+      "Iga Świątek",
+      "Coco Gauff",
+      "Naomi Osaka"
+    ],
+    "answer": "Aryna Sabalenka",
+    "explanation": "Aryna Sabalenka won the 2024 Australian Open, defeating Zheng Qinwen in the final.",
+    "difficulty": "easy",
+    "id": "d30c49f4a483"
+  },
+  {
+    "question": "Which NFL player was nicknamed 'Sweetness'?",
+    "options": [
+      "Walter Payton",
+      "Barry Sanders",
+      "Emmitt Smith",
+      "Jim Brown"
+    ],
+    "answer": "Walter Payton",
+    "explanation": "Walter Payton was nicknamed 'Sweetness' for his smooth running style with the Chicago Bears.",
+    "difficulty": "easy",
+    "id": "00867d191a56"
+  },
+  {
+    "question": "Which NBA player holds the record for most career assists?",
+    "options": [
+      "John Stockton",
+      "Jason Kidd",
+      "Steve Nash",
+      "Chris Paul"
+    ],
+    "answer": "John Stockton",
+    "explanation": "John Stockton recorded 15,806 assists, the most in NBA history, primarily with the Utah Jazz.",
+    "difficulty": "medium",
+    "id": "e9b1fa1f9f91"
+  },
+  {
+    "question": "Which NFL team won Super Bowl XLIX in 2015?",
+    "options": [
+      "New England Patriots",
+      "Seattle Seahawks",
+      "Denver Broncos",
+      "Green Bay Packers"
+    ],
+    "answer": "New England Patriots",
+    "explanation": "The Patriots won Super Bowl XLIX, defeating the Seahawks with a crucial interception at the goal line.",
+    "difficulty": "medium",
+    "id": "d6d630e1a2d0"
+  },
+  {
+    "question": "Which NBA team won the 2019 NBA Finals?",
+    "options": [
+      "Toronto Raptors",
+      "Golden State Warriors",
+      "Houston Rockets",
+      "Milwaukee Bucks"
+    ],
+    "answer": "Toronto Raptors",
+    "explanation": "The Toronto Raptors won the 2019 NBA Finals, defeating the Golden State Warriors in six games.",
+    "difficulty": "easy",
+    "id": "ab38d0257430"
+  },
+  {
+    "question": "Which MLB player won the 2021 AL MVP award?",
+    "options": [
+      "Shohei Ohtani",
+      "Vladimir Guerrero Jr.",
+      "Aaron Judge",
+      "José Abreu"
+    ],
+    "answer": "Shohei Ohtani",
+    "explanation": "Shohei Ohtani won the 2021 AL MVP for his historic two-way performance with the Angels.",
+    "difficulty": "easy",
+    "id": "a7edd73b2106"
+  },
+  {
+    "question": "Which NFL player holds the record for most career interceptions?",
+    "options": [
+      "Paul Krause",
+      "Rod Woodson",
+      "Deion Sanders",
+      "Ed Reed"
+    ],
+    "answer": "Paul Krause",
+    "explanation": "Paul Krause recorded 81 interceptions, the most in NFL history, primarily with the Vikings.",
+    "difficulty": "hard",
+    "id": "a52c1d1c537d"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "options": [
+      "Allen Iverson",
+      "Kobe Bryant",
+      "Tracy McGrady",
+      "Vince Carter"
+    ],
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was nicknamed 'The Answer' for his dynamic scoring with the Philadelphia 76ers.",
+    "difficulty": "easy",
+    "id": "909d0a0ec000"
+  },
+  {
+    "question": "Which NHL team won the 2021 Stanley Cup?",
+    "options": [
+      "Tampa Bay Lightning",
+      "Montreal Canadiens",
+      "New York Islanders",
+      "Vegas Golden Knights"
+    ],
+    "answer": "Tampa Bay Lightning",
+    "explanation": "The Tampa Bay Lightning won the 2021 Stanley Cup, defeating the Montreal Canadiens in five games.",
+    "difficulty": "easy",
+    "id": "d1577186e5cc"
+  },
+  {
+    "question": "Which soccer country won the 2010 FIFA Women's World Cup?",
+    "options": [
+      "Germany",
+      "Japan",
+      "United States",
+      "Brazil"
+    ],
+    "answer": "Japan",
+    "explanation": "Japan won the 2011 FIFA Women's World Cup, defeating the United States in a penalty shootout.",
+    "difficulty": "medium",
+    "id": "ff712e5a766e"
+  },
+  {
+    "question": "Which tennis player won the 2020 US Open Men's Singles title?",
+    "options": [
+      "Dominic Thiem",
+      "Alexander Zverev",
+      "Novak Djokovic",
+      "Rafael Nadal"
+    ],
+    "answer": "Dominic Thiem",
+    "explanation": "Dominic Thiem won the 2020 US Open, defeating Alexander Zverev in a five-set final.",
+    "difficulty": "medium",
+    "id": "b3c603ce6d53"
+  },
+  {
+    "question": "Which NFL team won Super Bowl LI in 2017?",
+    "options": [
+      "New England Patriots",
+      "Atlanta Falcons",
+      "Philadelphia Eagles",
+      "Pittsburgh Steelers"
+    ],
+    "answer": "New England Patriots",
+    "explanation": "The Patriots won Super Bowl LI, overcoming a 28-3 deficit against the Falcons in overtime.",
+    "difficulty": "easy",
+    "id": "f40f77745d64"
+  },
+  {
+    "question": "Which NBA player won the 2019 MVP award?",
+    "options": [
+      "Giannis Antetokounmpo",
+      "James Harden",
+      "LeBron James",
+      "Kawhi Leonard"
+    ],
+    "answer": "Giannis Antetokounmpo",
+    "explanation": "Giannis Antetokounmpo won the 2019 MVP for his dominant season with the Milwaukee Bucks.",
+    "difficulty": "easy",
+    "id": "479b02ce46a2"
+  },
+  {
+    "question": "Which NFL player was nicknamed 'Primetime'?",
+    "options": [
+      "Deion Sanders",
+      "Randy Moss",
+      "Terrell Owens",
+      "Jerry Rice"
+    ],
+    "answer": "Deion Sanders",
+    "explanation": "Deion Sanders was nicknamed 'Primetime' for his flashy play and charisma with the Falcons and Cowboys.",
+    "difficulty": "easy",
+    "id": "e5037a5e2f71"
+  },
+  {
+    "question": "Which NBA team won the 2016 NBA Finals?",
+    "options": [
+      "Cleveland Cavaliers",
+      "Golden State Warriors",
+      "San Antonio Spurs",
+      "Oklahoma City Thunder"
+    ],
+    "answer": "Cleveland Cavaliers",
+    "explanation": "The Cleveland Cavaliers, led by LeBron James, won the 2016 NBA Finals, overcoming a 3-1 deficit.",
+    "difficulty": "medium",
+    "id": "754bb307725c"
+  },
+  {
+    "question": "Which MLB player holds the record for most career home runs?",
+    "options": [
+      "Barry Bonds",
+      "Hank Aaron",
+      "Babe Ruth",
+      "Alex Rodriguez"
+    ],
+    "answer": "Barry Bonds",
+    "explanation": "Barry Bonds hit 762 home runs, the most in MLB history, primarily with the Giants.",
+    "difficulty": "easy",
+    "id": "4f5ccc31e2af"
+  },
+  {
+    "question": "Which NFL team won Super Bowl LII in 2018?",
+    "options": [
+      "Philadelphia Eagles",
+      "New England Patriots",
+      "Minnesota Vikings",
+      "Jacksonville Jaguars"
+    ],
+    "answer": "Philadelphia Eagles",
+    "explanation": "The Philadelphia Eagles won Super Bowl LII, defeating the Patriots with a backup quarterback.",
+    "difficulty": "easy",
+    "id": "1f2d8e518deb"
+  },
+  {
+    "question": "Which NBA player won the 2015 MVP award?",
+    "options": [
+      "Stephen Curry",
+      "James Harden",
+      "LeBron James",
+      "Kevin Durant"
+    ],
+    "answer": "Stephen Curry",
+    "explanation": "Stephen Curry won the 2015 MVP for his revolutionary shooting with the Golden State Warriors.",
+    "difficulty": "easy",
+    "id": "5ee2f06a181d"
+  },
+  {
+    "question": "Which NHL player holds the record for most career goals?",
+    "options": [
+      "Wayne Gretzky",
+      "Gordie Howe",
+      "Alex Ovechkin",
+      "Brett Hull"
+    ],
+    "answer": "Wayne Gretzky",
+    "explanation": "Wayne Gretzky scored 894 goals, the most in NHL history, during his career.",
+    "difficulty": "easy",
+    "id": "f4f2f68b48b1"
+  },
+  {
+    "question": "Which soccer club won the 2022 UEFA Champions League?",
+    "options": [
+      "Real Madrid",
+      "Liverpool",
+      "Manchester City",
+      "Chelsea"
+    ],
+    "answer": "Real Madrid",
+    "explanation": "Real Madrid won the 2022 UEFA Champions League, defeating Liverpool 1-0 in the final.",
+    "difficulty": "easy",
+    "id": "aaa36f0317e0"
+  },
+  {
+    "question": "Which tennis player won the 2019 Australian Open Women's Singles title?",
+    "options": [
+      "Naomi Osaka",
+      "Petra Kvitová",
+      "Serena Williams",
+      "Simona Halep"
+    ],
+    "answer": "Naomi Osaka",
+    "explanation": "Naomi Osaka won the 2019 Australian Open, defeating Petra Kvitová for her second Grand Slam.",
+    "difficulty": "medium",
+    "id": "7a6731862f50"
+  },
+  {
+    "question": "Which NFL player holds the record for most career rushing yards?",
+    "options": [
+      "Emmitt Smith",
+      "Walter Payton",
+      "Barry Sanders",
+      "Frank Gore"
+    ],
+    "answer": "Emmitt Smith",
+    "explanation": "Emmitt Smith rushed for 18,355 yards, the most in NFL history, primarily with the Dallas Cowboys.",
+    "difficulty": "easy",
+    "id": "1f09d2be27d5"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Mailman'?",
+    "options": [
+      "Karl Malone",
+      "Moses Malone",
+      "Kevin Garnett",
+      "Charles Barkley"
+    ],
+    "answer": "Karl Malone",
+    "explanation": "Karl Malone was nicknamed 'The Mailman' for consistently delivering points with the Utah Jazz.",
+    "difficulty": "easy",
+    "id": "2faa37158fb8"
+  },
+  {
+    "question": "Which NBA team won the 2014 NBA Finals?",
+    "options": [
+      "San Antonio Spurs",
+      "Miami Heat",
+      "Oklahoma City Thunder",
+      "Indiana Pacers"
+    ],
+    "answer": "San Antonio Spurs",
+    "explanation": "The San Antonio Spurs won the 2014 NBA Finals, defeating the Miami Heat in five games.",
+    "difficulty": "medium",
+    "id": "a7af08354a72"
+  },
+  {
+    "question": "Which MLB team won the 2020 World Series?",
+    "options": [
+      "Los Angeles Dodgers",
+      "Tampa Bay Rays",
+      "Houston Astros",
+      "Atlanta Braves"
+    ],
+    "answer": "Los Angeles Dodgers",
+    "explanation": "The Los Angeles Dodgers won the 2020 World Series, defeating the Tampa Bay Rays in six games.",
+    "difficulty": "easy",
+    "id": "e815332a8e7c"
+  },
+  {
+    "question": "Which NFL player was the 2020 MVP?",
+    "options": [
+      "Aaron Rodgers",
+      "Patrick Mahomes",
+      "Lamar Jackson",
+      "Russell Wilson"
+    ],
+    "answer": "Aaron Rodgers",
+    "explanation": "Aaron Rodgers won the 2020 NFL MVP for his exceptional season with the Green Bay Packers.",
+    "difficulty": "easy",
+    "id": "e2fcf2bbc5d5"
+  },
+  {
+    "question": "Which NBA player won the 2012 MVP award?",
+    "options": [
+      "LeBron James",
+      "Kevin Durant",
+      "Kobe Bryant",
+      "Derrick Rose"
+    ],
+    "answer": "LeBron James",
+    "explanation": "LeBron James won the 2012 MVP for his dominant performance with the Miami Heat.",
+    "difficulty": "medium",
+    "id": "762a307281d3"
+  },
+  {
+    "question": "Which NHL team won the 2018 Stanley Cup?",
+    "options": [
+      "Washington Capitals",
+      "Vegas Golden Knights",
+      "Pittsburgh Penguins",
+      "Nashville Predators"
+    ],
+    "answer": "Washington Capitals",
+    "explanation": "The Washington Capitals won the 2018 Stanley Cup, defeating the Vegas Golden Knights.",
+    "difficulty": "easy",
+    "id": "25c7f8421a5f"
+  },
+  {
+    "question": "Which soccer country won the 2015 FIFA Women's World Cup?",
+    "options": [
+      "United States",
+      "Japan",
+      "Germany",
+      "England"
+    ],
+    "answer": "United States",
+    "explanation": "The United States won the 2015 FIFA Women's World Cup, defeating Japan 5-2 in the final.",
+    "difficulty": "medium",
+    "id": "b8da03f0fd89"
+  },
+  {
+    "question": "Which tennis player won the 2017 Australian Open Men's Singles title?",
+    "options": [
+      "Roger Federer",
+      "Rafael Nadal",
+      "Novak Djokovic",
+      "Andy Murray"
+    ],
+    "answer": "Roger Federer",
+    "explanation": "Roger Federer won the 2017 Australian Open, defeating Rafael Nadal in a five-set final.",
+    "difficulty": "medium",
+    "id": "00fa48a63c37"
+  },
+  {
+    "question": "Which NBA player won the 2018 MVP award?",
+    "options": [
+      "James Harden",
+      "LeBron James",
+      "Kevin Durant",
+      "Giannis Antetokounmpo"
+    ],
+    "answer": "James Harden",
+    "explanation": "James Harden won the 2018 MVP for his prolific scoring with the Houston Rockets.",
+    "difficulty": "easy",
+    "id": "45c89d8ac7e0"
+  },
+  {
+    "question": "Which NFL player holds the record for most career touchdown receptions?",
+    "options": [
+      "Jerry Rice",
+      "Randy Moss",
+      "Terrell Owens",
+      "Cris Carter"
+    ],
+    "answer": "Jerry Rice",
+    "explanation": "Jerry Rice scored 197 touchdown receptions, the most in NFL history, primarily with the 49ers.",
+    "difficulty": "easy",
+    "id": "39bb92f395b7"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Diesel'?",
+    "options": [
+      "Shaquille O'Neal",
+      "Hakeem Olajuwon",
+      "David Robinson",
+      "Patrick Ewing"
+    ],
+    "answer": "Shaquille O'Neal",
+    "explanation": "Shaquille O'Neal was nicknamed 'The Diesel' for his powerful presence with the Lakers and others.",
+    "difficulty": "easy",
+    "id": "efb18ac17f45"
+  },
+  {
+    "question": "Which MLB player won the 2023 NL MVP award?",
+    "options": [
+      "Ronald Acuña Jr.",
+      "Mookie Betts",
+      "Freddie Freeman",
+      "Matt Olson"
+    ],
+    "answer": "Ronald Acuña Jr.",
+    "explanation": "Ronald Acuña Jr. won the 2023 NL MVP for his historic 40-70 season with the Braves.",
+    "difficulty": "easy",
+    "id": "d4a7957296b0"
+  },
+  {
+    "question": "Which NBA team won the 2013 NBA Finals?",
+    "options": [
+      "Miami Heat",
+      "San Antonio Spurs",
+      "Oklahoma City Thunder",
+      "Boston Celtics"
+    ],
+    "answer": "Miami Heat",
+    "explanation": "The Miami Heat, led by LeBron James, won the 2013 NBA Finals against the Spurs.",
+    "difficulty": "medium",
+    "id": "4032dee2b740"
+  },
+  {
+    "question": "Which NHL player won the 2020 Conn Smythe Trophy?",
+    "options": [
+      "Victor Hedman",
+      "Nikita Kucherov",
+      "Brayden Point",
+      "Andrei Vasilevskiy"
+    ],
+    "answer": "Victor Hedman",
+    "explanation": "Victor Hedman won the 2020 Conn Smythe Trophy as playoffs MVP for the Tampa Bay Lightning.",
+    "difficulty": "medium",
+    "id": "3e6f592e1b28"
+  },
+  {
+    "question": "Which soccer country won the 2018 FIFA World Cup?",
+    "options": [
+      "France",
+      "Croatia",
+      "Brazil",
+      "Germany"
+    ],
+    "answer": "France",
+    "explanation": "France won the 2018 FIFA World Cup, defeating Croatia 4-2 in the final.",
+    "difficulty": "easy",
+    "id": "365c9aa520aa"
+  },
+  {
+    "question": "Which tennis player won the 2022 US Open Men's Singles title?",
+    "options": [
+      "Carlos Alcaraz",
+      "Casper Ruud",
+      "Novak Djokovic",
+      "Rafael Nadal"
+    ],
+    "answer": "Carlos Alcaraz",
+    "explanation": "Carlos Alcaraz won the 2022 US Open, becoming the youngest men's champion since 2005.",
+    "difficulty": "easy",
+    "id": "30bcffe03b4c"
+  },
+  {
+    "question": "Which NFL player was nicknamed 'Megatron'?",
+    "options": [
+      "Calvin Johnson",
+      "Andre Johnson",
+      "Larry Fitzgerald",
+      "Randy Moss"
+    ],
+    "answer": "Calvin Johnson",
+    "explanation": "Calvin Johnson earned the nickname 'Megatron' for his dominant receiving with the Detroit Lions.",
+    "difficulty": "easy",
+    "id": "7d95aa050250"
+  },
+  {
+    "question": "Which NBA player won the 2017 MVP award?",
+    "options": [
+      "Russell Westbrook",
+      "James Harden",
+      "LeBron James",
+      "Kevin Durant"
+    ],
+    "answer": "Russell Westbrook",
+    "explanation": "Russell Westbrook won the 2017 MVP for his triple-double average with the Thunder.",
+    "difficulty": "easy",
+    "id": "3457d38c36b0"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Worm'?",
+    "options": [
+      "Dennis Rodman",
+      "Charles Barkley",
+      "Scottie Pippen",
+      "Michael Jordan"
+    ],
+    "answer": "Dennis Rodman",
+    "explanation": "Dennis Rodman was nicknamed 'The Worm' for his relentless rebounding and defensive tenacity.",
+    "difficulty": "easy",
+    "id": "cd8a5d96007e"
+  },
+  {
+    "question": "Which MLB team won the 2021 World Series?",
+    "options": [
+      "Atlanta Braves",
+      "Houston Astros",
+      "Los Angeles Dodgers",
+      "Boston Red Sox"
+    ],
+    "answer": "Atlanta Braves",
+    "explanation": "The Atlanta Braves won the 2021 World Series, defeating the Houston Astros in six games.",
+    "difficulty": "easy",
+    "id": "fc276be2fdc3"
+  },
+  {
+    "question": "Which NFL player holds the record for most career field goals made?",
+    "options": [
+      "Adam Vinatieri",
+      "Justin Tucker",
+      "Morten Andersen",
+      "Gary Anderson"
+    ],
+    "answer": "Adam Vinatieri",
+    "explanation": "Adam Vinatieri made 599 field goals, the most in NFL history, across his long career.",
+    "difficulty": "medium",
+    "id": "d4623a80c11c"
+  },
+  {
+    "question": "Which NBA team won the 2004 NBA Finals?",
+    "options": [
+      "Detroit Pistons",
+      "Los Angeles Lakers",
+      "San Antonio Spurs",
+      "Miami Heat"
+    ],
+    "answer": "Detroit Pistons",
+    "explanation": "The Detroit Pistons upset the Lakers to win the 2004 NBA Finals.",
+    "difficulty": "medium",
+    "id": "85c71a6911e3"
+  },
+  {
+    "question": "Which NHL player holds the record for most career points?",
+    "options": [
+      "Wayne Gretzky",
+      "Mario Lemieux",
+      "Mark Messier",
+      "Jaromir Jagr"
+    ],
+    "answer": "Wayne Gretzky",
+    "explanation": "Wayne Gretzky scored 2,857 points, the most in NHL history, during his career.",
+    "difficulty": "easy",
+    "id": "53b7c83ce4bf"
+  },
+  {
+    "question": "Which soccer club won the 2020 UEFA Champions League?",
+    "options": [
+      "Bayern Munich",
+      "Paris Saint-Germain",
+      "Manchester City",
+      "Liverpool"
+    ],
+    "answer": "Bayern Munich",
+    "explanation": "Bayern Munich won the 2020 UEFA Champions League, defeating PSG 1-0 in the final.",
+    "difficulty": "easy",
+    "id": "99aca11a28bd"
+  },
+  {
+    "question": "Which tennis player won the 2023 Australian Open Men's Singles title?",
+    "options": [
+      "Novak Djokovic",
+      "Rafael Nadal",
+      "Carlos Alcaraz",
+      "Daniil Medvedev"
+    ],
+    "answer": "Novak Djokovic",
+    "explanation": "Novak Djokovic won the 2023 Australian Open, reclaiming the title with a dominant performance.",
+    "difficulty": "easy",
+    "id": "0688b6d67d33"
+  },
+  {
+    "question": "Which NBA player won the 2010 MVP award?",
+    "options": [
+      "LeBron James",
+      "Kobe Bryant",
+      "Kevin Durant",
+      "Dwyane Wade"
+    ],
+    "answer": "LeBron James",
+    "explanation": "LeBron James won the 2010 MVP for his all-around dominance with the Cleveland Cavaliers.",
+    "difficulty": "medium",
+    "id": "507053497a53"
+  },
+  {
+    "question": "Which NFL player was nicknamed 'The Refrigerator'?",
+    "options": [
+      "William Perry",
+      "Mike Ditka",
+      "Reggie White",
+      "Lawrence Taylor"
+    ],
+    "answer": "William Perry",
+    "explanation": "William Perry, a massive defensive lineman, was nicknamed 'The Refrigerator' with the Bears.",
+    "difficulty": "easy",
+    "id": "f0da8cdcc582"
+  },
+  {
+    "question": "Which NBA player holds the record for most career rebounds?",
+    "options": [
+      "Wilt Chamberlain",
+      "Bill Russell",
+      "Kareem Abdul-Jabbar",
+      "Moses Malone"
+    ],
+    "answer": "Wilt Chamberlain",
+    "explanation": "Wilt Chamberlain grabbed 23,924 rebounds, the most in NBA history, during his career.",
+    "difficulty": "medium",
+    "id": "95f358ae02cb"
+  },
+  {
+    "question": "Which MLB player holds the record for most career pitching wins?",
+    "options": [
+      "Cy Young",
+      "Walter Johnson",
+      "Greg Maddux",
+      "Roger Clemens"
+    ],
+    "answer": "Cy Young",
+    "explanation": "Cy Young won 511 games, the most in MLB history, a record unlikely to be broken.",
+    "difficulty": "easy",
+    "id": "01b4396c11ef"
+  },
+  {
+    "question": "Which NBA team won the 1998 NBA Finals?",
+    "options": [
+      "Chicago Bulls",
+      "Utah Jazz",
+      "Los Angeles Lakers",
+      "Boston Celtics"
+    ],
+    "answer": "Chicago Bulls",
+    "explanation": "The Bulls, led by Michael Jordan, won the 1998 NBA Finals, completing their second three-peat.",
+    "difficulty": "medium",
+    "id": "965f9fef7401"
+  },
+  {
+    "question": "Which NHL team won the 2019 Stanley Cup?",
+    "options": [
+      "St. Louis Blues",
+      "Boston Bruins",
+      "Washington Capitals",
+      "Vegas Golden Knights"
+    ],
+    "answer": "St. Louis Blues",
+    "explanation": "The St. Louis Blues won their first Stanley Cup in 2019, defeating the Boston Bruins.",
+    "difficulty": "easy",
+    "id": "e094a3a73259"
+  },
+  {
+    "question": "Which soccer country won the 2014 FIFA World Cup?",
+    "options": [
+      "Germany",
+      "Argentina",
+      "Brazil",
+      "Spain"
+    ],
+    "answer": "Germany",
+    "explanation": "Germany won the 2014 FIFA World Cup, defeating Argentina 1-0 in the final.",
+    "difficulty": "easy",
+    "id": "7444a0051ad6"
+  },
+  {
+    "question": "Which NFL player holds the record for most career punt return touchdowns?",
+    "options": [
+      "Devin Hester",
+      "Deion Sanders",
+      "Eric Metcalf",
+      "Dante Hall"
+    ],
+    "answer": "Devin Hester",
+    "explanation": "Devin Hester scored 14 punt return touchdowns, the most in NFL history, primarily with the Bears.",
+    "difficulty": "medium",
+    "id": "045d8aba54f7"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Big Fundamental'?",
+    "options": [
+      "Tim Duncan",
+      "Kevin Garnett",
+      "Shaquille O'Neal",
+      "Dirk Nowitzki"
+    ],
+    "answer": "Tim Duncan",
+    "explanation": "Tim Duncan was nicknamed 'The Big Fundamental' for his disciplined play with the Spurs.",
+    "difficulty": "easy",
+    "id": "7f5da49e4451"
+  },
+  {
+    "question": "Which NBA player won the 2009 MVP award?",
+    "options": [
+      "LeBron James",
+      "Kobe Bryant",
+      "Dwyane Wade",
+      "Chris Paul"
+    ],
+    "answer": "LeBron James",
+    "explanation": "LeBron James won the 2009 MVP for his dominant performance with the Cleveland Cavaliers.",
+    "difficulty": "medium",
+    "id": "68852aa7d63e"
+  },
+  {
+    "question": "Which MLB team won the 2018 World Series?",
+    "options": [
+      "Boston Red Sox",
+      "Los Angeles Dodgers",
+      "Houston Astros",
+      "Chicago Cubs"
+    ],
+    "answer": "Boston Red Sox",
+    "explanation": "The Boston Red Sox won the 2018 World Series, defeating the Dodgers in five games.",
+    "difficulty": "easy",
+    "id": "2925edf5afd4"
+  },
+  {
+    "question": "Which NFL player was the 2018 MVP?",
+    "options": [
+      "Patrick Mahomes",
+      "Drew Brees",
+      "Aaron Rodgers",
+      "Tom Brady"
+    ],
+    "answer": "Patrick Mahomes",
+    "explanation": "Patrick Mahomes won the 2018 NFL MVP for his breakout season with the Kansas City Chiefs.",
+    "difficulty": "easy",
+    "id": "ab1dc0629ba8"
+  },
+  {
+    "question": "Which NBA team won the 1993 NBA Finals?",
+    "options": [
+      "Chicago Bulls",
+      "Phoenix Suns",
+      "New York Knicks",
+      "Houston Rockets"
+    ],
+    "answer": "Chicago Bulls",
+    "explanation": "The Bulls, led by Michael Jordan, won the 1993 NBA Finals, completing their first three-peat.",
+    "difficulty": "medium",
+    "id": "356bba384c04"
+  },
+  {
+    "question": "Which NHL player won the 2018 Conn Smythe Trophy?",
+    "options": [
+      "Alex Ovechkin",
+      "Evgeny Kuznetsov",
+      "Braden Holtby",
+      "T.J. Oshie"
+    ],
+    "answer": "Alex Ovechkin",
+    "explanation": "Alex Ovechkin won the 2018 Conn Smythe Trophy as playoffs MVP for the Washington Capitals.",
+    "difficulty": "medium",
+    "id": "6d8adc011628"
+  },
+  {
+    "question": "Which soccer club won the 2021 UEFA Champions League?",
+    "options": [
+      "Chelsea",
+      "Manchester City",
+      "Paris Saint-Germain",
+      "Bayern Munich"
+    ],
+    "answer": "Chelsea",
+    "explanation": "Chelsea won the 2021 UEFA Champions League, defeating Manchester City 1-0 in the final.",
+    "difficulty": "easy",
+    "id": "3c7d39bb0b79"
+  },
+  {
+    "question": "Which tennis player won the 2020 French Open Women's Singles title?",
+    "options": [
+      "Iga Świątek",
+      "Sofia Kenin",
+      "Simona Halep",
+      "Naomi Osaka"
+    ],
+    "answer": "Iga Świątek",
+    "explanation": "Iga Świątek won the 2020 French Open, her first Grand Slam title, without dropping a set.",
+    "difficulty": "medium",
+    "id": "c194ad62e3ea"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Doctor'?",
+    "options": [
+      "Julius Erving",
+      "George Gervin",
+      "David Thompson",
+      "Walt Frazier"
+    ],
+    "answer": "Julius Erving",
+    "explanation": "Julius Erving was nicknamed 'The Doctor' for his smooth, surgical play with the 76ers.",
+    "difficulty": "easy",
+    "id": "91d2e81d769f"
+  },
+  {
+    "question": "Which NFL player holds the record for most career kick return touchdowns?",
+    "options": [
+      "Cordarrelle Patterson",
+      "Devin Hester",
+      "Josh Cribbs",
+      "Leon Washington"
+    ],
+    "answer": "Cordarrelle Patterson",
+    "explanation": "Cordarrelle Patterson has 9 kick return touchdowns, the most in NFL history.",
+    "difficulty": "medium",
+    "id": "740482b4b9b5"
+  },
+  {
+    "question": "Which NBA player won the 2007 MVP award?",
+    "options": [
+      "Dirk Nowitzki",
+      "Steve Nash",
+      "Kobe Bryant",
+      "LeBron James"
+    ],
+    "answer": "Dirk Nowitzki",
+    "explanation": "Dirk Nowitzki won the 2007 MVP for leading the Dallas Mavericks to a 67-win season.",
+    "difficulty": "medium",
+    "id": "b59ea2f90204"
+  },
+  {
+    "question": "Which MLB player holds the record for most career saves?",
+    "options": [
+      "Mariano Rivera",
+      "Trevor Hoffman",
+      "Lee Smith",
+      "Francisco Rodriguez"
+    ],
+    "answer": "Mariano Rivera",
+    "explanation": "Mariano Rivera recorded 652 saves, the most in MLB history, primarily with the Yankees.",
+    "difficulty": "easy",
+    "id": "e330cf20cc25"
+  },
+  {
+    "question": "Which NHL team won the 2017 Stanley Cup?",
+    "options": [
+      "Pittsburgh Penguins",
+      "Nashville Predators",
+      "Ottawa Senators",
+      "Anaheim Ducks"
+    ],
+    "answer": "Pittsburgh Penguins",
+    "explanation": "The Pittsburgh Penguins won the 2017 Stanley Cup, defeating the Nashville Predators.",
+    "difficulty": "easy",
+    "id": "18bb216f3004"
+  },
+  {
+    "question": "Which soccer country won the 2010 FIFA World Cup?",
+    "options": [
+      "Spain",
+      "Netherlands",
+      "Germany",
+      "Brazil"
+    ],
+    "answer": "Spain",
+    "explanation": "Spain won the 2010 FIFA World Cup, defeating the Netherlands 1-0 in extra time.",
+    "difficulty": "easy",
+    "id": "d4f23f75f360"
+  },
+  {
+    "question": "Which tennis player won the 2019 US Open Men's Singles title?",
+    "options": [
+      "Rafael Nadal",
+      "Daniil Medvedev",
+      "Novak Djokovic",
+      "Roger Federer"
+    ],
+    "answer": "Rafael Nadal",
+    "explanation": "Rafael Nadal won the 2019 US Open, defeating Daniil Medvedev in a five-set final.",
+    "difficulty": "easy",
+    "id": "6e341c0b548a"
+  },
+  {
+    "question": "Which NFL player was nicknamed 'The Minister of Defense'?",
+    "options": [
+      "Reggie White",
+      "Lawrence Taylor",
+      "Deacon Jones",
+      "Bruce Smith"
+    ],
+    "answer": "Reggie White",
+    "explanation": "Reggie White was nicknamed 'The Minister of Defense' for his faith and dominance.",
+    "difficulty": "easy",
+    "id": "e08280973ab8"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Round Mound of Rebound'?",
+    "options": [
+      "Charles Barkley",
+      "Moses Malone",
+      "Dennis Rodman",
+      "Shaquille O'Neal"
+    ],
+    "answer": "Charles Barkley",
+    "explanation": "Charles Barkley earned 'The Round Mound of Rebound' for his rebounding prowess with the 76ers.",
+    "difficulty": "easy",
+    "id": "0c6d0ffedfd2"
+  },
+  {
+    "question": "Which NFL team won Super Bowl XIX in 1985?",
+    "options": [
+      "San Francisco 49ers",
+      "Miami Dolphins",
+      "Los Angeles Raiders",
+      "Chicago Bears"
+    ],
+    "answer": "San Francisco 49ers",
+    "explanation": "The 49ers won Super Bowl XIX, defeating the Dolphins with Joe Montana's leadership.",
+    "difficulty": "medium",
+    "id": "5d9d45fb2bb9"
+  },
+  {
+    "question": "Which NBA player won the 2005 MVP award?",
+    "options": [
+      "Steve Nash",
+      "Shaquille O'Neal",
+      "Tim Duncan",
+      "Kevin Garnett"
+    ],
+    "answer": "Steve Nash",
+    "explanation": "Steve Nash won the 2005 MVP for his playmaking with the Phoenix Suns.",
+    "difficulty": "medium",
+    "id": "d1d74c7bfe91"
+  },
+  {
+    "question": "Which MLB team won the 2016 World Series?",
+    "options": [
+      "Chicago Cubs",
+      "Cleveland Indians",
+      "Los Angeles Dodgers",
+      "Toronto Blue Jays"
+    ],
+    "answer": "Chicago Cubs",
+    "explanation": "The Chicago Cubs won the 2016 World Series, ending a 108-year championship drought.",
+    "difficulty": "easy",
+    "id": "2eb9e4199ad9"
+  },
+  {
+    "question": "Which NFL player holds the record for most career defensive touchdowns?",
+    "options": [
+      "Rod Woodson",
+      "Deion Sanders",
+      "Charles Woodson",
+      "Ed Reed"
+    ],
+    "answer": "Rod Woodson",
+    "explanation": "Rod Woodson scored 13 defensive touchdowns, the most in NFL history, primarily with the Steelers.",
+    "difficulty": "hard",
+    "id": "35b0440ebd66"
+  },
+  {
+    "question": "Which NHL player won the 2016 Conn Smythe Trophy?",
+    "options": [
+      "Sidney Crosby",
+      "Evgeni Malkin",
+      "Phil Kessel",
+      "Kris Letang"
+    ],
+    "answer": "Sidney Crosby",
+    "explanation": "Sidney Crosby won the 2016 Conn Smythe Trophy as playoffs MVP for the Pittsburgh Penguins.",
+    "difficulty": "medium",
+    "id": "2cd2e0c4871e"
+  },
+  {
+    "question": "Which soccer country won the 2006 FIFA World Cup?",
+    "options": [
+      "Italy",
+      "France",
+      "Germany",
+      "Brazil"
+    ],
+    "answer": "Italy",
+    "explanation": "Italy won the 2006 FIFA World Cup, defeating France in a penalty shootout.",
+    "difficulty": "easy",
+    "id": "8bc37e627f40"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Pearl'?",
+    "options": [
+      "Earl Monroe",
+      "Walt Frazier",
+      "Dave Bing",
+      "Pete Maravich"
+    ],
+    "answer": "Earl Monroe",
+    "explanation": "Earl Monroe was nicknamed 'The Pearl' for his smooth and flashy play with the Knicks.",
+    "difficulty": "medium",
+    "id": "09635aa15f66"
+  },
+  {
+    "question": "Which NFL player holds the record for most career fumble recoveries?",
+    "options": [
+      "Jim Marshall",
+      "Rod Woodson",
+      "Warren Moon",
+      "Gene Upshaw"
+    ],
+    "answer": "Jim Marshall",
+    "explanation": "Jim Marshall recovered 30 fumbles, the most in NFL history, primarily with the Vikings.",
+    "difficulty": "hard",
+    "id": "12ecd8e6209b"
+  },
+  {
+    "question": "Which NBA player won the 2000 MVP award?",
+    "options": [
+      "Shaquille O'Neal",
+      "Tim Duncan",
+      "Kevin Garnett",
+      "Allen Iverson"
+    ],
+    "answer": "Shaquille O'Neal",
+    "explanation": "Shaquille O'Neal won the 2000 MVP for his dominant season with the Los Angeles Lakers.",
+    "difficulty": "medium",
+    "id": "791e8c1a02af"
+  },
+  {
+    "question": "Which MLB team won the 2014 World Series?",
+    "options": [
+      "San Francisco Giants",
+      "Kansas City Royals",
+      "St. Louis Cardinals",
+      "Baltimore Orioles"
+    ],
+    "answer": "San Francisco Giants",
+    "explanation": "The Giants won the 2014 World Series, defeating the Royals in seven games.",
+    "difficulty": "easy",
+    "id": "7dd4c0e1502d"
+  },
+  {
+    "question": "Which NHL team won the 2015 Stanley Cup?",
+    "options": [
+      "Chicago Blackhawks",
+      "Tampa Bay Lightning",
+      "New York Rangers",
+      "Anaheim Ducks"
+    ],
+    "answer": "Chicago Blackhawks",
+    "explanation": "The Chicago Blackhawks won the 2015 Stanley Cup, defeating the Tampa Bay Lightning.",
+    "difficulty": "easy",
+    "id": "ff3addd1f896"
+  },
+  {
+    "question": "Which soccer country won the 2002 FIFA World Cup?",
+    "options": [
+      "Brazil",
+      "Germany",
+      "Turkey",
+      "South Korea"
+    ],
+    "answer": "Brazil",
+    "explanation": "Brazil won the 2002 FIFA World Cup, defeating Germany 2-0 in the final.",
+    "difficulty": "easy",
+    "id": "4113e99c7478"
+  },
+  {
+    "question": "Which tennis player won the 2017 French Open Men's Singles title?",
+    "options": [
+      "Rafael Nadal",
+      "Stan Wawrinka",
+      "Novak Djokovic",
+      "Andy Murray"
+    ],
+    "answer": "Rafael Nadal",
+    "explanation": "Rafael Nadal won the 2017 French Open, his 10th title at Roland Garros.",
+    "difficulty": "easy",
+    "id": "33a9ebc817b5"
+  },
+  {
+    "question": "Which NBA player won the 2001 MVP award?",
+    "options": [
+      "Allen Iverson",
+      "Shaquille O'Neal",
+      "Tim Duncan",
+      "Kobe Bryant"
+    ],
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson won the 2001 MVP for his scoring prowess with the Philadelphia 76ers.",
+    "difficulty": "medium",
+    "id": "e1888f26b2fd"
+  },
+  {
+    "question": "Which NFL player holds the record for most career forced fumbles?",
+    "options": [
+      "Robert Mathis",
+      "Dwight Freeney",
+      "Charles Tillman",
+      "John Abraham"
+    ],
+    "answer": "Robert Mathis",
+    "explanation": "Robert Mathis forced 54 fumbles, the most in NFL history, primarily with the Indianapolis Colts.",
+    "difficulty": "hard",
+    "id": "e3c8e7e60d5d"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Iceman'?",
+    "options": [
+      "George Gervin",
+      "Julius Erving",
+      "David Thompson",
+      "Elgin Baylor"
+    ],
+    "answer": "George Gervin",
+    "explanation": "George Gervin was nicknamed 'The Iceman' for his cool, effortless scoring with the Spurs.",
+    "difficulty": "medium",
+    "id": "0c15a19c52f0"
+  },
+  {
+    "question": "Which MLB team won the 2019 World Series?",
+    "options": [
+      "Washington Nationals",
+      "Houston Astros",
+      "New York Yankees",
+      "Los Angeles Dodgers"
+    ],
+    "answer": "Washington Nationals",
+    "explanation": "The Washington Nationals won the 2019 World Series, defeating the Houston Astros in seven games.",
+    "difficulty": "easy",
+    "id": "a7b7b297283a"
+  },
+  {
+    "question": "Which NHL team won the 2013 Stanley Cup?",
+    "options": [
+      "Chicago Blackhawks",
+      "Boston Bruins",
+      "Pittsburgh Penguins",
+      "Los Angeles Kings"
+    ],
+    "answer": "Chicago Blackhawks",
+    "explanation": "The Chicago Blackhawks won the 2013 Stanley Cup, defeating the Boston Bruins in six games.",
+    "difficulty": "easy",
+    "id": "2da2e443dca8"
+  },
+  {
+    "question": "Which soccer country won the 1998 FIFA World Cup?",
+    "options": [
+      "France",
+      "Brazil",
+      "Italy",
+      "Germany"
+    ],
+    "answer": "France",
+    "explanation": "France won the 1998 FIFA World Cup, defeating Brazil 3-0 in the final on home soil.",
+    "difficulty": "easy",
+    "id": "91808e5d8ac5"
+  },
+  {
+    "question": "Which tennis player won the 2016 Australian Open Men's Singles title?",
+    "options": [
+      "Novak Djokovic",
+      "Andy Murray",
+      "Roger Federer",
+      "Rafael Nadal"
+    ],
+    "answer": "Novak Djokovic",
+    "explanation": "Novak Djokovic won the 2016 Australian Open, defeating Andy Murray in the final.",
+    "difficulty": "medium",
+    "id": "ad334c802d9d"
+  },
+  {
+    "question": "Which NFL player was nicknamed 'The Assassin'?",
+    "options": [
+      "Jack Tatum",
+      "Ronnie Lott",
+      "Dick Butkus",
+      "Ray Lewis"
+    ],
+    "answer": "Jack Tatum",
+    "explanation": "Jack Tatum was nicknamed 'The Assassin' for his hard-hitting style with the Oakland Raiders.",
+    "difficulty": "medium",
+    "id": "9f0c3f244570"
+  },
+  {
+    "question": "Which NBA player won the 2003 MVP award?",
+    "options": [
+      "Tim Duncan",
+      "Kevin Garnett",
+      "Kobe Bryant",
+      "Tracy McGrady"
+    ],
+    "answer": "Tim Duncan",
+    "explanation": "Tim Duncan won the 2003 MVP for his dominant performance with the San Antonio Spurs.",
+    "difficulty": "medium",
+    "id": "1038e62ceddd"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Dream'?",
+    "options": [
+      "Hakeem Olajuwon",
+      "Patrick Ewing",
+      "David Robinson",
+      "Shaquille O'Neal"
+    ],
+    "answer": "Hakeem Olajuwon",
+    "explanation": "Hakeem Olajuwon was nicknamed 'The Dream' for his graceful post moves with the Houston Rockets.",
+    "difficulty": "easy",
+    "id": "eba7d4f947d7"
+  },
+  {
+    "question": "Which MLB player holds the record for most career strikeouts as a pitcher?",
+    "options": [
+      "Nolan Ryan",
+      "Randy Johnson",
+      "Roger Clemens",
+      "Greg Maddux"
+    ],
+    "answer": "Nolan Ryan",
+    "explanation": "Nolan Ryan recorded 5,714 strikeouts, the most in MLB history, across his 27-year career.",
+    "difficulty": "easy",
+    "id": "6289cb1dafea"
+  },
+  {
+    "question": "Which NFL team won Super Bowl XLVI in 2012?",
+    "options": [
+      "New York Giants",
+      "New England Patriots",
+      "Baltimore Ravens",
+      "San Francisco 49ers"
+    ],
+    "answer": "New York Giants",
+    "explanation": "The New York Giants won Super Bowl XLVI, defeating the Patriots with a late touchdown.",
+    "difficulty": "medium",
+    "id": "99a744219c28"
+  },
+  {
+    "question": "Which NHL team won the 2011 Stanley Cup?",
+    "options": [
+      "Boston Bruins",
+      "Vancouver Canucks",
+      "Tampa Bay Lightning",
+      "Philadelphia Flyers"
+    ],
+    "answer": "Boston Bruins",
+    "explanation": "The Boston Bruins won the 2011 Stanley Cup, defeating the Vancouver Canucks in seven games.",
+    "difficulty": "medium",
+    "id": "72b4a1891fa9"
+  },
+  {
+    "question": "Which soccer club won the 2019 UEFA Champions League?",
+    "options": [
+      "Liverpool",
+      "Tottenham Hotspur",
+      "Barcelona",
+      "Juventus"
+    ],
+    "answer": "Liverpool",
+    "explanation": "Liverpool won the 2019 UEFA Champions League, defeating Tottenham Hotspur 2-0 in the final.",
+    "difficulty": "easy",
+    "id": "a4faaa7bcb08"
+  },
+  {
+    "question": "Which tennis player won the 2022 Australian Open Women's Singles title?",
+    "options": [
+      "Ashleigh Barty",
+      "Danielle Collins",
+      "Iga Świątek",
+      "Naomi Osaka"
+    ],
+    "answer": "Ashleigh Barty",
+    "explanation": "Ashleigh Barty won the 2022 Australian Open, her third Grand Slam, before retiring.",
+    "difficulty": "easy",
+    "id": "307fe82fda87"
+  },
+  {
+    "question": "Which NFL player holds the record for most career rushing touchdowns?",
+    "options": [
+      "Emmitt Smith",
+      "LaDainian Tomlinson",
+      "Walter Payton",
+      "Jim Brown"
+    ],
+    "answer": "Emmitt Smith",
+    "explanation": "Emmitt Smith scored 164 rushing touchdowns, the most in NFL history, primarily with the Cowboys.",
+    "difficulty": "easy",
+    "id": "9ae42a002519"
+  },
+  {
+    "question": "Which NBA player won the 1994 MVP award?",
+    "options": [
+      "Hakeem Olajuwon",
+      "David Robinson",
+      "Michael Jordan",
+      "Charles Barkley"
+    ],
+    "answer": "Hakeem Olajuwon",
+    "explanation": "Hakeem Olajuwon won the 1994 MVP for his dominant season with the Houston Rockets.",
+    "difficulty": "medium",
+    "id": "e101d2c530ee"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Human Highlight Film'?",
+    "options": [
+      "Dominique Wilkins",
+      "Vince Carter",
+      "Julius Erving",
+      "Michael Jordan"
+    ],
+    "answer": "Dominique Wilkins",
+    "explanation": "Dominique Wilkins was nicknamed 'The Human Highlight Film' for his spectacular dunks with the Hawks.",
+    "difficulty": "easy",
+    "id": "7e00c20a6153"
+  },
+  {
+    "question": "Which MLB team won the 2017 World Series?",
+    "options": [
+      "Houston Astros",
+      "Los Angeles Dodgers",
+      "New York Yankees",
+      "Chicago Cubs"
+    ],
+    "answer": "Houston Astros",
+    "explanation": "The Houston Astros won the 2017 World Series, defeating the Dodgers in seven games.",
+    "difficulty": "easy",
+    "id": "e7e090a79df5"
+  },
+  {
+    "question": "Which NFL player was the 2017 MVP?",
+    "options": [
+      "Tom Brady",
+      "Aaron Rodgers",
+      "Carson Wentz",
+      "Russell Wilson"
+    ],
+    "answer": "Tom Brady",
+    "explanation": "Tom Brady won the 2017 NFL MVP for his outstanding season with the New England Patriots.",
+    "difficulty": "easy",
+    "id": "d5b9663997ef"
+  },
+  {
+    "question": "Which soccer country won the 1994 FIFA World Cup?",
+    "options": [
+      "Brazil",
+      "Italy",
+      "Sweden",
+      "Germany"
+    ],
+    "answer": "Brazil",
+    "explanation": "Brazil won the 1994 FIFA World Cup, defeating Italy in a penalty shootout.",
+    "difficulty": "medium",
+    "id": "72d6c083d549"
+  },
+  {
+    "question": "Which NFL player holds the record for most career tackles?",
+    "options": [
+      "Ray Lewis",
+      "Junior Seau",
+      "London Fletcher",
+      "Zach Thomas"
+    ],
+    "answer": "Ray Lewis",
+    "explanation": "Ray Lewis recorded 2,059 tackles, the most in NFL history, primarily with the Baltimore Ravens.",
+    "difficulty": "medium",
+    "id": "14ca9cfdf355"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Jet'?",
+    "options": [
+      "Kenny Smith",
+      "Clyde Drexler",
+      "Isiah Thomas",
+      "Vernon Maxwell"
+    ],
+    "answer": "Kenny Smith",
+    "explanation": "Kenny Smith was nicknamed 'The Jet' for his quickness with the Houston Rockets.",
+    "difficulty": "medium",
+    "id": "8d60badc0732"
+  },
+  {
+    "question": "Which MLB team won the 2015 World Series?",
+    "options": [
+      "Kansas City Royals",
+      "New York Mets",
+      "Toronto Blue Jays",
+      "St. Louis Cardinals"
+    ],
+    "answer": "Kansas City Royals",
+    "explanation": "The Kansas City Royals won the 2015 World Series, defeating the New York Mets in five games.",
+    "difficulty": "easy",
+    "id": "91c6f054c297"
+  },
+  {
+    "question": "Which soccer club won the 2018 UEFA Champions League?",
+    "options": [
+      "Real Madrid",
+      "Liverpool",
+      "Barcelona",
+      "Juventus"
+    ],
+    "answer": "Real Madrid",
+    "explanation": "Real Madrid won the 2018 UEFA Champions League, defeating Liverpool 3-1 in the final.",
+    "difficulty": "easy",
+    "id": "d504c2645cae"
+  },
+  {
+    "question": "Which tennis player won the 2014 French Open Men's Singles title?",
+    "options": [
+      "Rafael Nadal",
+      "Novak Djokovic",
+      "Roger Federer",
+      "Andy Murray"
+    ],
+    "answer": "Rafael Nadal",
+    "explanation": "Rafael Nadal won the 2014 French Open, his ninth title at Roland Garros.",
+    "difficulty": "easy",
+    "id": "3ff83528a128"
+  },
+  {
+    "question": "Which NFL player was nicknamed 'Night Train'?",
+    "options": [
+      "Dick Lane",
+      "Mel Blount",
+      "Ronnie Lott",
+      "Champ Bailey"
+    ],
+    "answer": "Dick Lane",
+    "explanation": "Dick Lane was nicknamed 'Night Train' for his hard-hitting defensive play with the Lions.",
+    "difficulty": "hard",
+    "id": "369fcb08f586"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Glide'?",
+    "options": [
+      "Clyde Drexler",
+      "James Worthy",
+      "Dominique Wilkins",
+      "Scottie Pippen"
+    ],
+    "answer": "Clyde Drexler",
+    "explanation": "Clyde Drexler was nicknamed 'The Glide' for his smooth, soaring dunks with the Trail Blazers.",
+    "difficulty": "easy",
+    "id": "ef42fe292b15"
+  },
+  {
+    "question": "Which MLB team won the 2013 World Series?",
+    "options": [
+      "Boston Red Sox",
+      "St. Louis Cardinals",
+      "Detroit Tigers",
+      "Los Angeles Dodgers"
+    ],
+    "answer": "Boston Red Sox",
+    "explanation": "The Boston Red Sox won the 2013 World Series, defeating the St. Louis Cardinals.",
+    "difficulty": "easy",
+    "id": "95eff91b7dd8"
+  },
+  {
+    "question": "Which NFL player holds the record for most career punt returns?",
+    "options": [
+      "Brian Mitchell",
+      "Dave Meggett",
+      "Devin Hester",
+      "Eric Metcalf"
+    ],
+    "answer": "Brian Mitchell",
+    "explanation": "Brian Mitchell returned 607 punts, the most in NFL history, across multiple teams.",
+    "difficulty": "hard",
+    "id": "874b6c73b3f8"
+  },
+  {
+    "question": "Which tennis player won the 2012 US Open Men's Singles title?",
+    "options": [
+      "Andy Murray",
+      "Novak Djokovic",
+      "Rafael Nadal",
+      "Roger Federer"
+    ],
+    "answer": "Andy Murray",
+    "explanation": "Andy Murray won the 2012 US Open, his first Grand Slam, defeating Novak Djokovic.",
+    "difficulty": "medium",
+    "id": "c6e0b3bfcc0f"
+  },
+  {
+    "question": "Which NFL team won Super Bowl XIII in 1979?",
+    "options": [
+      "Pittsburgh Steelers",
+      "Dallas Cowboys",
+      "Los Angeles Rams",
+      "Philadelphia Eagles"
+    ],
+    "answer": "Pittsburgh Steelers",
+    "explanation": "The Pittsburgh Steelers won Super Bowl XIII, defeating the Dallas Cowboys 35-31.",
+    "difficulty": "medium",
+    "id": "9cad045cda10"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  },
+  {
+    "question": "Which NBA player was nicknamed 'The Answer'?",
+    "option1": "Allen Iverson",
+    "option2": "Kobe Bryant",
+    "option3": "Michael Jordan",
+    "option4": "Dwyane Wade",
+    "answer": "Allen Iverson",
+    "explanation": "Allen Iverson was called 'The Answer' for his flashy play and dominance in the 2000s.",
+    "difficulty": "easy",
+    "id": "5cd4c93e71de"
+  }
+]
