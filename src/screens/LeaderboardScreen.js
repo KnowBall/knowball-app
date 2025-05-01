@@ -17,26 +17,46 @@ export default function LeaderboardScreen() {
   useEffect(() => {
     async function fetchLeaderboard() {
       try {
+        console.log('Starting to fetch leaderboard data...');
         const db = getFirestore(app);
+        console.log('Got Firestore instance');
+        
         const scoresRef = collection(db, 'scores');
+        console.log('Got scores collection reference');
+        
         const q = query(
           scoresRef,
           orderBy('percentage', 'desc'),
           orderBy('timestamp', 'desc'),
           limit(10)
         );
+        console.log('Created query');
 
+        console.log('Executing query...');
         const querySnapshot = await getDocs(q);
-        const leaderboardData = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-          timestamp: doc.data().timestamp?.toDate() || new Date()
-        }));
+        console.log('Got query snapshot, size:', querySnapshot.size);
+
+        const leaderboardData = querySnapshot.docs.map(doc => {
+          const data = doc.data();
+          console.log('Processing doc:', doc.id, data);
+          return {
+            id: doc.id,
+            ...data,
+            timestamp: data.timestamp?.toDate() || new Date()
+          };
+        });
+        console.log('Processed leaderboard data:', leaderboardData);
 
         setScores(leaderboardData);
         setError(null);
       } catch (err) {
         console.error('Error fetching leaderboard:', err);
+        console.error('Error details:', {
+          name: err.name,
+          message: err.message,
+          code: err.code,
+          stack: err.stack
+        });
         setError(err.message);
       } finally {
         setLoading(false);
@@ -61,9 +81,24 @@ export default function LeaderboardScreen() {
   if (error) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
-        <Text style={{ color: '#dc2626', fontSize: 18, textAlign: 'center' }}>
-          Error loading leaderboard. Please try again later.
+        <Text style={{ color: '#dc2626', fontSize: 18, textAlign: 'center', marginBottom: 16 }}>
+          Error loading leaderboard: {error}
         </Text>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={{
+            backgroundColor: '#dc2626',
+            borderRadius: 12,
+            padding: 16,
+            flexDirection: 'row',
+            alignItems: 'center'
+          }}
+        >
+          <MaterialCommunityIcons name="arrow-left" size={24} color="white" style={{ marginRight: 8 }} />
+          <Text style={{ color: 'white', fontSize: 16, fontWeight: '600' }}>
+            Go Back
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -161,28 +196,52 @@ export default function LeaderboardScreen() {
               )}
             </View>
 
-            {/* Play Again Button */}
-            <TouchableOpacity
-              onPress={handlePlayAgain}
-              style={{
-                backgroundColor: '#16a34a',
-                borderRadius: 12,
-                padding: 16,
-                width: '100%',
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <MaterialCommunityIcons name="reload" size={24} color="white" style={{ marginRight: 8 }} />
-              <Text style={{
-                color: 'white',
-                fontSize: 18,
-                fontWeight: '600'
-              }}>
-                Play Again
-              </Text>
-            </TouchableOpacity>
+            {/* Action Buttons */}
+            <View style={{ width: '100%', gap: 12 }}>
+              <TouchableOpacity
+                onPress={handlePlayAgain}
+                style={{
+                  backgroundColor: '#16a34a',
+                  borderRadius: 12,
+                  padding: 16,
+                  width: '100%',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <MaterialCommunityIcons name="reload" size={24} color="white" style={{ marginRight: 8 }} />
+                <Text style={{
+                  color: 'white',
+                  fontSize: 18,
+                  fontWeight: '600'
+                }}>
+                  Play Again
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => navigation.goBack()}
+                style={{
+                  backgroundColor: '#4b5563',
+                  borderRadius: 12,
+                  padding: 16,
+                  width: '100%',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <MaterialCommunityIcons name="arrow-left" size={24} color="white" style={{ marginRight: 8 }} />
+                <Text style={{
+                  color: 'white',
+                  fontSize: 18,
+                  fontWeight: '600'
+                }}>
+                  Go Back
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </ImageBackground>
