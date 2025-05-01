@@ -35,18 +35,6 @@ export default function GameScreen() {
     return () => clearInterval(timer);
   }, [timeLeft, timerActive, showExplanation]);
 
-  // Handle game completion
-  const handleGameComplete = () => {
-    console.log('Game completed. Navigating to EndGame screen...');
-    console.log('Final score:', score);
-    console.log('Total questions:', questions.length);
-    
-    navigation.navigate('EndGame', {
-      score: score,
-      totalQuestions: questions.length
-    });
-  };
-
   // Auto-advance effect
   useEffect(() => {
     let advanceTimer;
@@ -59,12 +47,16 @@ export default function GameScreen() {
           setTimeLeft(15);
           setTimerActive(true);
         } else {
-          handleGameComplete();
+          // Direct navigation without handleGameComplete function
+          navigation.navigate('EndGame', {
+            score: score,
+            totalQuestions: questions.length
+          });
         }
       }, 1500);
     }
     return () => clearTimeout(advanceTimer);
-  }, [showExplanation, currentQuestionIndex, questions.length, score]);
+  }, [showExplanation, currentQuestionIndex, questions.length, score, navigation]);
 
   const handleAnswer = (answer) => {
     setTimerActive(false);
