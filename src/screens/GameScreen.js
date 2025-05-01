@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { View, Text, ActivityIndicator, ImageBackground, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, ActivityIndicator, ImageBackground, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useQuestions } from '../hooks/useQuestions';
 
@@ -12,28 +12,31 @@ export default function GameScreen() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [timeLeft, setTimeLeft] = useState(15);
   const [timerActive, setTimerActive] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
 
-  // Debug: Log when component mounts and questions load
+  // Debug: Log when component mounts
   useEffect(() => {
     console.log('GameScreen mounted');
     console.log('Navigation available:', !!navigation);
-    console.log('Navigation methods:', Object.keys(navigation));
   }, []);
+
+  // Handle game over
+  useEffect(() => {
+    if (gameOver) {
+      console.log('Game Over detected - navigating to EndGame');
+      navigation.navigate('EndGame', {
+        score: score,
+        totalQuestions: questions.length
+      });
+    }
+  }, [gameOver, score, questions.length, navigation]);
 
   useEffect(() => {
     if (!loading && questions.length > 0) {
-      console.log(`Questions loaded. Total questions: ${questions.length}`);
+      console.log(`Questions loaded. Total: ${questions.length}`);
       setTimerActive(true);
     }
   }, [loading, questions]);
-
-  // Debug: Log question index changes
-  useEffect(() => {
-    console.log(`Question index updated: ${currentQuestionIndex + 1} of ${questions.length}`);
-    if (currentQuestionIndex === questions.length - 1) {
-      console.log('On final question!');
-    }
-  }, [currentQuestionIndex, questions.length]);
 
   // Timer effect
   useEffect(() => {
@@ -51,13 +54,12 @@ export default function GameScreen() {
     return () => clearInterval(timer);
   }, [timeLeft, timerActive, showExplanation, currentQuestionIndex]);
 
-  // Auto-advance effect with enhanced debugging
+  // Auto-advance effect
   useEffect(() => {
     let advanceTimer;
     if (showExplanation) {
       advanceTimer = setTimeout(() => {
-        console.log('Checking for game progression...');
-        console.log(`Current index: ${currentQuestionIndex}, Total questions: ${questions.length}`);
+        console.log(`Current index: ${currentQuestionIndex}, Total: ${questions.length}`);
         
         if (currentQuestionIndex < questions.length - 1) {
           console.log('Moving to next question');
@@ -67,57 +69,13 @@ export default function GameScreen() {
           setTimeLeft(15);
           setTimerActive(true);
         } else {
-          console.log('GAME OVER - Preparing to navigate');
-          console.log('Final score:', score);
-          console.log('Total questions:', questions.length);
-          
-          // Show alert before navigation
-          Alert.alert(
-            'Game Complete!',
-            `Your score: ${score}/${questions.length}`,
-            [
-              {
-                text: 'See Results',
-                onPress: () => {
-                  console.log('Attempting navigation to EndGame screen...');
-                  try {
-                    navigation.replace('EndGame', {
-                      score: score,
-                      totalQuestions: questions.length
-                    });
-                    console.log('Navigation command executed');
-                  } catch (error) {
-                    console.error('Navigation failed:', error);
-                    // Fallback attempts
-                    console.log('Trying fallback navigation...');
-                    try {
-                      navigation.navigate('EndGame', {
-                        score: score,
-                        totalQuestions: questions.length
-                      });
-                    } catch (error2) {
-                      console.error('All navigation attempts failed:', error2);
-                      Alert.alert(
-                        'Navigation Error',
-                        'Unable to show results screen. Please return to home.',
-                        [
-                          {
-                            text: 'Return Home',
-                            onPress: () => navigation.navigate('Home')
-                          }
-                        ]
-                      );
-                    }
-                  }
-                }
-              }
-            ]
-          );
+          console.log('Setting game over state');
+          setGameOver(true);
         }
       }, 1500);
     }
     return () => clearTimeout(advanceTimer);
-  }, [showExplanation, currentQuestionIndex, questions.length, navigation, score]);
+  }, [showExplanation, currentQuestionIndex, questions.length]);
 
   const handleAnswer = (answer) => {
     console.log(`Answer selected for question ${currentQuestionIndex + 1}`);
@@ -125,24 +83,11 @@ export default function GameScreen() {
     setSelectedAnswer(answer);
     setShowExplanation(true);
     if (answer === questions[currentQuestionIndex].correctAnswer) {
-      console.log('Correct answer!');
       setScore(score + 1);
-    } else {
-      console.log('Incorrect answer');
     }
   };
 
-  const currentQuestion = questions[currentQuestionIndex];
-  
-  // Debug logging
-  useEffect(() => {
-    if (currentQuestion) {
-      console.log('Current question:', currentQuestion);
-      console.log('Options type:', typeof currentQuestion.options);
-      console.log('Options value:', currentQuestion.options);
-    }
-  }, [currentQuestion]);
-
+  // Early return for loading and error states
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -221,13 +166,13 @@ export default function GameScreen() {
 
             {/* Question */}
             <Text style={{ fontSize: 24, fontWeight: '700', color: '#1f2937', marginBottom: 24, textAlign: 'left' }}>
-              {currentQuestion?.question}
+              {questions[currentQuestionIndex]?.question}
             </Text>
 
             {/* Options */}
             <View style={{ marginBottom: 24 }}>
-              {currentQuestion?.options && Array.isArray(currentQuestion.options) ? (
-                currentQuestion.options.map((option, index) => (
+              {questions[currentQuestionIndex]?.options && Array.isArray(questions[currentQuestionIndex].options) ? (
+                questions[currentQuestionIndex].options.map((option, index) => (
                   <TouchableOpacity
                     key={index}
                     onPress={() => !showExplanation && handleAnswer(option)}
@@ -238,7 +183,7 @@ export default function GameScreen() {
                       marginBottom: 12,
                       borderRadius: 12,
                       backgroundColor: showExplanation
-                        ? option === currentQuestion.correctAnswer
+                        ? option === questions[currentQuestionIndex].correctAnswer
                           ? '#dcfce7'
                           : selectedAnswer === option
                             ? '#fee2e2'
@@ -248,7 +193,7 @@ export default function GameScreen() {
                           : 'white',
                       borderWidth: 2,
                       borderColor: showExplanation
-                        ? option === currentQuestion.correctAnswer
+                        ? option === questions[currentQuestionIndex].correctAnswer
                           ? '#16a34a'
                           : selectedAnswer === option
                             ? '#dc2626'
@@ -261,7 +206,7 @@ export default function GameScreen() {
                     <Text style={{
                       fontSize: 16,
                       color: showExplanation
-                        ? option === currentQuestion.correctAnswer
+                        ? option === questions[currentQuestionIndex].correctAnswer
                           ? '#16a34a'
                           : selectedAnswer === option
                             ? '#dc2626'
@@ -282,7 +227,7 @@ export default function GameScreen() {
             {showExplanation && (
               <View style={{ marginBottom: 24, padding: 16, backgroundColor: '#f3f4f6', borderRadius: 12 }}>
                 <Text style={{ fontSize: 16, color: '#4b5563' }}>
-                  {timeLeft === 0 ? "Time's up! " : ""}{currentQuestion.explanation}
+                  {timeLeft === 0 ? "Time's up! " : ""}{questions[currentQuestionIndex]?.explanation}
                 </Text>
               </View>
             )}
