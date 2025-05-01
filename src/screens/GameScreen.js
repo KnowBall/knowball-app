@@ -13,10 +13,16 @@ export default function GameScreen() {
   const [timeLeft, setTimeLeft] = useState(15);
   const [timerActive, setTimerActive] = useState(false); // Start false until questions load
 
+  // Debug logging for navigation object
+  useEffect(() => {
+    console.log('Navigation object:', navigation);
+  }, [navigation]);
+
   // Start timer when questions are loaded
   useEffect(() => {
     if (!loading && questions.length > 0) {
       setTimerActive(true);
+      console.log('Questions loaded:', questions.length, 'questions');
     }
   }, [loading, questions]);
 
@@ -48,13 +54,34 @@ export default function GameScreen() {
           setTimeLeft(15);
           setTimerActive(true);
         } else {
-          // Game Over
-          navigation.navigate('Home');
+          // Game Over - navigate to EndGameScreen with score
+          console.log('Game Over - Attempting navigation to EndGame');
+          console.log('Current state:', {
+            currentQuestionIndex,
+            questionsLength: questions.length,
+            score,
+            showExplanation
+          });
+          
+          try {
+            navigation.replace('EndGame', {
+              score: score,
+              totalQuestions: questions.length
+            });
+            console.log('Navigation completed successfully');
+          } catch (error) {
+            console.error('Navigation failed:', error);
+            // Fallback navigation
+            navigation.navigate('EndGame', {
+              score: score,
+              totalQuestions: questions.length
+            });
+          }
         }
       }, 1500);
     }
     return () => clearTimeout(advanceTimer);
-  }, [showExplanation, currentQuestionIndex, questions.length, navigation]);
+  }, [showExplanation, currentQuestionIndex, questions.length, navigation, score]);
 
   const handleAnswer = (answer) => {
     setTimerActive(false);
