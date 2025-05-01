@@ -1,10 +1,11 @@
-import { View } from 'react-native';
+import React from 'react';
+import { UserProvider } from './src/contexts/UserContext';
 import AppNavigator from './src/navigation/AppNavigator';
 
 export default function App() {
   return (
-    <View style={{ height: '100vh', width: '100vw' }}>
+    <UserProvider>
       <AppNavigator />
-    </View>
+    </UserProvider>
   );
 }
