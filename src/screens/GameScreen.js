@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { View, Text, ActivityIndicator, ImageBackground, TouchableOpacity } from 'react-native';
+import { View, Text, ActivityIndicator, ImageBackground, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useQuestions } from '../hooks/useQuestions';
 
@@ -11,20 +11,29 @@ export default function GameScreen() {
   const [showExplanation, setShowExplanation] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [timeLeft, setTimeLeft] = useState(15);
-  const [timerActive, setTimerActive] = useState(false); // Start false until questions load
+  const [timerActive, setTimerActive] = useState(false);
 
-  // Debug logging for navigation object
+  // Debug: Log when component mounts and questions load
   useEffect(() => {
-    console.log('Navigation object:', navigation);
-  }, [navigation]);
+    console.log('GameScreen mounted');
+    console.log('Navigation available:', !!navigation);
+    console.log('Navigation methods:', Object.keys(navigation));
+  }, []);
 
-  // Start timer when questions are loaded
   useEffect(() => {
     if (!loading && questions.length > 0) {
+      console.log(`Questions loaded. Total questions: ${questions.length}`);
       setTimerActive(true);
-      console.log('Questions loaded:', questions.length, 'questions');
     }
   }, [loading, questions]);
+
+  // Debug: Log question index changes
+  useEffect(() => {
+    console.log(`Question index updated: ${currentQuestionIndex + 1} of ${questions.length}`);
+    if (currentQuestionIndex === questions.length - 1) {
+      console.log('On final question!');
+    }
+  }, [currentQuestionIndex, questions.length]);
 
   // Timer effect
   useEffect(() => {
@@ -34,49 +43,76 @@ export default function GameScreen() {
         setTimeLeft((prevTime) => prevTime - 1);
       }, 1000);
     } else if (timeLeft === 0 && !showExplanation) {
-      // Time's up - show correct answer and explanation
+      console.log('Time up for question:', currentQuestionIndex + 1);
       setShowExplanation(true);
       setTimerActive(false);
     }
 
     return () => clearInterval(timer);
-  }, [timeLeft, timerActive, showExplanation]);
+  }, [timeLeft, timerActive, showExplanation, currentQuestionIndex]);
 
-  // Auto-advance effect
+  // Auto-advance effect with enhanced debugging
   useEffect(() => {
     let advanceTimer;
     if (showExplanation) {
       advanceTimer = setTimeout(() => {
+        console.log('Checking for game progression...');
+        console.log(`Current index: ${currentQuestionIndex}, Total questions: ${questions.length}`);
+        
         if (currentQuestionIndex < questions.length - 1) {
+          console.log('Moving to next question');
           setCurrentQuestionIndex(currentQuestionIndex + 1);
           setShowExplanation(false);
           setSelectedAnswer(null);
           setTimeLeft(15);
           setTimerActive(true);
         } else {
-          // Game Over - navigate to EndGameScreen with score
-          console.log('Game Over - Attempting navigation to EndGame');
-          console.log('Current state:', {
-            currentQuestionIndex,
-            questionsLength: questions.length,
-            score,
-            showExplanation
-          });
+          console.log('GAME OVER - Preparing to navigate');
+          console.log('Final score:', score);
+          console.log('Total questions:', questions.length);
           
-          try {
-            navigation.replace('EndGame', {
-              score: score,
-              totalQuestions: questions.length
-            });
-            console.log('Navigation completed successfully');
-          } catch (error) {
-            console.error('Navigation failed:', error);
-            // Fallback navigation
-            navigation.navigate('EndGame', {
-              score: score,
-              totalQuestions: questions.length
-            });
-          }
+          // Show alert before navigation
+          Alert.alert(
+            'Game Complete!',
+            `Your score: ${score}/${questions.length}`,
+            [
+              {
+                text: 'See Results',
+                onPress: () => {
+                  console.log('Attempting navigation to EndGame screen...');
+                  try {
+                    navigation.replace('EndGame', {
+                      score: score,
+                      totalQuestions: questions.length
+                    });
+                    console.log('Navigation command executed');
+                  } catch (error) {
+                    console.error('Navigation failed:', error);
+                    // Fallback attempts
+                    console.log('Trying fallback navigation...');
+                    try {
+                      navigation.navigate('EndGame', {
+                        score: score,
+                        totalQuestions: questions.length
+                      });
+                    } catch (error2) {
+                      console.error('All navigation attempts failed:', error2);
+                      Alert.alert(
+                        'Navigation Error',
+                        'Unable to show results screen. Please return to home.',
+                        [
+                          {
+                            text: 'Return Home',
+                            onPress: () => navigation.navigate('Home')
+                          }
+                        ]
+                      );
+                    }
+                  }
+                }
+              }
+            ]
+          );
         }
       }, 1500);
     }
@@ -84,11 +120,15 @@ export default function GameScreen() {
   }, [showExplanation, currentQuestionIndex, questions.length, navigation, score]);
 
   const handleAnswer = (answer) => {
+    console.log(`Answer selected for question ${currentQuestionIndex + 1}`);
     setTimerActive(false);
     setSelectedAnswer(answer);
     setShowExplanation(true);
     if (answer === questions[currentQuestionIndex].correctAnswer) {
+      console.log('Correct answer!');
       setScore(score + 1);
+    } else {
+      console.log('Incorrect answer');
     }
   };
 
