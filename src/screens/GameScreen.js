@@ -69,13 +69,22 @@ export default function GameScreen() {
           setTimeLeft(15);
           setTimerActive(true);
         } else {
-          console.log('Setting game over state');
-          setGameOver(true);
+          console.log('Game Over - navigating to EndGame');
+          // Add a small delay before navigation
+          setTimeout(() => {
+            console.log('Attempting navigation with score:', score);
+            navigation.navigate('EndGame', {
+              score: score,
+              totalQuestions: questions.length
+            });
+          }, 500);
         }
       }, 1500);
     }
-    return () => clearTimeout(advanceTimer);
-  }, [showExplanation, currentQuestionIndex, questions.length]);
+    return () => {
+      clearTimeout(advanceTimer);
+    };
+  }, [showExplanation, currentQuestionIndex, questions.length, navigation, score]);
 
   const handleAnswer = (answer) => {
     console.log(`Answer selected for question ${currentQuestionIndex + 1}`);
