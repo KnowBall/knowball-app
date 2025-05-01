@@ -12,28 +12,10 @@ export default function GameScreen() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [timeLeft, setTimeLeft] = useState(15);
   const [timerActive, setTimerActive] = useState(false);
-  const [gameOver, setGameOver] = useState(false);
 
-  // Debug: Log when component mounts
-  useEffect(() => {
-    console.log('GameScreen mounted');
-    console.log('Navigation available:', !!navigation);
-  }, []);
-
-  // Handle game over
-  useEffect(() => {
-    if (gameOver) {
-      console.log('Game Over detected - navigating to EndGame');
-      navigation.navigate('EndGame', {
-        score: score,
-        totalQuestions: questions.length
-      });
-    }
-  }, [gameOver, score, questions.length, navigation]);
-
+  // Start timer when questions are loaded
   useEffect(() => {
     if (!loading && questions.length > 0) {
-      console.log(`Questions loaded. Total: ${questions.length}`);
       setTimerActive(true);
     }
   }, [loading, questions]);
@@ -46,48 +28,45 @@ export default function GameScreen() {
         setTimeLeft((prevTime) => prevTime - 1);
       }, 1000);
     } else if (timeLeft === 0 && !showExplanation) {
-      console.log('Time up for question:', currentQuestionIndex + 1);
       setShowExplanation(true);
       setTimerActive(false);
     }
 
     return () => clearInterval(timer);
-  }, [timeLeft, timerActive, showExplanation, currentQuestionIndex]);
+  }, [timeLeft, timerActive, showExplanation]);
+
+  // Handle game completion
+  const handleGameComplete = () => {
+    console.log('Game completed. Navigating to EndGame screen...');
+    console.log('Final score:', score);
+    console.log('Total questions:', questions.length);
+    
+    navigation.navigate('EndGame', {
+      score: score,
+      totalQuestions: questions.length
+    });
+  };
 
   // Auto-advance effect
   useEffect(() => {
     let advanceTimer;
     if (showExplanation) {
       advanceTimer = setTimeout(() => {
-        console.log(`Current index: ${currentQuestionIndex}, Total: ${questions.length}`);
-        
         if (currentQuestionIndex < questions.length - 1) {
-          console.log('Moving to next question');
           setCurrentQuestionIndex(currentQuestionIndex + 1);
           setShowExplanation(false);
           setSelectedAnswer(null);
           setTimeLeft(15);
           setTimerActive(true);
         } else {
-          console.log('Game Over - navigating to EndGame');
-          // Add a small delay before navigation
-          setTimeout(() => {
-            console.log('Attempting navigation with score:', score);
-            navigation.navigate('EndGame', {
-              score: score,
-              totalQuestions: questions.length
-            });
-          }, 500);
+          handleGameComplete();
         }
       }, 1500);
     }
-    return () => {
-      clearTimeout(advanceTimer);
-    };
-  }, [showExplanation, currentQuestionIndex, questions.length, navigation, score]);
+    return () => clearTimeout(advanceTimer);
+  }, [showExplanation, currentQuestionIndex, questions.length, score]);
 
   const handleAnswer = (answer) => {
-    console.log(`Answer selected for question ${currentQuestionIndex + 1}`);
     setTimerActive(false);
     setSelectedAnswer(answer);
     setShowExplanation(true);
@@ -96,7 +75,6 @@ export default function GameScreen() {
     }
   };
 
-  // Early return for loading and error states
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
