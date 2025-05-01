@@ -13,11 +13,11 @@ function shuffleArray(array) {
 }
 
 const SEEN_QUESTIONS_KEY = 'seenQuestionIds';
-const QUESTIONS_PER_GAME = 10;
+const QUESTIONS_PER_GAME = 3;
 const DIFFICULTY_DISTRIBUTION = {
-  easy: 3,
-  medium: 4,
-  hard: 3
+  easy: 1,
+  medium: 1,
+  hard: 1
 };
 
 function selectQuestionsByDifficulty(questions, targetCount, difficulty, fallbackDifficulties = []) {
