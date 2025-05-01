@@ -79,11 +79,25 @@ export default function LeaderboardScreen() {
   }
 
   if (error) {
+    // Check if the error is about missing index
+    const isIndexError = error.includes('requires an index');
+    
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
-        <Text style={{ color: '#dc2626', fontSize: 18, textAlign: 'center', marginBottom: 16 }}>
-          Error loading leaderboard: {error}
-        </Text>
+        {isIndexError ? (
+          <>
+            <Text style={{ color: '#dc2626', fontSize: 18, textAlign: 'center', marginBottom: 16 }}>
+              The leaderboard is being set up for the first time. Please try again in a few minutes.
+            </Text>
+            <Text style={{ color: '#6b7280', fontSize: 14, textAlign: 'center', marginBottom: 16 }}>
+              (First-time setup: Creating database index...)
+            </Text>
+          </>
+        ) : (
+          <Text style={{ color: '#dc2626', fontSize: 18, textAlign: 'center', marginBottom: 16 }}>
+            Error loading leaderboard: {error}
+          </Text>
+        )}
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={{
