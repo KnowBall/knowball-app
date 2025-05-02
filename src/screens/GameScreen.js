@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, ActivityIndicator, ImageBackground, TouchableOpacity, Animated } from 'react-native';
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { useNavigation, useFocusEffect, useRoute } from '@react-navigation/native';
 import { useQuestions } from '../hooks/useQuestions';
 
 export default function GameScreen() {
   const navigation = useNavigation();
-  const { questions, loading, error } = useQuestions();
+  const route = useRoute();
+  const { questions: challengeQuestions, challengeId, isChallenge } = route.params || {};
+  const { questions: normalQuestions, loading, error } = useQuestions();
+  const [questions, setQuestions] = useState(challengeQuestions || []);
+  const [questionsLoading, setQuestionsLoading] = useState(isChallenge && !challengeQuestions);
+  const [questionsError, setQuestionsError] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [currentCorrectStreak, setCurrentCorrectStreak] = useState(0);
@@ -18,6 +23,23 @@ export default function GameScreen() {
   const [timeLeft, setTimeLeft] = useState(15);
   const [timerActive, setTimerActive] = useState(false);
   const pointAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (isChallenge) {
+      if (challengeQuestions && Array.isArray(challengeQuestions) && challengeQuestions.length > 0) {
+        setQuestions(challengeQuestions);
+        setQuestionsLoading(false);
+        setQuestionsError(null);
+      } else {
+        setQuestionsError('Error loading challenge questions.');
+        setQuestionsLoading(false);
+      }
+    } else {
+      setQuestions(normalQuestions);
+      setQuestionsLoading(loading);
+      setQuestionsError(error);
+    }
+  }, [isChallenge, challengeQuestions, normalQuestions, loading, error]);
 
   // Reset game state when screen is focused
   useFocusEffect(
@@ -123,7 +145,7 @@ export default function GameScreen() {
     }
   };
 
-  if (loading) {
+  if (questionsLoading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator size="large" color="#16a34a" />
@@ -131,11 +153,11 @@ export default function GameScreen() {
     );
   }
 
-  if (error) {
+  if (questionsError) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
         <Text style={{ color: '#dc2626', fontSize: 18, textAlign: 'center' }}>
-          Error loading questions. Please try again later.
+          {questionsError}
         </Text>
         <TouchableOpacity
           style={{ marginTop: 16, padding: 12, backgroundColor: '#16a34a', borderRadius: 8 }}
