@@ -4,12 +4,14 @@ import { useNavigation } from '@react-navigation/native';
 import { getFirestore, collection, query, orderBy, getDocs } from 'firebase/firestore';
 import { app } from '../lib/firebase';
 import { useUser } from '../contexts/UserContext';
+import { getAuth, signOut } from 'firebase/auth';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
   const { user } = useUser();
   const [userStats, setUserStats] = useState({ totalPoints: 0, rank: 0, totalUsers: 0 });
   const [loading, setLoading] = useState(true);
+  const auth = getAuth(app);
 
   useEffect(() => {
     async function fetchUserStats() {
@@ -118,7 +120,14 @@ export default function HomeScreen() {
           {/* Footer Section */}
           <TouchableOpacity
             style={{ paddingVertical: 24 }}
-            onPress={() => auth.signOut()}
+            onPress={async () => {
+              try {
+                await signOut(auth);
+                navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
+              } catch (e) {
+                console.error('Sign out error:', e);
+              }
+            }}
           >
             <Text style={{ color: 'white', textAlign: 'center', fontSize: 16, opacity: 0.8 }}>
               Sign Out
