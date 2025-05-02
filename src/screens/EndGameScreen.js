@@ -137,43 +137,6 @@ const EndGameScreen = ({ route }) => {
               width: '100%',
               alignItems: 'center'
             }}>
-              {/* Gold Circle Badge for Total Points */}
-              {totalPoints !== null && (
-                <View style={{
-                  width: 110,
-                  height: 110,
-                  borderRadius: 55,
-                  backgroundColor: '#FFD700',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: 12,
-                  shadowColor: '#fbbf24',
-                  shadowOffset: { width: 0, height: 4 },
-                  shadowOpacity: 0.5,
-                  shadowRadius: 16,
-                  elevation: 8,
-                  borderWidth: 3,
-                  borderColor: '#fff7c2',
-                }}>
-                  <Text style={{
-                    fontSize: 38,
-                    fontWeight: '900',
-                    color: '#222',
-                    fontFamily: 'System', // Replace with your app font if available
-                    textAlign: 'center',
-                    textShadowColor: '#fff',
-                    textShadowOffset: { width: 0, height: 2 },
-                    textShadowRadius: 6,
-                  }}>{totalPoints}</Text>
-                  <Text style={{
-                    fontSize: 14,
-                    color: '#7c6f1c',
-                    fontWeight: '700',
-                    marginTop: 2,
-                    textAlign: 'center',
-                  }}>Total Points</Text>
-                </View>
-              )}
               <Animated.Text style={{
                 fontSize: 32,
                 fontWeight: '800',
