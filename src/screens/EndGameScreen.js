@@ -143,11 +143,16 @@ const EndGameScreen = ({ route }) => {
                 color: '#FFD700',
                 marginBottom: 8,
                 textAlign: 'center',
-                textShadowColor: '#fbbf24',
+                textShadowColor: '#222',
                 textShadowOffset: { width: 0, height: 2 },
-                textShadowRadius: 16,
+                textShadowRadius: 8,
                 letterSpacing: 1.5,
-                elevation: 8
+                elevation: 8,
+                borderWidth: 2,
+                borderColor: 'rgba(0,0,0,0.08)',
+                paddingHorizontal: 8,
+                borderRadius: 12,
+                backgroundColor: 'rgba(255,255,255,0.85)'
               }}>
                 {totalPoints !== null ? `Total Points: ${totalPoints}` : ''}
               </Animated.Text>

@@ -103,22 +103,6 @@ export default function HomeScreen() {
                 </View>
               </View>
 
-              {/* Game Stats Preview */}
-              <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 32, backgroundColor: 'rgba(22,163,74,0.1)', padding: 16, borderRadius: 16 }}>
-                <View style={{ alignItems: 'center' }}>
-                  <Text style={{ fontSize: 24, fontWeight: '700', color: '#16a34a' }}>{userStats.totalPoints}</Text>
-                  <Text style={{ color: '#4b5563', fontSize: 14 }}>Total Points</Text>
-                </View>
-                <View style={{ alignItems: 'center' }}>
-                  <Text style={{ fontSize: 24, fontWeight: '700', color: '#16a34a' }}>{userStats.rank || '-'}</Text>
-                  <Text style={{ color: '#4b5563', fontSize: 14 }}>Global Rank</Text>
-                </View>
-                <View style={{ alignItems: 'center' }}>
-                  <Text style={{ fontSize: 24, fontWeight: '700', color: '#16a34a' }}>{userStats.totalUsers}</Text>
-                  <Text style={{ color: '#4b5563', fontSize: 14 }}>Total Players</Text>
-                </View>
-              </View>
-
               {/* Action Buttons */}
               <TouchableOpacity
                 style={{ width: '100%', backgroundColor: '#16a34a', padding: 20, borderRadius: 16, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.2, shadowRadius: 1.41, elevation: 2, marginBottom: 16 }}
