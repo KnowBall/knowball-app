@@ -204,4 +204,30 @@ export function useQuestions() {
   }, []);
 
   return { questions, loading, error };
+}
+
+// Utility to fetch 10 random questions for challenge mode
+export async function fetchRandomQuestions(count = 10) {
+  const db = getFirestore(app);
+  const questionsCollection = collection(db, 'questions');
+  const querySnapshot = await getDocs(questionsCollection);
+  let allQuestions = querySnapshot.docs.map(doc => {
+    const data = doc.data();
+    const options = [
+      data.option1,
+      data.option2,
+      data.option3,
+      data.option4
+    ].filter(option => option !== undefined);
+    const shuffledOptions = shuffleArray([...options]);
+    return {
+      id: doc.id,
+      question: data.question,
+      options: shuffledOptions,
+      correctAnswer: data.answer,
+      explanation: data.explanation,
+      difficulty: (data.difficulty || 'medium').toLowerCase()
+    };
+  });
+  return shuffleArray(allQuestions).slice(0, count);
 } 

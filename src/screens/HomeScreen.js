@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { getFirestore, collection, query, orderBy, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, query, orderBy, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
 import { app } from '../lib/firebase';
 import { useUser } from '../contexts/UserContext';
 import { getAuth, signOut } from 'firebase/auth';
+import { fetchRandomQuestions } from '../hooks/useQuestions';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -55,8 +56,39 @@ export default function HomeScreen() {
   const userEmail = user?.email || 'Guest';
 
   function handleChallengeFriend() {
-    // TODO: Generate 10-question set, create Firestore challenge doc, navigate to GameScreen
-    alert('Challenge mode coming soon!');
+    // Async wrapper for challenge creation
+    (async () => {
+      try {
+        if (!user?.uid) {
+          alert('You must be signed in to challenge a friend.');
+          return;
+        }
+        const questions = await fetchRandomQuestions(10);
+        const db = getFirestore(app);
+        const challengesRef = collection(db, 'challenges');
+        const challengeDoc = await addDoc(challengesRef, {
+          questions,
+          createdAt: serverTimestamp(),
+          status: 'pending',
+          player1: {
+            uid: user.uid,
+            username: user.username || user.displayName || 'Anonymous',
+            score: null,
+            finished: false
+          },
+          player2: {
+            uid: null,
+            username: null,
+            score: null,
+            finished: false
+          }
+        });
+        navigation.navigate('Game', { questions, challengeId: challengeDoc.id, isChallenge: true });
+      } catch (err) {
+        console.error('Error creating challenge:', err);
+        alert('Error creating challenge. Please try again.');
+      }
+    })();
   }
 
   return (
