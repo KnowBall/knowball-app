@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { getFirestore, collection, query, orderBy, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
 import { app } from '../lib/firebase';
@@ -98,109 +98,111 @@ export default function HomeScreen() {
         style={{ flex: 1, minHeight: '100%' }}
         resizeMode="cover"
       >
-        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', padding: 24 }}>
-          {/* Header Section */}
-          <View style={{ paddingTop: 48, paddingBottom: 24, alignItems: 'flex-end' }}>
-            <Text style={{ color: 'white', fontSize: 16, textAlign: 'right', opacity: 0.9 }}>
-              {userEmail}
-            </Text>
-            <TouchableOpacity
-              style={{
-                marginTop: 12,
-                marginRight: 4,
-                minWidth: 90,
-                maxWidth: 130,
-                width: '40%',
-                paddingVertical: 10,
-                borderRadius: 20,
-                borderWidth: 1.5,
-                borderColor: '#fff',
-                backgroundColor: 'rgba(31,41,55,0.7)',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              onPress={async () => {
-                try {
-                  await signOut(auth);
-                  navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
-                } catch (e) {
-                  console.error('Sign out error:', e);
-                }
-              }}
-            >
-              <Text style={{ color: 'white', fontSize: 15, fontWeight: '600', letterSpacing: 0.5 }}>
-                Sign Out
+        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }}>
+          <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', padding: 24 }}>
+            {/* Header Section */}
+            <View style={{ paddingTop: 48, paddingBottom: 24, alignItems: 'flex-end' }}>
+              <Text style={{ color: 'white', fontSize: 16, textAlign: 'right', opacity: 0.9 }}>
+                {userEmail}
               </Text>
-            </TouchableOpacity>
-          </View>
-
-          {/* Main Content */}
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <View style={{ width: '100%', maxWidth: 500, backgroundColor: 'rgba(255,255,255,0.95)', padding: 32, borderRadius: 24, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5 }}>
-              {/* Username Greeting */}
-              <Text style={{ fontSize: 22, fontWeight: '700', color: '#111827', marginBottom: 16, textAlign: 'center' }}>
-                Welcome, {user.username || user.displayName || 'Anonymous'}!
-              </Text>
-              <Text style={{ fontSize: 40, fontWeight: '800', color: '#16a34a', marginBottom: 12, textAlign: 'center' }}>
-                🏈 Ready to Play?
-              </Text>
-              
-              <Text style={{ fontSize: 18, color: '#4b5563', marginBottom: 32, textAlign: 'center' }}>
-                Test your sports knowledge and climb the leaderboard!
-              </Text>
-
-              {/* Lifetime Stats Card */}
-              <View style={{ backgroundColor: 'white', borderRadius: 20, padding: 24, marginBottom: 32, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.12, shadowRadius: 8, elevation: 3 }}>
-                <Text style={{ fontSize: 22, fontWeight: '700', color: '#111827', marginBottom: 12 }}>Your Lifetime Stats</Text>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-                  <View style={{ alignItems: 'center', flex: 1 }}>
-                    <Text style={{ fontSize: 24, fontWeight: '800', color: '#FFD700' }}>🏆 {userStats.totalPoints}</Text>
-                    <Text style={{ color: '#4b5563', fontSize: 14 }}>Total Points</Text>
-                  </View>
-                  <View style={{ alignItems: 'center', flex: 1 }}>
-                    <Text style={{ fontSize: 24, fontWeight: '800', color: '#2563eb' }}>🎮 {userStats.totalGamesPlayed}</Text>
-                    <Text style={{ color: '#4b5563', fontSize: 14 }}>Games Played</Text>
-                  </View>
-                  <View style={{ alignItems: 'center', flex: 1 }}>
-                    <Text style={{ fontSize: 24, fontWeight: '800', color: '#dc2626' }}>🔥 {userStats.longestStreak}</Text>
-                    <Text style={{ color: '#4b5563', fontSize: 14 }}>Longest Streak</Text>
-                  </View>
-                </View>
-                <View style={{ alignItems: 'center', marginTop: 16 }}>
-                  <Text style={{ fontSize: 20, fontWeight: '700', color: '#2563eb' }}>📅 Login Streak: {user?.loginStreak || 0} days</Text>
-                </View>
-              </View>
-
-              {/* Action Buttons */}
               <TouchableOpacity
-                style={{ width: '100%', backgroundColor: '#16a34a', padding: 20, borderRadius: 16, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.2, shadowRadius: 1.41, elevation: 2, marginBottom: 16 }}
-                onPress={() => navigation.navigate('Game')}
+                style={{
+                  marginTop: 12,
+                  marginRight: 4,
+                  minWidth: 90,
+                  maxWidth: 130,
+                  width: '40%',
+                  paddingVertical: 10,
+                  borderRadius: 20,
+                  borderWidth: 1.5,
+                  borderColor: '#fff',
+                  backgroundColor: 'rgba(31,41,55,0.7)',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+                onPress={async () => {
+                  try {
+                    await signOut(auth);
+                    navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
+                  } catch (e) {
+                    console.error('Sign out error:', e);
+                  }
+                }}
               >
-                <Text style={{ color: '#fff', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
-                  Start New Game 🎮
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={{ width: '100%', backgroundColor: 'white', padding: 20, borderRadius: 16, borderWidth: 2, borderColor: '#16a34a', marginBottom: 16 }}
-                onPress={() => navigation.navigate('Leaderboard')}
-              >
-                <Text style={{ color: '#16a34a', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
-                  View Leaderboard 🏆
-                </Text>
-              </TouchableOpacity>
-
-              {/* Challenge a Friend Button */}
-              <TouchableOpacity
-                style={{ width: '100%', backgroundColor: '#f59e42', padding: 20, borderRadius: 16, marginBottom: 8, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.15, shadowRadius: 1.41, elevation: 2 }}
-                onPress={handleChallengeFriend}
-              >
-                <Text style={{ color: '#fff', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
-                  Challenge a Friend 🥊
+                <Text style={{ color: 'white', fontSize: 15, fontWeight: '600', letterSpacing: 0.5 }}>
+                  Sign Out
                 </Text>
               </TouchableOpacity>
             </View>
-          </View>
+
+            {/* Main Content */}
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <View style={{ width: '100%', maxWidth: 500, backgroundColor: 'rgba(255,255,255,0.95)', padding: 32, borderRadius: 24, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5 }}>
+                {/* Username Greeting */}
+                <Text style={{ fontSize: 22, fontWeight: '700', color: '#111827', marginBottom: 16, textAlign: 'center' }}>
+                  Welcome, {user.username || user.displayName || 'Anonymous'}!
+                </Text>
+                <Text style={{ fontSize: 40, fontWeight: '800', color: '#16a34a', marginBottom: 12, textAlign: 'center' }}>
+                  🏈 Ready to Play?
+                </Text>
+                
+                <Text style={{ fontSize: 18, color: '#4b5563', marginBottom: 32, textAlign: 'center' }}>
+                  Test your sports knowledge and climb the leaderboard!
+                </Text>
+
+                {/* Lifetime Stats Card */}
+                <View style={{ backgroundColor: 'white', borderRadius: 20, padding: 24, marginBottom: 32, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.12, shadowRadius: 8, elevation: 3 }}>
+                  <Text style={{ fontSize: 22, fontWeight: '700', color: '#111827', marginBottom: 12 }}>Your Lifetime Stats</Text>
+                  <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
+                    <View style={{ alignItems: 'center', flex: 1 }}>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#FFD700' }}>🏆 {userStats.totalPoints}</Text>
+                      <Text style={{ color: '#4b5563', fontSize: 14 }}>Total Points</Text>
+                    </View>
+                    <View style={{ alignItems: 'center', flex: 1 }}>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#2563eb' }}>🎮 {userStats.totalGamesPlayed}</Text>
+                      <Text style={{ color: '#4b5563', fontSize: 14 }}>Games Played</Text>
+                    </View>
+                    <View style={{ alignItems: 'center', flex: 1 }}>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#dc2626' }}>🔥 {userStats.longestStreak}</Text>
+                      <Text style={{ color: '#4b5563', fontSize: 14 }}>Longest Streak</Text>
+                    </View>
+                  </View>
+                  <View style={{ alignItems: 'center', marginTop: 16 }}>
+                    <Text style={{ fontSize: 20, fontWeight: '700', color: '#2563eb' }}>📅 Login Streak: {user?.loginStreak || 0} days</Text>
+                  </View>
+                </View>
+
+                {/* Action Buttons */}
+                <TouchableOpacity
+                  style={{ width: '100%', backgroundColor: '#16a34a', padding: 20, borderRadius: 16, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.2, shadowRadius: 1.41, elevation: 2, marginBottom: 16 }}
+                  onPress={() => navigation.navigate('Game')}
+                >
+                  <Text style={{ color: '#fff', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
+                    Start New Game 🎮
+                  </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={{ width: '100%', backgroundColor: 'white', padding: 20, borderRadius: 16, borderWidth: 2, borderColor: '#16a34a', marginBottom: 16 }}
+                  onPress={() => navigation.navigate('Leaderboard')}
+                >
+                  <Text style={{ color: '#16a34a', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
+                    View Leaderboard 🏆
+                  </Text>
+                </TouchableOpacity>
+
+                {/* Challenge a Friend Button */}
+                <TouchableOpacity
+                  style={{ width: '100%', backgroundColor: '#f59e42', padding: 20, borderRadius: 16, marginBottom: 8, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.15, shadowRadius: 1.41, elevation: 2 }}
+                  onPress={handleChallengeFriend}
+                >
+                  <Text style={{ color: '#fff', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
+                    Challenge a Friend 🥊
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ScrollView>
         </View>
       </ImageBackground>
     </View>
