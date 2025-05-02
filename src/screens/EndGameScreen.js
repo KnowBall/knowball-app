@@ -20,6 +20,7 @@ const EndGameScreen = ({ route }) => {
   const { user } = useUser();
   const { score = 0, totalQuestions = 10 } = route?.params || {};
   const [animatedScore, setAnimatedScore] = useState(0);
+  const [totalPoints, setTotalPoints] = useState(null);
   const anim = useRef(new Animated.Value(0)).current;
   
   useEffect(() => {
@@ -60,6 +61,9 @@ const EndGameScreen = ({ route }) => {
           email: user.email || '',
           updatedAt: serverTimestamp()
         }, { merge: true });
+        // Fetch and set updated total points
+        const updatedDoc = await getDoc(userRef);
+        setTotalPoints((updatedDoc.exists() && updatedDoc.data().totalPoints) || 0);
       } catch (error) {
         console.error('Error saving score:', error);
       }
@@ -136,6 +140,11 @@ const EndGameScreen = ({ route }) => {
               }}>
                 {animatedScore >= 0 ? `+${animatedScore}` : `${animatedScore}`}
               </Animated.Text>
+              {totalPoints !== null && (
+                <Text style={{ fontSize: 18, color: '#4b5563', marginBottom: 8 }}>
+                  Total Points: {totalPoints}
+                </Text>
+              )}
               <Text style={{
                 fontSize: 20,
                 fontWeight: '700',
