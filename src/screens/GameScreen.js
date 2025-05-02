@@ -9,6 +9,7 @@ export default function GameScreen() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [currentCorrectStreak, setCurrentCorrectStreak] = useState(0);
+  const [maxStreak, setMaxStreak] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
   const [pointChange, setPointChange] = useState(null);
   const [showPointChange, setShowPointChange] = useState(false);
@@ -24,6 +25,7 @@ export default function GameScreen() {
       setCurrentQuestionIndex(0);
       setScore(0);
       setCurrentCorrectStreak(0);
+      setMaxStreak(0);
       setCorrectCount(0);
       setPointChange(null);
       setShowPointChange(false);
@@ -77,13 +79,14 @@ export default function GameScreen() {
           navigation.navigate('EndGame', {
             score: score,
             totalQuestions: questions.length,
-            correctCount: correctCount
+            correctCount: correctCount,
+            maxStreak: maxStreak
           });
         }
       }, 1500);
     }
     return () => clearTimeout(advanceTimer);
-  }, [showExplanation, currentQuestionIndex, questions.length, score, navigation, correctCount]);
+  }, [showExplanation, currentQuestionIndex, questions.length, score, navigation, correctCount, maxStreak]);
 
   const triggerPointChange = (text) => {
     setPointChange(text);
@@ -112,6 +115,7 @@ export default function GameScreen() {
       setScore(newScore);
       setCurrentCorrectStreak(newStreak);
       setCorrectCount(correctCount + 1);
+      if (newStreak > maxStreak) setMaxStreak(newStreak);
     } else {
       setScore(score - 3);
       setCurrentCorrectStreak(0);

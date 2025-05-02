@@ -18,7 +18,7 @@ const getMotivationalMessage = (score, totalQuestions) => {
 const EndGameScreen = ({ route }) => {
   const navigation = useNavigation();
   const { user } = useUser();
-  const { score = 0, totalQuestions = 10, correctCount = 0 } = route?.params || {};
+  const { score = 0, totalQuestions = 10, correctCount = 0, maxStreak = 0 } = route?.params || {};
   const [animatedScore, setAnimatedScore] = useState(0);
   const [totalPoints, setTotalPoints] = useState(null);
   const anim = useRef(new Animated.Value(0)).current;
@@ -50,14 +50,19 @@ const EndGameScreen = ({ route }) => {
           timestamp: serverTimestamp(),
           username: user.username || user.displayName || ''
         });
-        // Update user's total points (never below 0)
+        // Update user's total points, games played, and longest streak
         const userRef = doc(db, 'users', user.uid);
         const userDoc = await getDoc(userRef);
         let prevTotal = (userDoc.exists() && userDoc.data().totalPoints) || 0;
         let newTotal = prevTotal + score;
         if (newTotal < 0) newTotal = 0;
+        let prevGames = (userDoc.exists() && userDoc.data().totalGamesPlayed) || 0;
+        let prevLongestStreak = (userDoc.exists() && userDoc.data().longestStreak) || 0;
+        let newLongestStreak = Math.max(prevLongestStreak, maxStreak);
         await setDoc(userRef, {
           totalPoints: newTotal,
+          totalGamesPlayed: prevGames + 1,
+          longestStreak: newLongestStreak,
           email: user.email || '',
           updatedAt: serverTimestamp()
         }, { merge: true });
@@ -69,7 +74,7 @@ const EndGameScreen = ({ route }) => {
       }
     }
     saveScore();
-  }, [user, score, totalQuestions]);
+  }, [user, score, totalQuestions, maxStreak]);
   
   const { text: motivationalText, icon: motivationalIcon } = getMotivationalMessage(score, totalQuestions);
 

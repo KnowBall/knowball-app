@@ -9,7 +9,7 @@ import { getAuth, signOut } from 'firebase/auth';
 export default function HomeScreen() {
   const navigation = useNavigation();
   const { user } = useUser();
-  const [userStats, setUserStats] = useState({ totalPoints: 0, rank: 0, totalUsers: 0 });
+  const [userStats, setUserStats] = useState({ totalPoints: 0, rank: 0, totalUsers: 0, totalGamesPlayed: 0, longestStreak: 0 });
   const [loading, setLoading] = useState(true);
   const auth = getAuth(app);
 
@@ -28,16 +28,20 @@ export default function HomeScreen() {
         // Find user's rank and total points
         let rank = 0;
         let totalPoints = 0;
+        let totalGamesPlayed = 0;
+        let longestStreak = 0;
         const totalUsers = querySnapshot.size;
         
         querySnapshot.forEach((doc, index) => {
           if (doc.id === user.uid) {
             rank = index + 1;
             totalPoints = doc.data().totalPoints || 0;
+            totalGamesPlayed = doc.data().totalGamesPlayed || 0;
+            longestStreak = doc.data().longestStreak || 0;
           }
         });
         
-        setUserStats({ totalPoints, rank, totalUsers });
+        setUserStats({ totalPoints, rank, totalUsers, totalGamesPlayed, longestStreak });
       } catch (error) {
         console.error('Error fetching user stats:', error);
       } finally {
@@ -79,6 +83,25 @@ export default function HomeScreen() {
               <Text style={{ fontSize: 18, color: '#4b5563', marginBottom: 32, textAlign: 'center' }}>
                 Test your sports knowledge and climb the leaderboard!
               </Text>
+
+              {/* Lifetime Stats Card */}
+              <View style={{ backgroundColor: 'white', borderRadius: 20, padding: 24, marginBottom: 32, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.12, shadowRadius: 8, elevation: 3 }}>
+                <Text style={{ fontSize: 22, fontWeight: '700', color: '#111827', marginBottom: 12 }}>Your Lifetime Stats</Text>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
+                  <View style={{ alignItems: 'center', flex: 1 }}>
+                    <Text style={{ fontSize: 24, fontWeight: '800', color: '#FFD700' }}>🏆 {userStats.totalPoints}</Text>
+                    <Text style={{ color: '#4b5563', fontSize: 14 }}>Total Points</Text>
+                  </View>
+                  <View style={{ alignItems: 'center', flex: 1 }}>
+                    <Text style={{ fontSize: 24, fontWeight: '800', color: '#2563eb' }}>🎮 {userStats.totalGamesPlayed}</Text>
+                    <Text style={{ color: '#4b5563', fontSize: 14 }}>Games Played</Text>
+                  </View>
+                  <View style={{ alignItems: 'center', flex: 1 }}>
+                    <Text style={{ fontSize: 24, fontWeight: '800', color: '#dc2626' }}>🔥 {userStats.longestStreak}</Text>
+                    <Text style={{ color: '#4b5563', fontSize: 14 }}>Longest Streak</Text>
+                  </View>
+                </View>
+              </View>
 
               {/* Game Stats Preview */}
               <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 32, backgroundColor: 'rgba(22,163,74,0.1)', padding: 16, borderRadius: 16 }}>
