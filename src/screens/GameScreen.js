@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, ActivityIndicator, ImageBackground, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, ActivityIndicator, ImageBackground, TouchableOpacity, Animated } from 'react-native';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { useQuestions } from '../hooks/useQuestions';
 
@@ -8,16 +8,23 @@ export default function GameScreen() {
   const { questions, loading, error } = useQuestions();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [currentCorrectStreak, setCurrentCorrectStreak] = useState(0);
+  const [pointChange, setPointChange] = useState(null);
+  const [showPointChange, setShowPointChange] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [timeLeft, setTimeLeft] = useState(15);
   const [timerActive, setTimerActive] = useState(false);
+  const pointAnim = useRef(new Animated.Value(0)).current;
 
   // Reset game state when screen is focused
   useFocusEffect(
     React.useCallback(() => {
       setCurrentQuestionIndex(0);
       setScore(0);
+      setCurrentCorrectStreak(0);
+      setPointChange(null);
+      setShowPointChange(false);
       setShowExplanation(false);
       setSelectedAnswer(null);
       setTimeLeft(15);
@@ -75,12 +82,36 @@ export default function GameScreen() {
     return () => clearTimeout(advanceTimer);
   }, [showExplanation, currentQuestionIndex, questions.length, score, navigation]);
 
+  const triggerPointChange = (text) => {
+    setPointChange(text);
+    setShowPointChange(true);
+    pointAnim.setValue(0);
+    Animated.timing(pointAnim, {
+      toValue: 1,
+      duration: 900,
+      useNativeDriver: true,
+    }).start(() => setShowPointChange(false));
+  };
+
   const handleAnswer = (answer) => {
     setTimerActive(false);
     setSelectedAnswer(answer);
     setShowExplanation(true);
     if (answer === questions[currentQuestionIndex].correctAnswer) {
-      setScore(score + 1);
+      let newScore = score + 10;
+      let newStreak = currentCorrectStreak + 1;
+      triggerPointChange('+10');
+      // Streak bonus
+      if (newStreak % 3 === 0) {
+        newScore += 5;
+        triggerPointChange('🔥 Streak +5');
+      }
+      setScore(newScore);
+      setCurrentCorrectStreak(newStreak);
+    } else {
+      setScore(score - 3);
+      setCurrentCorrectStreak(0);
+      triggerPointChange('–3');
     }
   };
 
@@ -142,6 +173,26 @@ export default function GameScreen() {
                 Score: {score}
               </Text>
             </View>
+
+            {/* Animated Point Change Indicator */}
+            {showPointChange && (
+              <Animated.View
+                style={{
+                  position: 'absolute',
+                  top: 60,
+                  left: 0,
+                  right: 0,
+                  alignItems: 'center',
+                  opacity: pointAnim.interpolate({ inputRange: [0, 1], outputRange: [1, 0] }),
+                  transform: [{ translateY: pointAnim.interpolate({ inputRange: [0, 1], outputRange: [0, -40] }) }],
+                  zIndex: 10,
+                }}
+              >
+                <Text style={{ fontSize: 28, fontWeight: 'bold', color: pointChange?.includes('+') ? '#16a34a' : pointChange?.includes('–') ? '#dc2626' : '#f59e42', textShadowColor: '#000', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 2 }}>
+                  {pointChange}
+                </Text>
+              </Animated.View>
+            )}
 
             {/* Timer Display */}
             <View style={{ 
