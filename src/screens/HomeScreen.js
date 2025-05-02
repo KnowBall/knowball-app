@@ -151,7 +151,7 @@ export default function HomeScreen() {
                 </Text>
 
                 {/* Lifetime Stats Card */}
-                <View style={{ backgroundColor: 'white', borderRadius: 20, padding: 24, marginBottom: 32, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.12, shadowRadius: 8, elevation: 3 }}>
+                <View style={{ backgroundColor: 'white', borderRadius: 20, padding: 28, paddingHorizontal: 20, marginBottom: 32, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.12, shadowRadius: 8, elevation: 3 }}>
                   <Text style={{ fontSize: 22, fontWeight: '700', color: '#111827', marginBottom: 12, textAlign: 'center', alignSelf: 'center' }}>Your Lifetime Stats</Text>
                   <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
@@ -167,8 +167,10 @@ export default function HomeScreen() {
                       <Text style={{ color: '#4b5563', fontSize: 14, textAlign: 'center' }}>Longest Streak</Text>
                     </View>
                   </View>
-                  <View style={{ alignItems: 'center', marginTop: 16, width: '100%' }}>
-                    <Text style={{ fontSize: 20, fontWeight: '700', color: '#2563eb', textAlign: 'center' }}>📅 Login Streak: {user?.loginStreak || 0} days</Text>
+                  {/* Divider */}
+                  <View style={{ width: '80%', height: 1, backgroundColor: '#e5e7eb', marginVertical: 14, alignSelf: 'center' }} />
+                  <View style={{ alignItems: 'center', width: '100%' }}>
+                    <Text style={{ fontSize: 15, fontWeight: '700', color: '#2563eb', textAlign: 'center' }}>📅 Login Streak: {user?.loginStreak || 0} days</Text>
                   </View>
                 </View>
 
