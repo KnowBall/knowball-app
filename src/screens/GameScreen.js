@@ -102,13 +102,15 @@ export default function GameScreen() {
             score: score,
             totalQuestions: questions.length,
             correctCount: correctCount,
-            maxStreak: maxStreak
+            maxStreak: maxStreak,
+            isChallenge,
+            challengeId
           });
         }
       }, 1500);
     }
     return () => clearTimeout(advanceTimer);
-  }, [showExplanation, currentQuestionIndex, questions.length, score, navigation, correctCount, maxStreak]);
+  }, [showExplanation, currentQuestionIndex, questions.length, score, navigation, correctCount, maxStreak, isChallenge, challengeId]);
 
   const triggerPointChange = (text) => {
     setPointChange(text);
