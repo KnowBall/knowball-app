@@ -33,8 +33,13 @@ export default function AppNavigator() {
       try {
         const db = getFirestore(app);
         const userDoc = await getDoc(doc(db, 'users', user.uid));
-        setHasUsername(userDoc.exists() && userDoc.data().username);
-        setOnboardingComplete(userDoc.exists() && userDoc.data().onboardingComplete);
+        const hasName = userDoc.exists() && userDoc.data().username;
+        setHasUsername(hasName);
+        if (hasName) {
+          setOnboardingComplete(userDoc.data().onboardingComplete);
+        } else {
+          setOnboardingComplete(null);
+        }
       } catch (error) {
         console.error('Error checking username/onboarding:', error);
       } finally {
