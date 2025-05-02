@@ -20,7 +20,7 @@ export default function OnboardingScreen() {
         window.localStorage.setItem('onboardingComplete', 'true');
       }
     }
-    navigation.reset({ index: 0, routes: [{ name: 'Game' }] });
+    navigation.reset({ index: 0, routes: [{ name: 'Home' }] });
   };
 
   return (
