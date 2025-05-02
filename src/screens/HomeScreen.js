@@ -54,6 +54,11 @@ export default function HomeScreen() {
 
   const userEmail = user?.email || 'Guest';
 
+  function handleChallengeFriend() {
+    // TODO: Generate 10-question set, create Firestore challenge doc, navigate to GameScreen
+    alert('Challenge mode coming soon!');
+  }
+
   return (
     <View style={{ height: '100%', width: '100%' }}>
       <ImageBackground
@@ -117,11 +122,21 @@ export default function HomeScreen() {
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={{ width: '100%', backgroundColor: 'white', padding: 20, borderRadius: 16, borderWidth: 2, borderColor: '#16a34a' }}
+                style={{ width: '100%', backgroundColor: 'white', padding: 20, borderRadius: 16, borderWidth: 2, borderColor: '#16a34a', marginBottom: 16 }}
                 onPress={() => navigation.navigate('Leaderboard')}
               >
                 <Text style={{ color: '#16a34a', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
                   View Leaderboard 🏆
+                </Text>
+              </TouchableOpacity>
+
+              {/* Challenge a Friend Button */}
+              <TouchableOpacity
+                style={{ width: '100%', backgroundColor: '#f59e42', padding: 20, borderRadius: 16, marginBottom: 8, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.15, shadowRadius: 1.41, elevation: 2 }}
+                onPress={handleChallengeFriend}
+              >
+                <Text style={{ color: '#fff', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
+                  Challenge a Friend 🥊
                 </Text>
               </TouchableOpacity>
             </View>
