@@ -137,25 +137,43 @@ const EndGameScreen = ({ route }) => {
               width: '100%',
               alignItems: 'center'
             }}>
-              <Animated.Text style={{
-                fontSize: 44,
-                fontWeight: '900',
-                color: '#FFD700',
-                marginBottom: 8,
-                textAlign: 'center',
-                textShadowColor: '#222',
-                textShadowOffset: { width: 0, height: 2 },
-                textShadowRadius: 8,
-                letterSpacing: 1.5,
-                elevation: 8,
-                borderWidth: 2,
-                borderColor: 'rgba(0,0,0,0.08)',
-                paddingHorizontal: 8,
-                borderRadius: 12,
-                backgroundColor: 'rgba(255,255,255,0.85)'
-              }}>
-                {totalPoints !== null ? `Total Points: ${totalPoints}` : ''}
-              </Animated.Text>
+              {/* Gold Circle Badge for Total Points */}
+              {totalPoints !== null && (
+                <View style={{
+                  width: 110,
+                  height: 110,
+                  borderRadius: 55,
+                  backgroundColor: '#FFD700',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: 12,
+                  shadowColor: '#fbbf24',
+                  shadowOffset: { width: 0, height: 4 },
+                  shadowOpacity: 0.5,
+                  shadowRadius: 16,
+                  elevation: 8,
+                  borderWidth: 3,
+                  borderColor: '#fff7c2',
+                }}>
+                  <Text style={{
+                    fontSize: 38,
+                    fontWeight: '900',
+                    color: '#222',
+                    fontFamily: 'System', // Replace with your app font if available
+                    textAlign: 'center',
+                    textShadowColor: '#fff',
+                    textShadowOffset: { width: 0, height: 2 },
+                    textShadowRadius: 6,
+                  }}>{totalPoints}</Text>
+                  <Text style={{
+                    fontSize: 14,
+                    color: '#7c6f1c',
+                    fontWeight: '700',
+                    marginTop: 2,
+                    textAlign: 'center',
+                  }}>Total Points</Text>
+                </View>
+              )}
               <Animated.Text style={{
                 fontSize: 32,
                 fontWeight: '800',
