@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, ActivityIndicator, ImageBackground, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { useQuestions } from '../hooks/useQuestions';
 
 export default function GameScreen() {
@@ -12,6 +12,23 @@ export default function GameScreen() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [timeLeft, setTimeLeft] = useState(15);
   const [timerActive, setTimerActive] = useState(false);
+
+  // Reset game state when screen is focused
+  useFocusEffect(
+    React.useCallback(() => {
+      setCurrentQuestionIndex(0);
+      setScore(0);
+      setShowExplanation(false);
+      setSelectedAnswer(null);
+      setTimeLeft(15);
+      setTimerActive(false);
+      
+      // Start timer if we have questions
+      if (!loading && questions.length > 0) {
+        setTimerActive(true);
+      }
+    }, [loading, questions])
+  );
 
   // Start timer when questions are loaded
   useEffect(() => {
