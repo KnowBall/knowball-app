@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, Text, TouchableOpacity, ImageBackground, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { getFirestore, collection, addDoc, serverTimestamp, doc, getDoc, setDoc, increment } from 'firebase/firestore';
@@ -19,13 +19,26 @@ const EndGameScreen = ({ route }) => {
   const navigation = useNavigation();
   const { user } = useUser();
   const { score = 0, totalQuestions = 10 } = route?.params || {};
+  const [animatedScore, setAnimatedScore] = useState(0);
+  const anim = useRef(new Animated.Value(0)).current;
   
   useEffect(() => {
+    // Animate the score count-up
+    anim.setValue(0);
+    Animated.timing(anim, {
+      toValue: score,
+      duration: 1200,
+      useNativeDriver: false,
+    }).start();
+    const listener = anim.addListener(({ value }) => setAnimatedScore(Math.round(value)));
+    return () => anim.removeListener(listener);
+  }, [score]);
+
+  useEffect(() => {
     async function saveScore() {
-      if (!user || !user.uid || score <= 0) return;
+      if (!user || !user.uid) return;
       try {
         const db = getFirestore(app);
-        
         // Save the game score
         const scoresRef = collection(db, 'scores');
         await addDoc(scoresRef, {
@@ -36,21 +49,21 @@ const EndGameScreen = ({ route }) => {
           timestamp: serverTimestamp(),
           username: user.username || user.displayName || ''
         });
-        console.log(`Score saved for ${user.uid}`);
-
-        // Update user's total points
+        // Update user's total points (never below 0)
         const userRef = doc(db, 'users', user.uid);
+        const userDoc = await getDoc(userRef);
+        let prevTotal = (userDoc.exists() && userDoc.data().totalPoints) || 0;
+        let newTotal = prevTotal + score;
+        if (newTotal < 0) newTotal = 0;
         await setDoc(userRef, {
-          totalPoints: increment(score),
+          totalPoints: newTotal,
           email: user.email || '',
           updatedAt: serverTimestamp()
         }, { merge: true });
-        console.log(`Total points updated for ${user.uid}`);
       } catch (error) {
         console.error('Error saving score:', error);
       }
     }
-    
     saveScore();
   }, [user, score, totalQuestions]);
   
@@ -115,8 +128,16 @@ const EndGameScreen = ({ route }) => {
               width: '100%',
               alignItems: 'center'
             }}>
+              <Animated.Text style={{
+                fontSize: 32,
+                fontWeight: '800',
+                color: animatedScore >= 0 ? '#16a34a' : '#dc2626',
+                marginBottom: 8
+              }}>
+                {animatedScore >= 0 ? `+${animatedScore}` : `${animatedScore}`}
+              </Animated.Text>
               <Text style={{
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: '700',
                 color: '#1f2937',
                 marginBottom: 8
