@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, ScrollView, Modal } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { getFirestore, collection, query, orderBy, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
 import { app } from '../lib/firebase';
 import { useUser } from '../contexts/UserContext';
 import { getAuth, signOut } from 'firebase/auth';
 import { fetchRandomQuestions } from '../hooks/useQuestions';
+import * as Clipboard from 'expo-clipboard';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -13,6 +14,9 @@ export default function HomeScreen() {
   const [userStats, setUserStats] = useState({ totalPoints: 0, rank: 0, totalUsers: 0, totalGamesPlayed: 0, longestStreak: 0 });
   const [loading, setLoading] = useState(true);
   const auth = getAuth(app);
+  const [challengeModalVisible, setChallengeModalVisible] = useState(false);
+  const [challengeLink, setChallengeLink] = useState('');
+  const [pendingChallenge, setPendingChallenge] = useState(null);
 
   useEffect(() => {
     async function fetchUserStats() {
@@ -56,7 +60,6 @@ export default function HomeScreen() {
   const userEmail = user?.email || 'Guest';
 
   function handleChallengeFriend() {
-    // Async wrapper for challenge creation
     (async () => {
       try {
         if (!user?.uid) {
@@ -83,7 +86,10 @@ export default function HomeScreen() {
             finished: false
           }
         });
-        navigation.navigate('Game', { questions, challengeId: challengeDoc.id, isChallenge: true });
+        const link = `https://knowball.app/challenge/${challengeDoc.id}`;
+        setChallengeLink(link);
+        setPendingChallenge({ questions, challengeId: challengeDoc.id });
+        setChallengeModalVisible(true);
       } catch (err) {
         console.error('Error creating challenge:', err);
         alert('Error creating challenge. Please try again.');
@@ -207,6 +213,51 @@ export default function HomeScreen() {
           </ScrollView>
         </View>
       </ImageBackground>
+
+      {/* Modal for Challenge Link */}
+      <Modal
+        visible={challengeModalVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setChallengeModalVisible(false)}
+      >
+        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ backgroundColor: 'white', borderRadius: 20, padding: 28, width: 320, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.18, shadowRadius: 8, elevation: 5 }}>
+            <Text style={{ fontSize: 20, fontWeight: '700', color: '#111827', marginBottom: 12, textAlign: 'center' }}>Challenge Created!</Text>
+            <Text style={{ fontSize: 16, color: '#4b5563', marginBottom: 16, textAlign: 'center' }}>Share this link with a friend:</Text>
+            <View style={{ backgroundColor: '#f3f4f6', borderRadius: 10, padding: 10, marginBottom: 16, width: '100%' }}>
+              <Text selectable style={{ fontSize: 14, color: '#2563eb', textAlign: 'center' }}>{challengeLink}</Text>
+            </View>
+            <TouchableOpacity
+              style={{ backgroundColor: '#2563eb', borderRadius: 10, paddingVertical: 10, paddingHorizontal: 24, marginBottom: 16 }}
+              onPress={async () => {
+                await Clipboard.setStringAsync(challengeLink);
+                alert('Link copied to clipboard!');
+              }}
+            >
+              <Text style={{ color: 'white', fontWeight: '700', fontSize: 16 }}>Copy Link</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{ backgroundColor: '#16a34a', borderRadius: 10, paddingVertical: 10, paddingHorizontal: 24 }}
+              onPress={() => {
+                setChallengeModalVisible(false);
+                if (pendingChallenge) {
+                  navigation.navigate('Game', { questions: pendingChallenge.questions, challengeId: pendingChallenge.challengeId, isChallenge: true });
+                  setPendingChallenge(null);
+                }
+              }}
+            >
+              <Text style={{ color: 'white', fontWeight: '700', fontSize: 16 }}>Play Now</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{ marginTop: 12 }}
+              onPress={() => setChallengeModalVisible(false)}
+            >
+              <Text style={{ color: '#dc2626', fontSize: 15 }}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
