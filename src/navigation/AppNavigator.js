@@ -10,6 +10,7 @@ import EndGameScreen from '../screens/EndGameScreen';
 import LeaderboardScreen from '../screens/LeaderboardScreen';
 import UsernameScreen from '../screens/UsernameScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
+import ChallengeAcceptScreen from '../screens/ChallengeAcceptScreen';
 import { useUser } from '../contexts/UserContext';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { app } from '../lib/firebase';
@@ -59,7 +60,17 @@ export default function AppNavigator() {
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      linking={{
+        prefixes: ['https://knowball.app', 'http://knowball.app', 'knowball://'],
+        config: {
+          screens: {
+            ChallengeAccept: 'challenge/:challengeId',
+            // ...other screens can be added here if needed
+          },
+        },
+      }}
+    >
       <Stack.Navigator>
         {!user ? (
           // Auth screens
@@ -111,6 +122,12 @@ export default function AppNavigator() {
               name="Leaderboard"
               component={LeaderboardScreen}
               options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ChallengeAccept"
+              component={ChallengeAcceptScreen}
+              options={{ headerShown: false }}
+              initialParams={{}}
             />
           </>
         )}
