@@ -101,6 +101,9 @@ export default function HomeScreen() {
                     <Text style={{ color: '#4b5563', fontSize: 14 }}>Longest Streak</Text>
                   </View>
                 </View>
+                <View style={{ alignItems: 'center', marginTop: 16 }}>
+                  <Text style={{ fontSize: 20, fontWeight: '700', color: '#2563eb' }}>📅 Login Streak: {user?.loginStreak || 0} days</Text>
+                </View>
               </View>
 
               {/* Action Buttons */}
