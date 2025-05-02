@@ -1,19 +1,24 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 import { app } from '../lib/firebase';
 import { useUser } from '../contexts/UserContext';
 
 export default function OnboardingScreen() {
   const navigation = useNavigation();
-  const { user } = useUser();
+  const { user, setUser } = useUser();
 
   const handleLetsPlay = async () => {
     if (user?.uid) {
       const db = getFirestore(app);
       const userRef = doc(db, 'users', user.uid);
       await setDoc(userRef, { onboardingComplete: true }, { merge: true });
+      // Fetch updated user doc and update context
+      const updatedDoc = await getDoc(userRef);
+      if (updatedDoc.exists()) {
+        setUser({ ...user, ...updatedDoc.data() });
+      }
     } else {
       // fallback for guests: localStorage (web only)
       if (typeof window !== 'undefined' && window.localStorage) {
