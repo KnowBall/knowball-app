@@ -2,18 +2,9 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 import { app } from '../lib/firebase';
-import { Platform, ToastAndroid, Alert } from 'react-native';
+import { Platform, Alert } from 'react-native';
 
 const UserContext = createContext();
-
-// Helper to show toast cross-platform
-function showToast(message) {
-  if (Platform.OS === 'android') {
-    ToastAndroid.show(message, ToastAndroid.LONG);
-  } else {
-    Alert.alert('Streak Reward', message);
-  }
-}
 
 export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -55,7 +46,6 @@ export function UserProvider({ children }) {
             }
             totalPoints += reward;
             updateNeeded = true;
-            showToast(`🔥 +${reward} points for Day ${loginStreak} login streak!`);
           }
 
           // Always update lastLoginDate
