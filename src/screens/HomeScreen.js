@@ -152,23 +152,23 @@ export default function HomeScreen() {
 
                 {/* Lifetime Stats Card */}
                 <View style={{ backgroundColor: 'white', borderRadius: 20, padding: 24, marginBottom: 32, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.12, shadowRadius: 8, elevation: 3 }}>
-                  <Text style={{ fontSize: 22, fontWeight: '700', color: '#111827', marginBottom: 12 }}>Your Lifetime Stats</Text>
-                  <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#FFD700' }}>🏆 {userStats.totalPoints}</Text>
-                      <Text style={{ color: '#4b5563', fontSize: 14 }}>Total Points</Text>
+                  <Text style={{ fontSize: 22, fontWeight: '700', color: '#111827', marginBottom: 12, textAlign: 'center', alignSelf: 'center' }}>Your Lifetime Stats</Text>
+                  <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+                    <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#FFD700', textAlign: 'center' }}>🏆 {userStats.totalPoints}</Text>
+                      <Text style={{ color: '#4b5563', fontSize: 14, textAlign: 'center' }}>Total Points</Text>
                     </View>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#2563eb' }}>🎮 {userStats.totalGamesPlayed}</Text>
-                      <Text style={{ color: '#4b5563', fontSize: 14 }}>Games Played</Text>
+                    <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#2563eb', textAlign: 'center' }}>🎮 {userStats.totalGamesPlayed}</Text>
+                      <Text style={{ color: '#4b5563', fontSize: 14, textAlign: 'center' }}>Games Played</Text>
                     </View>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#dc2626' }}>🔥 {userStats.longestStreak}</Text>
-                      <Text style={{ color: '#4b5563', fontSize: 14 }}>Longest Streak</Text>
+                    <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#dc2626', textAlign: 'center' }}>🔥 {userStats.longestStreak}</Text>
+                      <Text style={{ color: '#4b5563', fontSize: 14, textAlign: 'center' }}>Longest Streak</Text>
                     </View>
                   </View>
-                  <View style={{ alignItems: 'center', marginTop: 16 }}>
-                    <Text style={{ fontSize: 20, fontWeight: '700', color: '#2563eb' }}>📅 Login Streak: {user?.loginStreak || 0} days</Text>
+                  <View style={{ alignItems: 'center', marginTop: 16, width: '100%' }}>
+                    <Text style={{ fontSize: 20, fontWeight: '700', color: '#2563eb', textAlign: 'center' }}>📅 Login Streak: {user?.loginStreak || 0} days</Text>
                   </View>
                 </View>
 
