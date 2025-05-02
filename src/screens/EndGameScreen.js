@@ -230,7 +230,8 @@ const EndGameScreen = ({ route }) => {
                 width: '100%',
                 flexDirection: 'row',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                marginBottom: 16
               }}
             >
               <MaterialCommunityIcons name="trophy" size={24} color="white" style={{ marginRight: 8 }} />
@@ -240,6 +241,28 @@ const EndGameScreen = ({ route }) => {
                 fontWeight: '600'
               }}>
                 View Leaderboard
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.reset({ index: 0, routes: [{ name: 'Home' }] })}
+              style={{
+                backgroundColor: '#4b5563',
+                borderRadius: 12,
+                padding: 16,
+                width: '100%',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <MaterialCommunityIcons name="home" size={24} color="white" style={{ marginRight: 8 }} />
+              <Text style={{
+                color: 'white',
+                fontSize: 18,
+                fontWeight: '600'
+              }}>
+                Go Home
               </Text>
             </TouchableOpacity>
           </View>
