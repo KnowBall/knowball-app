@@ -11,12 +11,11 @@ export default function SignUpScreen() {
   const { setUser } = useUser();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [displayName, setDisplayName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleSignUp = async () => {
-    if (!email || !password || !displayName) {
+    if (!email || !password) {
       setError('Please fill in all fields');
       return;
     }
@@ -35,7 +34,6 @@ export default function SignUpScreen() {
       const userProfile = {
         userId: firebaseUser.uid,
         email: email,
-        displayName: displayName,
         createdAt: serverTimestamp()
       };
 
@@ -47,8 +45,8 @@ export default function SignUpScreen() {
         ...userProfile
       });
 
-      // Navigate to Home screen
-      navigation.replace('Home');
+      // Navigate to Username screen
+      navigation.replace('Username');
     } catch (err) {
       console.error('Signup error:', err);
       setError(err.message);
@@ -97,21 +95,6 @@ export default function SignUpScreen() {
                 {error}
               </Text>
             ) : null}
-
-            <TextInput
-              style={{
-                width: '100%',
-                padding: 16,
-                marginBottom: 16,
-                backgroundColor: '#f3f4f6',
-                borderRadius: 12,
-                fontSize: 16
-              }}
-              placeholder="Display Name"
-              value={displayName}
-              onChangeText={setDisplayName}
-              autoCapitalize="words"
-            />
 
             <TextInput
               style={{

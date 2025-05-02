@@ -22,7 +22,7 @@ const generateUsername = () => {
 
 export default function UsernameScreen() {
   const navigation = useNavigation();
-  const { user } = useUser();
+  const { user, setUser } = useUser();
   const [username, setUsername] = useState(generateUsername());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -69,11 +69,16 @@ export default function UsernameScreen() {
       const userRef = doc(db, 'users', user.uid);
       await setDoc(userRef, {
         username,
-        displayName: user.displayName || '',
         email: user.email || '',
         totalPoints: 0,
         createdAt: new Date()
       }, { merge: true });
+
+      // Update user context
+      setUser({
+        ...user,
+        username
+      });
 
       // Navigate to HomeScreen
       navigation.reset({
@@ -83,7 +88,6 @@ export default function UsernameScreen() {
     } catch (error) {
       console.error('Error saving username:', error);
       setError('An error occurred. Please try again.');
-    } finally {
       setLoading(false);
     }
   };
