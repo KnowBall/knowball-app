@@ -178,19 +178,22 @@ export default function HomeScreen() {
         <TouchableOpacity
           style={{
             position: 'absolute',
-            left: 0,
-            right: 0,
-            bottom: 32,
+            left: '50%',
+            transform: [{ translateX: -130 }], // half of width
+            bottom: 48,
+            width: 260,
             backgroundColor: 'rgba(31,41,55,0.92)',
-            paddingVertical: 18,
-            marginHorizontal: 32,
-            borderRadius: 16,
+            borderWidth: 2,
+            borderColor: '#374151',
+            paddingVertical: 16,
+            borderRadius: 14,
             alignItems: 'center',
             shadowColor: '#000',
             shadowOffset: { width: 0, height: 2 },
             shadowOpacity: 0.18,
             shadowRadius: 4,
             elevation: 3,
+            zIndex: 10,
           }}
           onPress={async () => {
             try {
@@ -201,7 +204,7 @@ export default function HomeScreen() {
             }
           }}
         >
-          <Text style={{ color: 'white', textAlign: 'center', fontSize: 16, opacity: 0.92, fontWeight: '700', letterSpacing: 1 }}>
+          <Text style={{ color: 'white', textAlign: 'center', fontSize: 16, opacity: 0.95, fontWeight: '700', letterSpacing: 1 }}>
             Sign Out
           </Text>
         </TouchableOpacity>
