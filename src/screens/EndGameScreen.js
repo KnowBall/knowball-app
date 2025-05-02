@@ -135,12 +135,12 @@ const EndGameScreen = ({ route }) => {
               <Animated.Text style={{
                 fontSize: 44,
                 fontWeight: '900',
-                color: '#f59e42',
+                color: '#FFD700',
                 marginBottom: 8,
                 textAlign: 'center',
                 textShadowColor: '#fbbf24',
                 textShadowOffset: { width: 0, height: 2 },
-                textShadowRadius: 12,
+                textShadowRadius: 16,
                 letterSpacing: 1.5,
                 elevation: 8
               }}>
