@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, serverTimestamp, doc, getDoc, setDoc, increment } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { app } from '../lib/firebase';
 import { useUser } from '../contexts/UserContext';
@@ -25,6 +25,8 @@ const EndGameScreen = ({ route }) => {
       if (!user || !user.uid || score <= 0) return;
       try {
         const db = getFirestore(app);
+        
+        // Save the game score
         const scoresRef = collection(db, 'scores');
         await addDoc(scoresRef, {
           userId: user.uid,
@@ -35,6 +37,16 @@ const EndGameScreen = ({ route }) => {
           displayName: user.displayName || ''
         });
         console.log(`Score saved for ${user.uid}`);
+
+        // Update user's total points
+        const userRef = doc(db, 'users', user.uid);
+        await setDoc(userRef, {
+          totalPoints: increment(score),
+          displayName: user.displayName || '',
+          email: user.email || '',
+          updatedAt: serverTimestamp()
+        }, { merge: true });
+        console.log(`Total points updated for ${user.uid}`);
       } catch (error) {
         console.error('Error saving score:', error);
       }
@@ -46,7 +58,10 @@ const EndGameScreen = ({ route }) => {
   const { text: motivationalText, icon: motivationalIcon } = getMotivationalMessage(score, totalQuestions);
 
   const handlePlayAgain = () => {
-    navigation.navigate('Game');
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Game' }],
+    });
   };
 
   const handleViewLeaderboard = () => {

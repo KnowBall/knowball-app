@@ -1,29 +1,52 @@
-import { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, ActivityIndicator } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { getAuth } from 'firebase/auth';
+import { getFirestore, collection, query, orderBy, getDocs } from 'firebase/firestore';
+import { app } from '../lib/firebase';
+import { useUser } from '../contexts/UserContext';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
-  const auth = getAuth();
-  const [userEmail, setUserEmail] = useState('');
+  const { user } = useUser();
+  const [userStats, setUserStats] = useState({ totalPoints: 0, rank: 0, totalUsers: 0 });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const user = auth.currentUser;
-    if (user) {
-      setUserEmail(user.email);
+    async function fetchUserStats() {
+      if (!user?.uid) return;
+      
+      try {
+        const db = getFirestore(app);
+        const usersRef = collection(db, 'users');
+        
+        // Get all users ordered by totalPoints
+        const q = query(usersRef, orderBy('totalPoints', 'desc'));
+        const querySnapshot = await getDocs(q);
+        
+        // Find user's rank and total points
+        let rank = 0;
+        let totalPoints = 0;
+        const totalUsers = querySnapshot.size;
+        
+        querySnapshot.forEach((doc, index) => {
+          if (doc.id === user.uid) {
+            rank = index + 1;
+            totalPoints = doc.data().totalPoints || 0;
+          }
+        });
+        
+        setUserStats({ totalPoints, rank, totalUsers });
+      } catch (error) {
+        console.error('Error fetching user stats:', error);
+      } finally {
+        setLoading(false);
+      }
     }
-    setLoading(false);
-  }, []);
 
-  if (loading) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color="#16a34a" />
-      </View>
-    );
-  }
+    fetchUserStats();
+  }, [user]);
+
+  const userEmail = user?.email || 'Guest';
 
   return (
     <View style={{ height: '100%', width: '100%' }}>
@@ -54,16 +77,16 @@ export default function HomeScreen() {
               {/* Game Stats Preview */}
               <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 32, backgroundColor: 'rgba(22,163,74,0.1)', padding: 16, borderRadius: 16 }}>
                 <View style={{ alignItems: 'center' }}>
-                  <Text style={{ fontSize: 24, fontWeight: '700', color: '#16a34a' }}>0</Text>
-                  <Text style={{ color: '#4b5563', fontSize: 14 }}>Games Played</Text>
+                  <Text style={{ fontSize: 24, fontWeight: '700', color: '#16a34a' }}>{userStats.totalPoints}</Text>
+                  <Text style={{ color: '#4b5563', fontSize: 14 }}>Total Points</Text>
                 </View>
                 <View style={{ alignItems: 'center' }}>
-                  <Text style={{ fontSize: 24, fontWeight: '700', color: '#16a34a' }}>0</Text>
-                  <Text style={{ color: '#4b5563', fontSize: 14 }}>High Score</Text>
+                  <Text style={{ fontSize: 24, fontWeight: '700', color: '#16a34a' }}>{userStats.rank || '-'}</Text>
+                  <Text style={{ color: '#4b5563', fontSize: 14 }}>Global Rank</Text>
                 </View>
                 <View style={{ alignItems: 'center' }}>
-                  <Text style={{ fontSize: 24, fontWeight: '700', color: '#16a34a' }}>0</Text>
-                  <Text style={{ color: '#4b5563', fontSize: 14 }}>Rank</Text>
+                  <Text style={{ fontSize: 24, fontWeight: '700', color: '#16a34a' }}>{userStats.totalUsers}</Text>
+                  <Text style={{ color: '#4b5563', fontSize: 14 }}>Total Players</Text>
                 </View>
               </View>
 

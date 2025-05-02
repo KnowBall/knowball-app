@@ -5,14 +5,16 @@ import { getFirestore, collection, query, orderBy, limit, getDocs } from 'fireba
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { formatDistanceToNow } from 'date-fns';
 import { app } from '../lib/firebase';
+import { useUser } from '../contexts/UserContext';
 
 const MEDALS = ['🥇', '🥈', '🥉'];
 
 export default function LeaderboardScreen() {
-  const [scores, setScores] = useState([]);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigation = useNavigation();
+  const { user: currentUser } = useUser();
 
   useEffect(() => {
     async function fetchLeaderboard() {
@@ -21,64 +23,32 @@ export default function LeaderboardScreen() {
         const db = getFirestore(app);
         console.log('Got Firestore instance');
         
-        const scoresRef = collection(db, 'scores');
-        console.log('Got scores collection reference');
+        const usersRef = collection(db, 'users');
+        console.log('Got users collection reference');
         
-        // Try first with both percentage and timestamp
-        try {
-          const q = query(
-            scoresRef,
-            orderBy('percentage', 'desc'),
-            orderBy('timestamp', 'desc'),
-            limit(10)
-          );
-          console.log('Created query with percentage and timestamp');
-          
-          const querySnapshot = await getDocs(q);
-          console.log('Got query snapshot, size:', querySnapshot.size);
-          
-          const leaderboardData = querySnapshot.docs.map(doc => {
-            const data = doc.data();
-            console.log('Processing doc:', doc.id, data);
-            return {
-              id: doc.id,
-              ...data,
-              timestamp: data.timestamp?.toDate() || new Date()
-            };
-          });
-          
-          setScores(leaderboardData);
-          setError(null);
-        } catch (indexError) {
-          console.log('Index error, falling back to simple query:', indexError);
-          // If the composite index isn't ready, fall back to just percentage
-          const simpleQ = query(
-            scoresRef,
-            orderBy('percentage', 'desc'),
-            limit(10)
-          );
-          
-          const simpleSnapshot = await getDocs(simpleQ);
-          const simpleData = simpleSnapshot.docs.map(doc => {
-            const data = doc.data();
-            return {
-              id: doc.id,
-              ...data,
-              timestamp: data.timestamp?.toDate() || new Date()
-            };
-          });
-          
-          setScores(simpleData);
-          setError(null);
-        }
+        const q = query(
+          usersRef,
+          orderBy('totalPoints', 'desc'),
+          limit(10)
+        );
+        console.log('Created query for totalPoints');
+        
+        const querySnapshot = await getDocs(q);
+        console.log('Got query snapshot, size:', querySnapshot.size);
+        
+        const leaderboardData = querySnapshot.docs.map(doc => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            ...data,
+            isCurrentUser: doc.id === currentUser?.uid
+          };
+        });
+        
+        setUsers(leaderboardData);
+        setError(null);
       } catch (err) {
         console.error('Error fetching leaderboard:', err);
-        console.error('Error details:', {
-          name: err.name,
-          message: err.message,
-          code: err.code,
-          stack: err.stack
-        });
         setError(err.message);
       } finally {
         setLoading(false);
@@ -86,7 +56,7 @@ export default function LeaderboardScreen() {
     }
 
     fetchLeaderboard();
-  }, []);
+  }, [currentUser]);
 
   const handlePlayAgain = () => {
     navigation.reset({
@@ -104,25 +74,11 @@ export default function LeaderboardScreen() {
   }
 
   if (error) {
-    // Check if the error is about missing index
-    const isIndexError = error.includes('requires an index');
-    
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
-        {isIndexError ? (
-          <>
-            <Text style={{ color: '#dc2626', fontSize: 18, textAlign: 'center', marginBottom: 16 }}>
-              The leaderboard is being set up for the first time. Please try again in a few minutes.
-            </Text>
-            <Text style={{ color: '#6b7280', fontSize: 14, textAlign: 'center', marginBottom: 16 }}>
-              (First-time setup: Creating database index...)
-            </Text>
-          </>
-        ) : (
-          <Text style={{ color: '#dc2626', fontSize: 18, textAlign: 'center', marginBottom: 16 }}>
-            Error loading leaderboard: {error}
-          </Text>
-        )}
+        <Text style={{ color: '#dc2626', fontSize: 18, textAlign: 'center', marginBottom: 16 }}>
+          Error loading leaderboard: {error}
+        </Text>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={{
@@ -178,12 +134,42 @@ export default function LeaderboardScreen() {
               marginBottom: 32,
               textAlign: 'center'
             }}>
-              Leaderboard
+              Global Leaderboard
             </Text>
 
-            {/* Scores List */}
+            {/* User Stats */}
+            {currentUser && (
+              <View style={{
+                width: '100%',
+                backgroundColor: '#f0fdf4',
+                padding: 16,
+                borderRadius: 12,
+                marginBottom: 24,
+                borderWidth: 2,
+                borderColor: '#16a34a'
+              }}>
+                <Text style={{
+                  fontSize: 18,
+                  color: '#111827',
+                  fontWeight: '600',
+                  textAlign: 'center'
+                }}>
+                  Your Total Points: {users.find(u => u.isCurrentUser)?.totalPoints || 0}
+                </Text>
+                <Text style={{
+                  fontSize: 14,
+                  color: '#4b5563',
+                  textAlign: 'center',
+                  marginTop: 4
+                }}>
+                  Keep playing to climb the ranks!
+                </Text>
+              </View>
+            )}
+
+            {/* Users List */}
             <View style={{ width: '100%', marginBottom: 32 }}>
-              {scores.length === 0 ? (
+              {users.length === 0 ? (
                 <Text style={{
                   fontSize: 18,
                   color: '#6b7280',
@@ -193,41 +179,34 @@ export default function LeaderboardScreen() {
                   No scores yet. Be the first to play!
                 </Text>
               ) : (
-                scores.map((score, index) => (
+                users.map((user, index) => (
                   <View
-                    key={score.id}
+                    key={user.id}
                     style={{
                       flexDirection: 'row',
                       alignItems: 'center',
                       padding: 16,
                       marginBottom: 12,
-                      backgroundColor: index < 3 ? '#f0fdf4' : '#f9fafb',
+                      backgroundColor: user.isCurrentUser ? '#f0fdf4' : index < 3 ? '#f0fdf4' : '#f9fafb',
                       borderRadius: 12,
                       borderWidth: 2,
-                      borderColor: index < 3 ? '#16a34a' : '#e5e7eb'
+                      borderColor: user.isCurrentUser ? '#16a34a' : index < 3 ? '#16a34a' : '#e5e7eb'
                     }}
                   >
                     <Text style={{
                       fontSize: 24,
                       marginRight: 12,
-                      color: index < 3 ? '#16a34a' : '#6b7280'
+                      color: user.isCurrentUser ? '#16a34a' : index < 3 ? '#16a34a' : '#6b7280'
                     }}>
-                      {index < 3 ? MEDALS[index] : `${index + 1}.`}
+                      {user.isCurrentUser ? '👤' : index < 3 ? MEDALS[index] : `${index + 1}.`}
                     </Text>
                     <View style={{ flex: 1 }}>
                       <Text style={{
                         fontSize: 18,
                         color: '#111827',
-                        fontWeight: index < 3 ? '600' : 'normal'
+                        fontWeight: user.isCurrentUser || index < 3 ? '600' : 'normal'
                       }}>
-                        {score.score}/{score.total} — {Math.round(score.percentage)}%
-                      </Text>
-                      <Text style={{
-                        fontSize: 14,
-                        color: '#6b7280',
-                        marginTop: 4
-                      }}>
-                        {formatDistanceToNow(score.timestamp, { addSuffix: true })}
+                        {user.displayName || 'Anonymous'} — {user.totalPoints || 0} points
                       </Text>
                     </View>
                   </View>
