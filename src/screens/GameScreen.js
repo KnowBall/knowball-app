@@ -9,6 +9,7 @@ export default function GameScreen() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [currentCorrectStreak, setCurrentCorrectStreak] = useState(0);
+  const [correctCount, setCorrectCount] = useState(0);
   const [pointChange, setPointChange] = useState(null);
   const [showPointChange, setShowPointChange] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
@@ -23,6 +24,7 @@ export default function GameScreen() {
       setCurrentQuestionIndex(0);
       setScore(0);
       setCurrentCorrectStreak(0);
+      setCorrectCount(0);
       setPointChange(null);
       setShowPointChange(false);
       setShowExplanation(false);
@@ -74,13 +76,14 @@ export default function GameScreen() {
           // Direct navigation without handleGameComplete function
           navigation.navigate('EndGame', {
             score: score,
-            totalQuestions: questions.length
+            totalQuestions: questions.length,
+            correctCount: correctCount
           });
         }
       }, 1500);
     }
     return () => clearTimeout(advanceTimer);
-  }, [showExplanation, currentQuestionIndex, questions.length, score, navigation]);
+  }, [showExplanation, currentQuestionIndex, questions.length, score, navigation, correctCount]);
 
   const triggerPointChange = (text) => {
     setPointChange(text);
@@ -108,6 +111,7 @@ export default function GameScreen() {
       }
       setScore(newScore);
       setCurrentCorrectStreak(newStreak);
+      setCorrectCount(correctCount + 1);
     } else {
       setScore(score - 3);
       setCurrentCorrectStreak(0);

@@ -18,7 +18,7 @@ const getMotivationalMessage = (score, totalQuestions) => {
 const EndGameScreen = ({ route }) => {
   const navigation = useNavigation();
   const { user } = useUser();
-  const { score = 0, totalQuestions = 10 } = route?.params || {};
+  const { score = 0, totalQuestions = 10, correctCount = 0 } = route?.params || {};
   const [animatedScore, setAnimatedScore] = useState(0);
   const [totalPoints, setTotalPoints] = useState(null);
   const anim = useRef(new Animated.Value(0)).current;
@@ -133,25 +133,36 @@ const EndGameScreen = ({ route }) => {
               alignItems: 'center'
             }}>
               <Animated.Text style={{
+                fontSize: 44,
+                fontWeight: '900',
+                color: '#f59e42',
+                marginBottom: 8,
+                textAlign: 'center',
+                textShadowColor: '#fbbf24',
+                textShadowOffset: { width: 0, height: 2 },
+                textShadowRadius: 12,
+                letterSpacing: 1.5,
+                elevation: 8
+              }}>
+                {totalPoints !== null ? `Total Points: ${totalPoints}` : ''}
+              </Animated.Text>
+              <Animated.Text style={{
                 fontSize: 32,
                 fontWeight: '800',
                 color: animatedScore >= 0 ? '#16a34a' : '#dc2626',
-                marginBottom: 8
+                marginBottom: 8,
+                textAlign: 'center'
               }}>
                 {animatedScore >= 0 ? `+${animatedScore}` : `${animatedScore}`}
               </Animated.Text>
-              {totalPoints !== null && (
-                <Text style={{ fontSize: 18, color: '#4b5563', marginBottom: 8 }}>
-                  Total Points: {totalPoints}
-                </Text>
-              )}
               <Text style={{
                 fontSize: 20,
                 fontWeight: '700',
                 color: '#1f2937',
-                marginBottom: 8
+                marginBottom: 8,
+                textAlign: 'center'
               }}>
-                You scored {score} out of {totalQuestions}!
+                You got {correctCount} out of {totalQuestions} questions right!
               </Text>
               
               {/* Motivational Message */}
