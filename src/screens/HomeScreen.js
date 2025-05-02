@@ -100,10 +100,35 @@ export default function HomeScreen() {
       >
         <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', padding: 24 }}>
           {/* Header Section */}
-          <View style={{ paddingTop: 48, paddingBottom: 24 }}>
+          <View style={{ paddingTop: 48, paddingBottom: 24, alignItems: 'flex-end' }}>
             <Text style={{ color: 'white', fontSize: 16, textAlign: 'right', opacity: 0.9 }}>
               {userEmail}
             </Text>
+            <TouchableOpacity
+              style={{
+                marginTop: 8,
+                width: 110,
+                paddingVertical: 7,
+                borderRadius: 20,
+                borderWidth: 1.5,
+                borderColor: '#fff',
+                backgroundColor: 'rgba(31,41,55,0.7)',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              onPress={async () => {
+                try {
+                  await signOut(auth);
+                  navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
+                } catch (e) {
+                  console.error('Sign out error:', e);
+                }
+              }}
+            >
+              <Text style={{ color: 'white', fontSize: 14, fontWeight: '600', letterSpacing: 0.5 }}>
+                Sign Out
+              </Text>
+            </TouchableOpacity>
           </View>
 
           {/* Main Content */}
@@ -174,40 +199,6 @@ export default function HomeScreen() {
             </View>
           </View>
         </View>
-        {/* Absolute Sign Out Button */}
-        <TouchableOpacity
-          style={{
-            position: 'absolute',
-            left: '50%',
-            transform: [{ translateX: -130 }], // half of width
-            bottom: 48,
-            width: 260,
-            backgroundColor: 'rgba(31,41,55,0.92)',
-            borderWidth: 2,
-            borderColor: '#374151',
-            paddingVertical: 16,
-            borderRadius: 14,
-            alignItems: 'center',
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 0.18,
-            shadowRadius: 4,
-            elevation: 3,
-            zIndex: 10,
-          }}
-          onPress={async () => {
-            try {
-              await signOut(auth);
-              navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
-            } catch (e) {
-              console.error('Sign out error:', e);
-            }
-          }}
-        >
-          <Text style={{ color: 'white', textAlign: 'center', fontSize: 16, opacity: 0.95, fontWeight: '700', letterSpacing: 1 }}>
-            Sign Out
-          </Text>
-        </TouchableOpacity>
       </ImageBackground>
     </View>
   );
