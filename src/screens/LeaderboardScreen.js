@@ -206,7 +206,7 @@ export default function LeaderboardScreen() {
                         color: '#111827',
                         fontWeight: user.isCurrentUser || index < 3 ? '600' : 'normal'
                       }}>
-                        {user.displayName || 'Anonymous'} — {user.totalPoints || 0} points
+                        {user.username || user.displayName || 'Anonymous'} — {user.totalPoints || 0} points
                       </Text>
                     </View>
                   </View>

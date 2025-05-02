@@ -34,7 +34,7 @@ const EndGameScreen = ({ route }) => {
           total: totalQuestions,
           percentage: (score / totalQuestions) * 100,
           timestamp: serverTimestamp(),
-          displayName: user.displayName || ''
+          username: user.username || user.displayName || ''
         });
         console.log(`Score saved for ${user.uid}`);
 
@@ -42,7 +42,6 @@ const EndGameScreen = ({ route }) => {
         const userRef = doc(db, 'users', user.uid);
         await setDoc(userRef, {
           totalPoints: increment(score),
-          displayName: user.displayName || '',
           email: user.email || '',
           updatedAt: serverTimestamp()
         }, { merge: true });
