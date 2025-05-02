@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, TouchableOpacity, ImageBackground, Animated, Modal, Platform } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { getFirestore, collection, addDoc, serverTimestamp, doc, getDoc, setDoc, increment } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -22,7 +22,6 @@ const EndGameScreen = ({ route }) => {
   const [animatedScore, setAnimatedScore] = useState(0);
   const [totalPoints, setTotalPoints] = useState(null);
   const anim = useRef(new Animated.Value(0)).current;
-  const route = useRoute();
   const { isChallenge, challengeId } = route?.params || {};
   const [showChallengeModal, setShowChallengeModal] = useState(false);
   const challengeLink = challengeId ? `https://knowball.app/challenge/${challengeId}` : '';
