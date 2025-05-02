@@ -92,10 +92,10 @@ export default function HomeScreen() {
   }
 
   return (
-    <View style={{ height: '100%', width: '100%' }}>
+    <View style={{ flex: 1, minHeight: '100%' }}>
       <ImageBackground
         source={require('../assets/sports-bg.jpg')}
-        style={{ width: '100%', height: '100%' }}
+        style={{ flex: 1, minHeight: '100%' }}
         resizeMode="cover"
       >
         <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', padding: 24 }}>
