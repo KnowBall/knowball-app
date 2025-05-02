@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { app } from '../lib/firebase';
+import { useUser } from '../contexts/UserContext';
 
 const getMotivationalMessage = (score, totalQuestions) => {
   const ratio = score / totalQuestions;
@@ -16,33 +17,31 @@ const getMotivationalMessage = (score, totalQuestions) => {
 
 const EndGameScreen = ({ route }) => {
   const navigation = useNavigation();
+  const { user } = useUser();
   const { score = 0, totalQuestions = 10 } = route?.params || {};
   
   useEffect(() => {
     async function saveScore() {
-      if (score > 0) {
-        try {
-          const auth = getAuth(app);
-          const db = getFirestore(app);
-          const scoresRef = collection(db, 'scores');
-          
-          await addDoc(scoresRef, {
-            userId: auth.currentUser?.uid,
-            score: score,
-            total: totalQuestions,
-            percentage: (score / totalQuestions) * 100,
-            timestamp: serverTimestamp()
-          });
-          
-          console.log('Score saved successfully');
-        } catch (error) {
-          console.error('Error saving score:', error);
-        }
+      if (!user || !user.uid || score <= 0) return;
+      try {
+        const db = getFirestore(app);
+        const scoresRef = collection(db, 'scores');
+        await addDoc(scoresRef, {
+          userId: user.uid,
+          score: score,
+          total: totalQuestions,
+          percentage: (score / totalQuestions) * 100,
+          timestamp: serverTimestamp(),
+          displayName: user.displayName || ''
+        });
+        console.log(`Score saved for ${user.uid}`);
+      } catch (error) {
+        console.error('Error saving score:', error);
       }
     }
     
     saveScore();
-  }, [score, totalQuestions]);
+  }, [user, score, totalQuestions]);
   
   const { text: motivationalText, icon: motivationalIcon } = getMotivationalMessage(score, totalQuestions);
 
