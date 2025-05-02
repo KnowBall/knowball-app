@@ -21,26 +21,28 @@ export default function LeaderboardScreen() {
   useEffect(() => {
     async function fetchLeaderboard() {
       if (!currentUser?.uid) return;
-      
       try {
         const db = getFirestore(app);
         const usersRef = collection(db, 'users');
-        
-        // Get total users count
+
+        // Get all users ordered by totalPoints
         const allUsersQuery = query(usersRef, orderBy('totalPoints', 'desc'));
         const allUsersSnapshot = await getDocs(allUsersQuery);
         setTotalUsers(allUsersSnapshot.size);
-        
-        // Find current user's rank
-        const currentUserQuery = query(
-          usersRef,
-          where('totalPoints', '>=', currentUser.totalPoints || 0),
-          orderBy('totalPoints', 'desc')
-        );
-        const currentUserSnapshot = await getDocs(currentUserQuery);
-        const rank = currentUserSnapshot.size;
-        setCurrentUserRank(rank);
-        
+
+        // Find current user's rank: count users with more points than current user
+        let rank = null;
+        let currentUserPoints = currentUser.totalPoints || 0;
+        let found = false;
+        allUsersSnapshot.docs.forEach((doc, idx) => {
+          if (doc.id === currentUser.uid) {
+            rank = idx + 1;
+            found = true;
+          }
+        });
+        // If not found, fallback to last
+        setCurrentUserRank(rank || allUsersSnapshot.size);
+
         // Get top 10 users
         const topUsersQuery = query(
           usersRef,
@@ -48,16 +50,17 @@ export default function LeaderboardScreen() {
           limit(10)
         );
         const topUsersSnapshot = await getDocs(topUsersQuery);
-        
-        const leaderboardData = topUsersSnapshot.docs.map(doc => {
+
+        const leaderboardData = topUsersSnapshot.docs.map((doc, idx) => {
           const data = doc.data();
           return {
             id: doc.id,
             ...data,
-            isCurrentUser: doc.id === currentUser.uid
+            isCurrentUser: doc.id === currentUser.uid,
+            leaderboardIndex: idx
           };
         });
-        
+
         setUsers(leaderboardData);
         setError(null);
       } catch (err) {
@@ -169,7 +172,7 @@ export default function LeaderboardScreen() {
                   fontWeight: '600',
                   textAlign: 'center'
                 }}>
-                  You are ranked #{currentUserRank} out of {totalUsers} Ball Knowers
+                  You ({currentUser.username || currentUser.displayName || 'Anonymous'}) are ranked #{currentUserRank} out of {totalUsers} Ball Knowers
                 </Text>
                 <Text style={{
                   fontSize: 16,
@@ -214,7 +217,8 @@ export default function LeaderboardScreen() {
                         marginRight: 12,
                         color: user.isCurrentUser ? '#16a34a' : index < 3 ? '#16a34a' : '#6b7280'
                       }}>
-                        {user.isCurrentUser ? '👤' : index < 3 ? MEDALS[index] : `${index + 1}.`}
+                        {/* Medal for top 3, otherwise number. Only show 👤 if not in top 3 */}
+                        {index < 3 ? MEDALS[index] : (user.isCurrentUser ? (index < 3 ? MEDALS[index] : '👤') : `${index + 1}.`)}
                       </Text>
                       <View style={{ flex: 1 }}>
                         <Text style={{

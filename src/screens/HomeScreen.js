@@ -66,6 +66,10 @@ export default function HomeScreen() {
           {/* Main Content */}
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <View style={{ width: '100%', maxWidth: 500, backgroundColor: 'rgba(255,255,255,0.95)', padding: 32, borderRadius: 24, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5 }}>
+              {/* Username Greeting */}
+              <Text style={{ fontSize: 22, fontWeight: '700', color: '#111827', marginBottom: 16, textAlign: 'center' }}>
+                Welcome, {user.username || user.displayName || 'Anonymous'}!
+              </Text>
               <Text style={{ fontSize: 40, fontWeight: '800', color: '#16a34a', marginBottom: 12, textAlign: 'center' }}>
                 🏈 Ready to Play?
               </Text>

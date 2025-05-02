@@ -87,7 +87,7 @@ export default function LoginScreen() {
               marginBottom: 32
             }}>
               Welcome Back!
-            </Text>
+        </Text>
 
             {error ? (
               <Text style={{
@@ -99,7 +99,7 @@ export default function LoginScreen() {
               </Text>
             ) : null}
 
-            <TextInput
+        <TextInput
               style={{
                 width: '100%',
                 padding: 16,
@@ -108,14 +108,14 @@ export default function LoginScreen() {
                 borderRadius: 12,
                 fontSize: 16
               }}
-              placeholder="Email"
+          placeholder="Email"
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
-              keyboardType="email-address"
-            />
+          keyboardType="email-address"
+        />
 
-            <TextInput
+        <TextInput
               style={{
                 width: '100%',
                 padding: 16,
@@ -124,13 +124,13 @@ export default function LoginScreen() {
                 borderRadius: 12,
                 fontSize: 16
               }}
-              placeholder="Password"
+          placeholder="Password"
               value={password}
               onChangeText={setPassword}
-              secureTextEntry
-            />
+          secureTextEntry
+        />
 
-            <TouchableOpacity
+        <TouchableOpacity
               style={{
                 width: '100%',
                 backgroundColor: '#16a34a',
@@ -154,20 +154,20 @@ export default function LoginScreen() {
                   Log In
                 </Text>
               )}
-            </TouchableOpacity>
+        </TouchableOpacity>
 
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SignUp')}
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SignUp')}
               style={{ padding: 8 }}
-            >
+        >
               <Text style={{
                 color: '#4b5563',
                 fontSize: 14
               }}>
                 Don't have an account? <Text style={{ color: '#16a34a', fontWeight: '600' }}>Sign Up</Text>
-              </Text>
-            </TouchableOpacity>
-          </View>
+          </Text>
+        </TouchableOpacity>
+      </View>
         </View>
       </ImageBackground>
     </View>

@@ -85,7 +85,7 @@ export default function SignUpScreen() {
             }}>
               Create Account
             </Text>
-
+            
             {error ? (
               <Text style={{
                 color: '#dc2626',
@@ -93,7 +93,7 @@ export default function SignUpScreen() {
                 textAlign: 'center'
               }}>
                 {error}
-              </Text>
+            </Text>
             ) : null}
 
             <TextInput

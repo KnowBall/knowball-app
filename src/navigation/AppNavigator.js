@@ -55,16 +55,16 @@ export default function AppNavigator() {
         {!user ? (
           // Auth screens
           <>
-            <Stack.Screen
-              name="Login"
-              component={LoginScreen}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="SignUp"
-              component={SignUpScreen}
-              options={{ headerShown: false }}
-            />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={SignUpScreen}
+          options={{ headerShown: false }}
+        />
           </>
         ) : !hasUsername ? (
           // Username setup for new users
@@ -76,11 +76,11 @@ export default function AppNavigator() {
         ) : (
           // Protected screens
           <>
-            <Stack.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{ headerShown: false }}
-            />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
             <Stack.Screen
               name="Game"
               component={GameScreen}
