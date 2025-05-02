@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ImageBackground, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { getFirestore, collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, query, orderBy, limit, getDocs, where } from 'firebase/firestore';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { formatDistanceToNow } from 'date-fns';
 import { app } from '../lib/firebase';
@@ -13,35 +13,48 @@ export default function LeaderboardScreen() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [totalUsers, setTotalUsers] = useState(0);
+  const [currentUserRank, setCurrentUserRank] = useState(null);
   const navigation = useNavigation();
   const { user: currentUser } = useUser();
 
   useEffect(() => {
     async function fetchLeaderboard() {
+      if (!currentUser?.uid) return;
+      
       try {
-        console.log('Starting to fetch leaderboard data...');
         const db = getFirestore(app);
-        console.log('Got Firestore instance');
-        
         const usersRef = collection(db, 'users');
-        console.log('Got users collection reference');
         
-        const q = query(
+        // Get total users count
+        const allUsersQuery = query(usersRef, orderBy('totalPoints', 'desc'));
+        const allUsersSnapshot = await getDocs(allUsersQuery);
+        setTotalUsers(allUsersSnapshot.size);
+        
+        // Find current user's rank
+        const currentUserQuery = query(
+          usersRef,
+          where('totalPoints', '>=', currentUser.totalPoints || 0),
+          orderBy('totalPoints', 'desc')
+        );
+        const currentUserSnapshot = await getDocs(currentUserQuery);
+        const rank = currentUserSnapshot.size;
+        setCurrentUserRank(rank);
+        
+        // Get top 10 users
+        const topUsersQuery = query(
           usersRef,
           orderBy('totalPoints', 'desc'),
           limit(10)
         );
-        console.log('Created query for totalPoints');
+        const topUsersSnapshot = await getDocs(topUsersQuery);
         
-        const querySnapshot = await getDocs(q);
-        console.log('Got query snapshot, size:', querySnapshot.size);
-        
-        const leaderboardData = querySnapshot.docs.map(doc => {
+        const leaderboardData = topUsersSnapshot.docs.map(doc => {
           const data = doc.data();
           return {
             id: doc.id,
             ...data,
-            isCurrentUser: doc.id === currentUser?.uid
+            isCurrentUser: doc.id === currentUser.uid
           };
         });
         
@@ -97,6 +110,8 @@ export default function LeaderboardScreen() {
       </View>
     );
   }
+
+  const isCurrentUserInTop10 = users.some(user => user.isCurrentUser);
 
   return (
     <View style={{ height: '100%', width: '100%' }}>
@@ -154,15 +169,15 @@ export default function LeaderboardScreen() {
                   fontWeight: '600',
                   textAlign: 'center'
                 }}>
-                  Your Total Points: {users.find(u => u.isCurrentUser)?.totalPoints || 0}
+                  You are ranked #{currentUserRank} out of {totalUsers} Ball Knowers
                 </Text>
                 <Text style={{
-                  fontSize: 14,
+                  fontSize: 16,
                   color: '#4b5563',
                   textAlign: 'center',
                   marginTop: 4
                 }}>
-                  Keep playing to climb the ranks!
+                  Total Points: {users.find(u => u.isCurrentUser)?.totalPoints || 0}
                 </Text>
               </View>
             )}
@@ -179,38 +194,80 @@ export default function LeaderboardScreen() {
                   No scores yet. Be the first to play!
                 </Text>
               ) : (
-                users.map((user, index) => (
-                  <View
-                    key={user.id}
-                    style={{
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      padding: 16,
-                      marginBottom: 12,
-                      backgroundColor: user.isCurrentUser ? '#f0fdf4' : index < 3 ? '#f0fdf4' : '#f9fafb',
-                      borderRadius: 12,
-                      borderWidth: 2,
-                      borderColor: user.isCurrentUser ? '#16a34a' : index < 3 ? '#16a34a' : '#e5e7eb'
-                    }}
-                  >
-                    <Text style={{
-                      fontSize: 24,
-                      marginRight: 12,
-                      color: user.isCurrentUser ? '#16a34a' : index < 3 ? '#16a34a' : '#6b7280'
-                    }}>
-                      {user.isCurrentUser ? '👤' : index < 3 ? MEDALS[index] : `${index + 1}.`}
-                    </Text>
-                    <View style={{ flex: 1 }}>
+                <>
+                  {users.map((user, index) => (
+                    <View
+                      key={user.id}
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        padding: 16,
+                        marginBottom: 12,
+                        backgroundColor: user.isCurrentUser ? '#f0fdf4' : index < 3 ? '#f0fdf4' : '#f9fafb',
+                        borderRadius: 12,
+                        borderWidth: 2,
+                        borderColor: user.isCurrentUser ? '#16a34a' : index < 3 ? '#16a34a' : '#e5e7eb'
+                      }}
+                    >
                       <Text style={{
-                        fontSize: 18,
-                        color: '#111827',
-                        fontWeight: user.isCurrentUser || index < 3 ? '600' : 'normal'
+                        fontSize: 24,
+                        marginRight: 12,
+                        color: user.isCurrentUser ? '#16a34a' : index < 3 ? '#16a34a' : '#6b7280'
                       }}>
-                        {user.username || user.displayName || 'Anonymous'} — {user.totalPoints || 0} points
+                        {user.isCurrentUser ? '👤' : index < 3 ? MEDALS[index] : `${index + 1}.`}
                       </Text>
+                      <View style={{ flex: 1 }}>
+                        <Text style={{
+                          fontSize: 18,
+                          color: '#111827',
+                          fontWeight: user.isCurrentUser || index < 3 ? '600' : 'normal'
+                        }}>
+                          {user.username || user.displayName || 'Anonymous'} — {user.totalPoints || 0} points
+                        </Text>
+                      </View>
                     </View>
-                  </View>
-                ))
+                  ))}
+                  
+                  {/* Show current user's position if not in top 10 */}
+                  {currentUser && !isCurrentUserInTop10 && (
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        padding: 16,
+                        marginTop: 16,
+                        backgroundColor: '#f0fdf4',
+                        borderRadius: 12,
+                        borderWidth: 2,
+                        borderColor: '#16a34a'
+                      }}
+                    >
+                      <Text style={{
+                        fontSize: 24,
+                        marginRight: 12,
+                        color: '#16a34a'
+                      }}>
+                        👤
+                      </Text>
+                      <View style={{ flex: 1 }}>
+                        <Text style={{
+                          fontSize: 18,
+                          color: '#111827',
+                          fontWeight: '600'
+                        }}>
+                          {currentUser.username || currentUser.displayName || 'Anonymous'} — {currentUser.totalPoints || 0} points
+                        </Text>
+                        <Text style={{
+                          fontSize: 14,
+                          color: '#4b5563',
+                          marginTop: 4
+                        }}>
+                          Rank #{currentUserRank}
+                        </Text>
+                      </View>
+                    </View>
+                  )}
+                </>
               )}
             </View>
 
