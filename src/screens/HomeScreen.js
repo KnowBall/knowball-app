@@ -173,24 +173,38 @@ export default function HomeScreen() {
               </TouchableOpacity>
             </View>
           </View>
-
-          {/* Footer Section */}
-          <TouchableOpacity
-            style={{ paddingVertical: 24 }}
-            onPress={async () => {
-              try {
-                await signOut(auth);
-                navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
-              } catch (e) {
-                console.error('Sign out error:', e);
-              }
-            }}
-          >
-            <Text style={{ color: 'white', textAlign: 'center', fontSize: 16, opacity: 0.8 }}>
-              Sign Out
-            </Text>
-          </TouchableOpacity>
         </View>
+        {/* Absolute Sign Out Button */}
+        <TouchableOpacity
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 32,
+            backgroundColor: 'rgba(31,41,55,0.92)',
+            paddingVertical: 18,
+            marginHorizontal: 32,
+            borderRadius: 16,
+            alignItems: 'center',
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.18,
+            shadowRadius: 4,
+            elevation: 3,
+          }}
+          onPress={async () => {
+            try {
+              await signOut(auth);
+              navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
+            } catch (e) {
+              console.error('Sign out error:', e);
+            }
+          }}
+        >
+          <Text style={{ color: 'white', textAlign: 'center', fontSize: 16, opacity: 0.92, fontWeight: '700', letterSpacing: 1 }}>
+            Sign Out
+          </Text>
+        </TouchableOpacity>
       </ImageBackground>
     </View>
   );
