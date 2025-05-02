@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, Animated } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, TouchableOpacity, ImageBackground, Animated, Modal, Platform } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { getFirestore, collection, addDoc, serverTimestamp, doc, getDoc, setDoc, increment } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -22,6 +22,10 @@ const EndGameScreen = ({ route }) => {
   const [animatedScore, setAnimatedScore] = useState(0);
   const [totalPoints, setTotalPoints] = useState(null);
   const anim = useRef(new Animated.Value(0)).current;
+  const route = useRoute();
+  const { isChallenge, challengeId } = route?.params || {};
+  const [showChallengeModal, setShowChallengeModal] = useState(false);
+  const challengeLink = challengeId ? `https://knowball.app/challenge/${challengeId}` : '';
   
   useEffect(() => {
     // Animate the score count-up
@@ -88,6 +92,28 @@ const EndGameScreen = ({ route }) => {
   const handleViewLeaderboard = () => {
     navigation.navigate('Leaderboard');
   };
+
+  // Cross-platform clipboard copy
+  async function copyToClipboard(text) {
+    if (Platform.OS === 'web') {
+      try {
+        await navigator.clipboard.writeText(text);
+        alert('Link copied to clipboard!');
+      } catch (e) {
+        alert('Failed to copy link.');
+      }
+    } else {
+      const { default: Clipboard } = await import('expo-clipboard');
+      await Clipboard.setStringAsync(text);
+      alert('Link copied to clipboard!');
+    }
+  }
+
+  useEffect(() => {
+    if (isChallenge && challengeId) {
+      setShowChallengeModal(true);
+    }
+  }, [isChallenge, challengeId]);
 
   return (
     <View style={{ height: '100%', width: '100%' }}>
@@ -249,6 +275,36 @@ const EndGameScreen = ({ route }) => {
           </View>
         </View>
       </ImageBackground>
+
+      {/* Modal for Challenge Link (only for challenge games) */}
+      <Modal
+        visible={showChallengeModal}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setShowChallengeModal(false)}
+      >
+        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ backgroundColor: 'white', borderRadius: 20, padding: 28, width: 320, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.18, shadowRadius: 8, elevation: 5 }}>
+            <Text style={{ fontSize: 20, fontWeight: '700', color: '#111827', marginBottom: 12, textAlign: 'center' }}>Challenge Ready!</Text>
+            <Text style={{ fontSize: 16, color: '#4b5563', marginBottom: 16, textAlign: 'center' }}>Send this link to your friend to challenge them:</Text>
+            <View style={{ backgroundColor: '#f3f4f6', borderRadius: 10, padding: 10, marginBottom: 16, width: '100%' }}>
+              <Text selectable style={{ fontSize: 14, color: '#2563eb', textAlign: 'center' }}>{challengeLink}</Text>
+            </View>
+            <TouchableOpacity
+              style={{ backgroundColor: '#2563eb', borderRadius: 10, paddingVertical: 10, paddingHorizontal: 24, marginBottom: 16 }}
+              onPress={() => copyToClipboard(challengeLink)}
+            >
+              <Text style={{ color: 'white', fontWeight: '700', fontSize: 16 }}>Copy Link</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{ marginTop: 8 }}
+              onPress={() => setShowChallengeModal(false)}
+            >
+              <Text style={{ color: '#dc2626', fontSize: 15 }}>Close</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
