@@ -24,31 +24,53 @@ export default function LeaderboardScreen() {
         const scoresRef = collection(db, 'scores');
         console.log('Got scores collection reference');
         
-        const q = query(
-          scoresRef,
-          orderBy('percentage', 'desc'),
-          orderBy('timestamp', 'desc'),
-          limit(10)
-        );
-        console.log('Created query');
-
-        console.log('Executing query...');
-        const querySnapshot = await getDocs(q);
-        console.log('Got query snapshot, size:', querySnapshot.size);
-
-        const leaderboardData = querySnapshot.docs.map(doc => {
-          const data = doc.data();
-          console.log('Processing doc:', doc.id, data);
-          return {
-            id: doc.id,
-            ...data,
-            timestamp: data.timestamp?.toDate() || new Date()
-          };
-        });
-        console.log('Processed leaderboard data:', leaderboardData);
-
-        setScores(leaderboardData);
-        setError(null);
+        // Try first with both percentage and timestamp
+        try {
+          const q = query(
+            scoresRef,
+            orderBy('percentage', 'desc'),
+            orderBy('timestamp', 'desc'),
+            limit(10)
+          );
+          console.log('Created query with percentage and timestamp');
+          
+          const querySnapshot = await getDocs(q);
+          console.log('Got query snapshot, size:', querySnapshot.size);
+          
+          const leaderboardData = querySnapshot.docs.map(doc => {
+            const data = doc.data();
+            console.log('Processing doc:', doc.id, data);
+            return {
+              id: doc.id,
+              ...data,
+              timestamp: data.timestamp?.toDate() || new Date()
+            };
+          });
+          
+          setScores(leaderboardData);
+          setError(null);
+        } catch (indexError) {
+          console.log('Index error, falling back to simple query:', indexError);
+          // If the composite index isn't ready, fall back to just percentage
+          const simpleQ = query(
+            scoresRef,
+            orderBy('percentage', 'desc'),
+            limit(10)
+          );
+          
+          const simpleSnapshot = await getDocs(simpleQ);
+          const simpleData = simpleSnapshot.docs.map(doc => {
+            const data = doc.data();
+            return {
+              id: doc.id,
+              ...data,
+              timestamp: data.timestamp?.toDate() || new Date()
+            };
+          });
+          
+          setScores(simpleData);
+          setError(null);
+        }
       } catch (err) {
         console.error('Error fetching leaderboard:', err);
         console.error('Error details:', {
@@ -67,7 +89,10 @@ export default function LeaderboardScreen() {
   }, []);
 
   const handlePlayAgain = () => {
-    navigation.navigate('Game');
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Game' }],
+    });
   };
 
   if (loading) {
