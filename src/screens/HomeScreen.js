@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, ScrollView, Modal } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, ScrollView, Modal, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { getFirestore, collection, query, orderBy, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
 import { app } from '../lib/firebase';
 import { useUser } from '../contexts/UserContext';
 import { getAuth, signOut } from 'firebase/auth';
 import { fetchRandomQuestions } from '../hooks/useQuestions';
-import * as Clipboard from 'expo-clipboard';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -95,6 +94,22 @@ export default function HomeScreen() {
         alert('Error creating challenge. Please try again.');
       }
     })();
+  }
+
+  // Cross-platform clipboard copy
+  async function copyToClipboard(text) {
+    if (Platform.OS === 'web') {
+      try {
+        await navigator.clipboard.writeText(text);
+        alert('Link copied to clipboard!');
+      } catch (e) {
+        alert('Failed to copy link.');
+      }
+    } else {
+      const { default: Clipboard } = await import('expo-clipboard');
+      await Clipboard.setStringAsync(text);
+      alert('Link copied to clipboard!');
+    }
   }
 
   return (
@@ -230,10 +245,7 @@ export default function HomeScreen() {
             </View>
             <TouchableOpacity
               style={{ backgroundColor: '#2563eb', borderRadius: 10, paddingVertical: 10, paddingHorizontal: 24, marginBottom: 16 }}
-              onPress={async () => {
-                await Clipboard.setStringAsync(challengeLink);
-                alert('Link copied to clipboard!');
-              }}
+              onPress={() => copyToClipboard(challengeLink)}
             >
               <Text style={{ color: 'white', fontWeight: '700', fontSize: 16 }}>Copy Link</Text>
             </TouchableOpacity>
