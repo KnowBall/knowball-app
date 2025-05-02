@@ -106,9 +106,12 @@ export default function HomeScreen() {
             </Text>
             <TouchableOpacity
               style={{
-                marginTop: 8,
-                width: 110,
-                paddingVertical: 7,
+                marginTop: 12,
+                marginRight: 4,
+                minWidth: 90,
+                maxWidth: 130,
+                width: '40%',
+                paddingVertical: 10,
                 borderRadius: 20,
                 borderWidth: 1.5,
                 borderColor: '#fff',
@@ -125,7 +128,7 @@ export default function HomeScreen() {
                 }
               }}
             >
-              <Text style={{ color: 'white', fontSize: 14, fontWeight: '600', letterSpacing: 0.5 }}>
+              <Text style={{ color: 'white', fontSize: 15, fontWeight: '600', letterSpacing: 0.5 }}>
                 Sign Out
               </Text>
             </TouchableOpacity>
