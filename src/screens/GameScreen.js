@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, ActivityIndicator, ImageBackground, TouchableOpacity, Animated } from 'react-native';
 import { useNavigation, useFocusEffect, useRoute } from '@react-navigation/native';
 import { useQuestions } from '../hooks/useQuestions';
+import { useTheme } from '../contexts/ThemeContext';
 
 export default function GameScreen() {
   const navigation = useNavigation();
@@ -23,6 +24,7 @@ export default function GameScreen() {
   const [timeLeft, setTimeLeft] = useState(15);
   const [timerActive, setTimerActive] = useState(false);
   const pointAnim = useRef(new Animated.Value(0)).current;
+  const { colors } = useTheme();
 
   useEffect(() => {
     if (isChallenge) {
@@ -188,20 +190,20 @@ export default function GameScreen() {
   }
 
   return (
-    <View style={{ height: '100%', width: '100%' }}>
+    <View style={{ height: '100%', width: '100%', backgroundColor: colors.background }}>
       <ImageBackground
         source={require('../assets/sports-bg.jpg')}
         style={{ width: '100%', height: '100%' }}
         resizeMode="cover"
       >
-        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', padding: 24, justifyContent: 'center', alignItems: 'center' }}>
-          <View style={{ width: '100%', maxWidth: 600, backgroundColor: 'rgba(255,255,255,0.95)', padding: 32, borderRadius: 24, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5 }}>
+        <View style={{ flex: 1, backgroundColor: colors.overlay, padding: 24, justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ width: '100%', maxWidth: 600, backgroundColor: colors.card, padding: 32, borderRadius: 24, shadowColor: colors.text, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5 }}>
             {/* Score, Progress, and Timer */}
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 24 }}>
-              <Text style={{ fontSize: 18, color: '#4b5563' }}>
+              <Text style={{ fontSize: 18, color: colors.text }}>
                 Question {currentQuestionIndex + 1}/{questions.length}
               </Text>
-              <Text style={{ fontSize: 18, color: '#16a34a', fontWeight: '600' }}>
+              <Text style={{ fontSize: 18, color: colors.primary, fontWeight: '600' }}>
                 Score: {score}
               </Text>
             </View>
@@ -220,7 +222,7 @@ export default function GameScreen() {
                   zIndex: 10,
                 }}
               >
-                <Text style={{ fontSize: 28, fontWeight: 'bold', color: pointChange?.includes('+') ? '#16a34a' : pointChange?.includes('–') ? '#dc2626' : '#f59e42', textShadowColor: '#000', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 2 }}>
+                <Text style={{ fontSize: 28, fontWeight: 'bold', color: pointChange?.includes('+') ? colors.primary : pointChange?.includes('–') ? colors.error : colors.accent, textShadowColor: colors.background, textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 2 }}>
                   {pointChange}
                 </Text>
               </Animated.View>
@@ -231,20 +233,20 @@ export default function GameScreen() {
               alignItems: 'center', 
               marginBottom: 16, 
               padding: 8,
-              backgroundColor: timeLeft <= 5 ? '#fee2e2' : '#f3f4f6',
+              backgroundColor: timeLeft <= 5 ? colors.error + '22' : colors.card,
               borderRadius: 8
             }}>
               <Text style={{ 
                 fontSize: 20, 
                 fontWeight: '600',
-                color: timeLeft <= 5 ? '#dc2626' : '#4b5563'
+                color: timeLeft <= 5 ? colors.error : colors.text
               }}>
                 Time Left: {timeLeft}s
               </Text>
             </View>
 
             {/* Question */}
-            <Text style={{ fontSize: 24, fontWeight: '700', color: '#1f2937', marginBottom: 24, textAlign: 'left' }}>
+            <Text style={{ fontSize: 24, fontWeight: '700', color: colors.text, marginBottom: 24, textAlign: 'left' }}>
               {questions[currentQuestionIndex]?.question}
             </Text>
 
@@ -263,34 +265,34 @@ export default function GameScreen() {
                       borderRadius: 12,
                       backgroundColor: showExplanation
                         ? option === questions[currentQuestionIndex].correctAnswer
-                          ? '#dcfce7'
+                          ? colors.primary + '22'
                           : selectedAnswer === option
-                            ? '#fee2e2'
-                            : 'white'
+                            ? colors.error + '22'
+                            : colors.background
                         : selectedAnswer === option
-                          ? '#f3f4f6'
-                          : 'white',
+                          ? colors.card
+                          : colors.background,
                       borderWidth: 2,
                       borderColor: showExplanation
                         ? option === questions[currentQuestionIndex].correctAnswer
-                          ? '#16a34a'
+                          ? colors.primary
                           : selectedAnswer === option
-                            ? '#dc2626'
-                            : '#e5e7eb'
+                            ? colors.error
+                            : colors.border
                         : selectedAnswer === option
-                          ? '#4b5563'
-                          : '#e5e7eb',
+                          ? colors.text
+                          : colors.border,
                     }}
                   >
                     <Text style={{
                       fontSize: 16,
                       color: showExplanation
                         ? option === questions[currentQuestionIndex].correctAnswer
-                          ? '#16a34a'
+                          ? colors.primary
                           : selectedAnswer === option
-                            ? '#dc2626'
-                            : '#1f2937'
-                        : '#1f2937',
+                            ? colors.error
+                            : colors.text
+                        : colors.text,
                       fontWeight: selectedAnswer === option ? '600' : 'normal'
                     }}>
                       {option}
@@ -298,14 +300,14 @@ export default function GameScreen() {
                   </TouchableOpacity>
                 ))
               ) : (
-                <Text style={{ color: '#dc2626', fontSize: 16 }}>Error: Options not available</Text>
+                <Text style={{ color: colors.error, fontSize: 16 }}>Error: Options not available</Text>
               )}
             </View>
 
             {/* Explanation */}
             {showExplanation && (
-              <View style={{ marginBottom: 24, padding: 16, backgroundColor: '#f3f4f6', borderRadius: 12 }}>
-                <Text style={{ fontSize: 16, color: '#4b5563' }}>
+              <View style={{ marginBottom: 24, padding: 16, backgroundColor: colors.card, borderRadius: 12 }}>
+                <Text style={{ fontSize: 16, color: colors.text }}>
                   {timeLeft === 0 ? "Time's up! " : ""}{questions[currentQuestionIndex]?.explanation}
                 </Text>
               </View>

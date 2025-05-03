@@ -6,10 +6,12 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { app } from '../lib/firebase';
 import { useUser } from '../contexts/UserContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 export default function LoginScreen() {
   const navigation = useNavigation();
   const { setUser } = useUser();
+  const { colors } = useTheme();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -59,7 +61,7 @@ export default function LoginScreen() {
   };
 
   return (
-    <View style={{ height: '100%', width: '100%' }}>
+    <View style={{ height: '100%', width: '100%', backgroundColor: colors.background }}>
       <ImageBackground
         source={require('../assets/sports-bg.jpg')}
         style={{ width: '100%', height: '100%' }}
@@ -67,7 +69,7 @@ export default function LoginScreen() {
       >
         <View style={{
           flex: 1,
-          backgroundColor: 'rgba(0,0,0,0.6)',
+          backgroundColor: colors.overlay,
           padding: 24,
           justifyContent: 'center',
           alignItems: 'center'
@@ -75,7 +77,7 @@ export default function LoginScreen() {
           <View style={{
             width: '100%',
             maxWidth: 400,
-            backgroundColor: 'white',
+            backgroundColor: colors.card,
             borderRadius: 24,
             padding: 32,
             alignItems: 'center'
@@ -83,7 +85,7 @@ export default function LoginScreen() {
             <Text style={{
               fontSize: 32,
               fontWeight: '800',
-              color: '#111827',
+              color: colors.text,
               marginBottom: 32
             }}>
               Welcome Back!
@@ -91,7 +93,7 @@ export default function LoginScreen() {
 
             {error ? (
               <Text style={{
-                color: '#dc2626',
+                color: colors.error,
                 marginBottom: 16,
                 textAlign: 'center'
               }}>
@@ -104,11 +106,13 @@ export default function LoginScreen() {
                 width: '100%',
                 padding: 16,
                 marginBottom: 16,
-                backgroundColor: '#f3f4f6',
+                backgroundColor: colors.card,
                 borderRadius: 12,
-                fontSize: 16
+                fontSize: 16,
+                color: colors.text
               }}
           placeholder="Email"
+              placeholderTextColor={colors.text + '99'}
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
@@ -120,11 +124,13 @@ export default function LoginScreen() {
                 width: '100%',
                 padding: 16,
                 marginBottom: 24,
-                backgroundColor: '#f3f4f6',
+                backgroundColor: colors.card,
                 borderRadius: 12,
-                fontSize: 16
+                fontSize: 16,
+                color: colors.text
               }}
           placeholder="Password"
+              placeholderTextColor={colors.text + '99'}
               value={password}
               onChangeText={setPassword}
           secureTextEntry
@@ -133,7 +139,7 @@ export default function LoginScreen() {
         <TouchableOpacity
               style={{
                 width: '100%',
-                backgroundColor: '#16a34a',
+                backgroundColor: colors.primary,
                 padding: 16,
                 borderRadius: 12,
                 marginBottom: 16,
@@ -143,10 +149,10 @@ export default function LoginScreen() {
               disabled={loading}
             >
               {loading ? (
-                <ActivityIndicator color="white" />
+                <ActivityIndicator color={colors.background} />
               ) : (
                 <Text style={{
-                  color: 'white',
+                  color: colors.background,
                   textAlign: 'center',
                   fontSize: 16,
                   fontWeight: '600'
@@ -161,10 +167,10 @@ export default function LoginScreen() {
               style={{ padding: 8 }}
         >
               <Text style={{
-                color: '#4b5563',
+                color: colors.text,
                 fontSize: 14
               }}>
-                Don't have an account? <Text style={{ color: '#16a34a', fontWeight: '600' }}>Sign Up</Text>
+                Don't have an account? <Text style={{ color: colors.primary, fontWeight: '600' }}>Sign Up</Text>
           </Text>
         </TouchableOpacity>
       </View>

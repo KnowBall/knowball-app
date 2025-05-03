@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, ScrollView, Modal, Platform } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, ScrollView, Modal, Platform, Switch } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { getFirestore, collection, query, orderBy, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
 import { app } from '../lib/firebase';
 import { useUser } from '../contexts/UserContext';
 import { getAuth, signOut } from 'firebase/auth';
 import { fetchRandomQuestions } from '../hooks/useQuestions';
+import { useTheme } from '../contexts/ThemeContext';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
-  const { user } = useUser();
-  const [userStats, setUserStats] = useState({ totalPoints: 0, rank: 0, totalUsers: 0, totalGamesPlayed: 0, longestStreak: 0 });
+  const { user, userStats } = useUser();
+  const { theme, colors, toggleTheme } = useTheme();
   const [loading, setLoading] = useState(true);
   const auth = getAuth(app);
 
@@ -107,19 +108,29 @@ export default function HomeScreen() {
   }
 
   return (
-    <View style={{ flex: 1, minHeight: '100%' }}>
+    <View style={{ flex: 1, minHeight: '100%', backgroundColor: colors.background }}>
       <ImageBackground
         source={require('../assets/sports-bg.jpg')}
         style={{ flex: 1, minHeight: '100%' }}
         resizeMode="cover"
       >
-        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }}>
+        <View style={{ flex: 1, backgroundColor: colors.overlay }}>
           <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', padding: 24 }}>
             {/* Header Section */}
-            <View style={{ paddingTop: 48, paddingBottom: 24, alignItems: 'flex-end' }}>
-              <Text style={{ color: 'white', fontSize: 16, textAlign: 'right', opacity: 0.9 }}>
+            <View style={{ paddingTop: 48, paddingBottom: 24, alignItems: 'flex-end', flexDirection: 'row', justifyContent: 'space-between' }}>
+              <Text style={{ color: colors.text, fontSize: 16, textAlign: 'right', opacity: 0.9 }}>
                 {userEmail}
               </Text>
+              {/* Dark Mode Switch */}
+              <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 12 }}>
+                <Text style={{ color: colors.text, marginRight: 6 }}>Dark Mode</Text>
+                <Switch
+                  value={theme === 'dark'}
+                  onValueChange={toggleTheme}
+                  thumbColor={theme === 'dark' ? colors.primary : '#ccc'}
+                  trackColor={{ false: '#ccc', true: colors.primary }}
+                />
+              </View>
               <TouchableOpacity
                 style={{
                   marginTop: 12,
@@ -130,8 +141,8 @@ export default function HomeScreen() {
                   paddingVertical: 10,
                   borderRadius: 20,
                   borderWidth: 1.5,
-                  borderColor: '#fff',
-                  backgroundColor: 'rgba(31,41,55,0.7)',
+                  borderColor: colors.text,
+                  backgroundColor: colors.card,
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
@@ -144,7 +155,7 @@ export default function HomeScreen() {
                   }
                 }}
               >
-                <Text style={{ color: 'white', fontSize: 15, fontWeight: '600', letterSpacing: 0.5 }}>
+                <Text style={{ color: colors.text, fontSize: 15, fontWeight: '600', letterSpacing: 0.5 }}>
                   Sign Out
                 </Text>
               </TouchableOpacity>
@@ -152,68 +163,68 @@ export default function HomeScreen() {
 
             {/* Main Content */}
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-              <View style={{ width: '100%', maxWidth: 500, backgroundColor: 'rgba(255,255,255,0.95)', padding: 32, borderRadius: 24, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5 }}>
+              <View style={{ width: '100%', maxWidth: 500, backgroundColor: colors.card, padding: 32, borderRadius: 24, shadowColor: colors.text, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5 }}>
                 {/* Username Greeting */}
-                <Text style={{ fontSize: 22, fontWeight: '700', color: '#111827', marginBottom: 16, textAlign: 'center' }}>
-                  Welcome, {user.username || user.displayName || 'Anonymous'}!
+                <Text style={{ fontSize: 22, fontWeight: '700', color: colors.text, marginBottom: 16, textAlign: 'center' }}>
+                  Welcome, {user?.username || user?.displayName || 'Anonymous'}!
                 </Text>
-                <Text style={{ fontSize: 40, fontWeight: '800', color: '#16a34a', marginBottom: 12, textAlign: 'center' }}>
+                <Text style={{ fontSize: 40, fontWeight: '800', color: colors.primary, marginBottom: 12, textAlign: 'center' }}>
                   🏈 Ready to Play?
                 </Text>
                 
-                <Text style={{ fontSize: 18, color: '#4b5563', marginBottom: 32, textAlign: 'center' }}>
+                <Text style={{ fontSize: 18, color: colors.text, marginBottom: 32, textAlign: 'center' }}>
                   Test your sports knowledge and climb the leaderboard!
                 </Text>
 
                 {/* Lifetime Stats Card */}
-                <View style={{ backgroundColor: 'white', borderRadius: 20, padding: 28, paddingHorizontal: 20, marginBottom: 32, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.12, shadowRadius: 8, elevation: 3 }}>
-                  <Text style={{ fontSize: 22, fontWeight: '700', color: '#111827', marginBottom: 12, textAlign: 'center', alignSelf: 'center' }}>Your Lifetime Stats</Text>
+                <View style={{ backgroundColor: colors.background, borderRadius: 20, padding: 28, paddingHorizontal: 20, marginBottom: 32, alignItems: 'center', shadowColor: colors.text, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.12, shadowRadius: 8, elevation: 3 }}>
+                  <Text style={{ fontSize: 22, fontWeight: '700', color: colors.text, marginBottom: 12, textAlign: 'center', alignSelf: 'center' }}>Your Lifetime Stats</Text>
                   <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#FFD700', textAlign: 'center' }}>🏆 {userStats.totalPoints}</Text>
-                      <Text style={{ color: '#4b5563', fontSize: 14, textAlign: 'center' }}>Total Points</Text>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#FFD700', textAlign: 'center' }}>🏆 {userStats?.totalPoints}</Text>
+                      <Text style={{ color: colors.text, fontSize: 14, textAlign: 'center' }}>Total Points</Text>
                     </View>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#2563eb', textAlign: 'center' }}>🎮 {userStats.totalGamesPlayed}</Text>
-                      <Text style={{ color: '#4b5563', fontSize: 14, textAlign: 'center' }}>Games Played</Text>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: colors.secondary, textAlign: 'center' }}>🎮 {userStats?.totalGamesPlayed}</Text>
+                      <Text style={{ color: colors.text, fontSize: 14, textAlign: 'center' }}>Games Played</Text>
                     </View>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#dc2626', textAlign: 'center' }}>🔥 {userStats.longestStreak}</Text>
-                      <Text style={{ color: '#4b5563', fontSize: 14, textAlign: 'center' }}>Longest Streak</Text>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: colors.error, textAlign: 'center' }}>🔥 {userStats?.longestStreak}</Text>
+                      <Text style={{ color: colors.text, fontSize: 14, textAlign: 'center' }}>Longest Streak</Text>
                     </View>
                   </View>
                   {/* Divider */}
-                  <View style={{ width: '80%', height: 1, backgroundColor: '#e5e7eb', marginVertical: 14, alignSelf: 'center' }} />
+                  <View style={{ width: '80%', height: 1, backgroundColor: colors.border, marginVertical: 14, alignSelf: 'center' }} />
                   <View style={{ alignItems: 'center', width: '100%' }}>
-                    <Text style={{ fontSize: 15, fontWeight: '700', color: '#2563eb', textAlign: 'center' }}>📅 Login Streak: {user?.loginStreak || 0} days</Text>
+                    <Text style={{ fontSize: 15, fontWeight: '700', color: colors.secondary, textAlign: 'center' }}>📅 Login Streak: {user?.loginStreak || 0} days</Text>
                   </View>
                 </View>
 
                 {/* Action Buttons */}
                 <TouchableOpacity
-                  style={{ width: '100%', backgroundColor: '#16a34a', padding: 20, borderRadius: 16, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.2, shadowRadius: 1.41, elevation: 2, marginBottom: 16 }}
+                  style={{ width: '100%', backgroundColor: colors.primary, padding: 20, borderRadius: 16, shadowColor: colors.text, shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.2, shadowRadius: 1.41, elevation: 2, marginBottom: 16 }}
                   onPress={() => navigation.navigate('Game')}
                 >
-                  <Text style={{ color: '#fff', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
+                  <Text style={{ color: colors.background, fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
                     Start New Game 🎮
                   </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                  style={{ width: '100%', backgroundColor: 'white', padding: 20, borderRadius: 16, borderWidth: 2, borderColor: '#16a34a', marginBottom: 16 }}
+                  style={{ width: '100%', backgroundColor: colors.background, padding: 20, borderRadius: 16, borderWidth: 2, borderColor: colors.primary, marginBottom: 16 }}
                   onPress={() => navigation.navigate('Leaderboard')}
                 >
-                  <Text style={{ color: '#16a34a', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
+                  <Text style={{ color: colors.primary, fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
                     View Leaderboard 🏆
                   </Text>
                 </TouchableOpacity>
 
                 {/* Challenge a Friend Button */}
                 <TouchableOpacity
-                  style={{ width: '100%', backgroundColor: '#f59e42', padding: 20, borderRadius: 16, marginBottom: 8, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.15, shadowRadius: 1.41, elevation: 2 }}
+                  style={{ width: '100%', backgroundColor: colors.accent, padding: 20, borderRadius: 16, marginBottom: 8, shadowColor: colors.text, shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.15, shadowRadius: 1.41, elevation: 2 }}
                   onPress={handleChallengeFriend}
                 >
-                  <Text style={{ color: '#fff', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
+                  <Text style={{ color: colors.background, fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
                     Challenge a Friend 🥊
                   </Text>
                 </TouchableOpacity>
