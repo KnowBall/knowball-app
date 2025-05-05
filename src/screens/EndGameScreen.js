@@ -24,7 +24,7 @@ const EndGameScreen = ({ route }) => {
   const anim = useRef(new Animated.Value(0)).current;
   const { isChallenge, challengeId } = route?.params || {};
   const [showChallengeModal, setShowChallengeModal] = useState(false);
-  const challengeLink = challengeId ? `https://knowball.app/challenge/${challengeId}` : '';
+  const challengeLink = challengeId ? `https://knowball-app.vercel.app/challenge/${challengeId}` : '';
   
   useEffect(() => {
     // Animate the score count-up
