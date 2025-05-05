@@ -76,13 +76,6 @@ export default function AppNavigator() {
               options={{ headerShown: false }}
             />
           </>
-        ) : !hasUsername ? (
-          // Username setup for new users
-          <Stack.Screen
-            name="Username"
-            component={UsernameScreen}
-            options={{ headerShown: false }}
-          />
         ) : !onboardingComplete ? (
           // Onboarding for new users
           <Stack.Screen
