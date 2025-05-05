@@ -190,9 +190,19 @@ export default function HomeScreen() {
                   </View>
                 </View>
 
+                {/* Classic Mode Button */}
+                <TouchableOpacity
+                  style={{ width: '100%', backgroundColor: colors.primary, padding: 20, borderRadius: 16, shadowColor: colors.text, shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.2, shadowRadius: 1.41, elevation: 2, marginBottom: 12 }}
+                  onPress={() => navigation.navigate('Game')}
+                >
+                  <Text style={{ color: colors.background, fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
+                    Classic Mode 🎮
+                  </Text>
+                </TouchableOpacity>
+
                 {/* Flick Football Button */}
                 <TouchableOpacity
-                  style={{ width: '100%', backgroundColor: '#2563eb', padding: 20, borderRadius: 16, marginBottom: 16, shadowColor: colors.text, shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.15, shadowRadius: 1.41, elevation: 2 }}
+                  style={{ width: '100%', backgroundColor: '#2563eb', padding: 20, borderRadius: 16, marginBottom: 12, shadowColor: colors.text, shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.15, shadowRadius: 1.41, elevation: 2 }}
                   onPress={() => navigation.navigate('FlickFootball')}
                 >
                   <Text style={{ color: '#fff', fontWeight: '700', fontSize: 20, textAlign: 'center' }}>
