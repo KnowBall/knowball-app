@@ -95,7 +95,7 @@ export default function LeaderboardScreen() {
           <View style={{
             width: '100%',
             maxWidth: 600,
-            backgroundColor: 'white',
+            backgroundColor: '#18181b',
             borderRadius: 24,
             padding: 32,
             alignItems: 'center',
@@ -108,7 +108,7 @@ export default function LeaderboardScreen() {
             <Text style={{
               fontSize: 32,
               fontWeight: '800',
-              color: '#111827',
+              color: '#fff',
               marginBottom: 32,
               textAlign: 'center'
             }}>
