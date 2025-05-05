@@ -60,18 +60,7 @@ export default function AppNavigator() {
   }
 
   return (
-    <NavigationContainer
-      linking={{
-        prefixes: ['https://knowball-app.vercel.app', 'http://knowball-app.vercel.app', 'knowball://'],
-        config: {
-          screens: {
-            ChallengeAccept: 'challenge/:challengeId',
-            // Game: 'challenge/:challengeId', // Removed duplicate
-            // ...other screens can be added here if needed
-          },
-        },
-      }}
-    >
+    <NavigationContainer>
       <Stack.Navigator>
         {!user ? (
           // Auth screens
