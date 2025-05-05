@@ -164,21 +164,21 @@ export default function HomeScreen() {
                   <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
                       <Text style={{ fontSize: 24, fontWeight: '800', color: '#FFD700', textAlign: 'center' }}>🏆 {userStats?.totalPoints}</Text>
-                      <Text style={{ color: colors.text, fontSize: 14, textAlign: 'center' }}>Total Points</Text>
+                      <Text style={{ color: '#f9fafb', fontSize: 15, textAlign: 'center', fontWeight: '600' }}>Total Points</Text>
                     </View>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
                       <Text style={{ fontSize: 24, fontWeight: '800', color: colors.secondary, textAlign: 'center' }}>🎮 {userStats?.totalGamesPlayed}</Text>
-                      <Text style={{ color: colors.text, fontSize: 14, textAlign: 'center' }}>Games Played</Text>
+                      <Text style={{ color: '#f9fafb', fontSize: 15, textAlign: 'center', fontWeight: '600' }}>Games Played</Text>
                     </View>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
                       <Text style={{ fontSize: 24, fontWeight: '800', color: colors.error, textAlign: 'center' }}>🔥 {userStats?.longestStreak}</Text>
-                      <Text style={{ color: colors.text, fontSize: 14, textAlign: 'center' }}>Longest Streak</Text>
+                      <Text style={{ color: '#f9fafb', fontSize: 15, textAlign: 'center', fontWeight: '600' }}>Longest Streak</Text>
                     </View>
                   </View>
                   {/* Divider */}
                   <View style={{ width: '80%', height: 1, backgroundColor: colors.border, marginVertical: 14, alignSelf: 'center' }} />
                   <View style={{ alignItems: 'center', width: '100%' }}>
-                    <Text style={{ fontSize: 15, fontWeight: '700', color: colors.secondary, textAlign: 'center' }}>📅 Login Streak: {user?.loginStreak || 0} days</Text>
+                    <Text style={{ fontSize: 16, fontWeight: '700', color: '#fbbf24', textAlign: 'center' }}>📅 Login Streak: {user?.loginStreak || 0} days</Text>
                   </View>
                 </View>
 

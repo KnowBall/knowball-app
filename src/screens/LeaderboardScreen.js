@@ -129,38 +129,44 @@ export default function LeaderboardScreen() {
                     style={{
                       flexDirection: 'row',
                       alignItems: 'center',
-                      padding: 16,
-                      backgroundColor: user.isCurrentUser ? '#f3f4f6' : 'transparent',
-                      borderRadius: 12,
-                      marginBottom: 8
+                      paddingVertical: 8,
+                      paddingHorizontal: 8,
+                      backgroundColor: user.isCurrentUser ? '#23272f' : 'transparent',
+                      borderRadius: 8,
+                      marginBottom: 4
                     }}
                   >
                     <Text style={{
-                      fontSize: 18,
+                      fontSize: 15,
                       fontWeight: '700',
-                      color: '#111827',
-                      width: 40
+                      color: '#f9fafb',
+                      width: 32
                     }}>
                       #{index + 1}
                     </Text>
                     <Text style={{
-                      fontSize: 16,
-                      color: '#4b5563',
-                      flex: 1
+                      fontSize: 15,
+                      color: '#f9fafb',
+                      flex: 1,
+                      fontWeight: user.isCurrentUser ? '700' : '500',
                     }}>
                       {user.username || 'Anonymous'}
                     </Text>
                     <Text style={{
-                      fontSize: 18,
+                      fontSize: 15,
                       fontWeight: '700',
-                      color: '#16a34a'
+                      color: '#16a34a',
+                      minWidth: 32,
+                      textAlign: 'right',
                     }}>
                       {user.totalPoints || 0}
                     </Text>
                     <Text style={{
-                      fontSize: 16,
-                      color: '#4b5563',
-                      marginLeft: 8
+                      fontSize: 13,
+                      color: '#fbbf24',
+                      marginLeft: 8,
+                      minWidth: 60,
+                      textAlign: 'right',
                     }}>
                       Games: {user.gamesPlayed || 0}
                     </Text>
