@@ -11,6 +11,7 @@ import LeaderboardScreen from '../screens/LeaderboardScreen';
 import UsernameScreen from '../screens/UsernameScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import ChallengeAcceptScreen from '../screens/ChallengeAcceptScreen';
+import FlickFootballScreen from '../screens/FlickFootballScreen';
 import { useUser } from '../contexts/UserContext';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { app } from '../lib/firebase';
@@ -111,6 +112,11 @@ export default function AppNavigator() {
               component={ChallengeAcceptScreen}
               options={{ headerShown: false }}
               initialParams={{}}
+            />
+            <Stack.Screen
+              name="FlickFootball"
+              component={FlickFootballScreen}
+              options={{ headerShown: false }}
             />
           </>
         )}
