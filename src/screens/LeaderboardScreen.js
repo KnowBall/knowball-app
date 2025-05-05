@@ -139,14 +139,14 @@ export default function LeaderboardScreen() {
                     <Text style={{
                       fontSize: 15,
                       fontWeight: '700',
-                      color: '#f9fafb',
+                      color: '#fff',
                       width: 32
                     }}>
                       #{index + 1}
                     </Text>
                     <Text style={{
                       fontSize: 15,
-                      color: '#f9fafb',
+                      color: '#fff',
                       flex: 1,
                       fontWeight: user.isCurrentUser ? '700' : '500',
                     }}>
@@ -160,15 +160,6 @@ export default function LeaderboardScreen() {
                       textAlign: 'right',
                     }}>
                       {user.totalPoints || 0}
-                    </Text>
-                    <Text style={{
-                      fontSize: 13,
-                      color: '#fbbf24',
-                      marginLeft: 8,
-                      minWidth: 60,
-                      textAlign: 'right',
-                    }}>
-                      Games: {user.gamesPlayed || 0}
                     </Text>
                   </View>
                 ))}

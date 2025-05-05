@@ -164,15 +164,15 @@ export default function HomeScreen() {
                   <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
                       <Text style={{ fontSize: 24, fontWeight: '800', color: '#FFD700', textAlign: 'center' }}>🏆 {userStats?.totalPoints}</Text>
-                      <Text style={{ color: '#f9fafb', fontSize: 15, textAlign: 'center', fontWeight: '600' }}>Total Points</Text>
+                      <Text style={{ color: '#fff', fontSize: 15, textAlign: 'center', fontWeight: '700' }}>Total Points</Text>
                     </View>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
                       <Text style={{ fontSize: 24, fontWeight: '800', color: colors.secondary, textAlign: 'center' }}>🎮 {userStats?.totalGamesPlayed}</Text>
-                      <Text style={{ color: '#f9fafb', fontSize: 15, textAlign: 'center', fontWeight: '600' }}>Games Played</Text>
+                      <Text style={{ color: '#fff', fontSize: 15, textAlign: 'center', fontWeight: '700' }}>Games Played</Text>
                     </View>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
                       <Text style={{ fontSize: 24, fontWeight: '800', color: colors.error, textAlign: 'center' }}>🔥 {userStats?.longestStreak}</Text>
-                      <Text style={{ color: '#f9fafb', fontSize: 15, textAlign: 'center', fontWeight: '600' }}>Longest Streak</Text>
+                      <Text style={{ color: '#fff', fontSize: 15, textAlign: 'center', fontWeight: '700' }}>Longest Streak</Text>
                     </View>
                   </View>
                   {/* Divider */}
