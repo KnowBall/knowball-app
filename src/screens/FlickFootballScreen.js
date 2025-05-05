@@ -1,79 +1,40 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, Animated, PanResponder, Dimensions, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from '../contexts/ThemeContext';
-import { getFirestore, collection, getDocs, setDoc, doc, serverTimestamp } from 'firebase/firestore';
-import { app } from '../lib/firebase';
-import { useUser } from '../contexts/UserContext';
 
 const { width, height } = Dimensions.get('window');
 
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
+const QUESTIONS = [
+  {
+    question: 'Which country won the 2018 FIFA World Cup?',
+    options: ['France', 'Brazil', 'Germany'],
+    correctAnswer: 'France',
+  },
+  {
+    question: 'How many points is a touchdown worth in American football?',
+    options: ['3', '6', '7'],
+    correctAnswer: '6',
+  },
+  {
+    question: 'Which sport uses the term "home run"?',
+    options: ['Baseball', 'Soccer', 'Basketball'],
+    correctAnswer: 'Baseball',
+  },
+];
 
 export default function FlickFootballScreen() {
   const navigation = useNavigation();
   const { colors } = useTheme();
-  const { user } = useUser();
-  const [questions, setQuestions] = useState([]);
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState(null);
   const [result, setResult] = useState(null); // 'correct' | 'incorrect' | null
   const [showNext, setShowNext] = useState(false);
-  const [score, setScore] = useState(0);
-  const [streak, setStreak] = useState(0);
-  const [maxStreak, setMaxStreak] = useState(0);
   const [feedback, setFeedback] = useState(null); // { type: 'correct'|'incorrect', points: number }
   const feedbackOpacity = useRef(new Animated.Value(0)).current;
 
-  // Fetch football questions on mount
-  useEffect(() => {
-    async function fetchFootballQuestions() {
-      const db = getFirestore(app);
-      const questionsCollection = collection(db, 'questions');
-      const querySnapshot = await getDocs(questionsCollection);
-      let allQuestions = querySnapshot.docs.map(doc => {
-        const data = doc.data();
-        const options = [
-          data.option1,
-          data.option2,
-          data.option3,
-          data.option4
-        ].filter(option => option !== undefined);
-        return {
-          id: doc.id,
-          question: data.question,
-          options: shuffleArray([...options]),
-          correctAnswer: data.answer,
-          explanation: data.explanation,
-          difficulty: (data.difficulty || 'medium').toLowerCase(),
-          category: data.category || '',
-        };
-      });
-      // Filter for football-related questions
-      let footballQs = allQuestions.filter(q =>
-        (q.category && q.category.toLowerCase().includes('football')) ||
-        (q.question && q.question.toLowerCase().includes('football'))
-      );
-      footballQs = shuffleArray(footballQs);
-      let selectedQs = footballQs.slice(0, 10);
-      if (selectedQs.length < 10) {
-        // Fill with general questions if not enough football
-        const nonFootballQs = allQuestions.filter(q => !footballQs.includes(q));
-        selectedQs = [...selectedQs, ...shuffleArray(nonFootballQs).slice(0, 10 - selectedQs.length)];
-      }
-      setQuestions(selectedQs);
-    }
-    fetchFootballQuestions();
-  }, []);
-
   // Feedback animation
-  useEffect(() => {
+  React.useEffect(() => {
     if (feedback) {
       feedbackOpacity.setValue(0);
       Animated.timing(feedbackOpacity, {
@@ -112,22 +73,9 @@ export default function FlickFootballScreen() {
         }
         if (chosen !== null && !showNext) {
           setSelected(chosen);
-          // Only allow answers for the three visible buckets
-          const visibleOptions = questions[current].options.slice(0, 3);
-          const isCorrect = visibleOptions[chosen] === questions[current].correctAnswer;
-          if (isCorrect) {
-            setScore(s => s + 10);
-            setStreak(s => {
-              const newStreak = s + 1;
-              setMaxStreak(ms => Math.max(ms, newStreak));
-              return newStreak;
-            });
-            setFeedback({ type: 'correct', points: 10 });
-          } else {
-            setScore(s => Math.max(0, s - 3));
-            setStreak(0);
-            setFeedback({ type: 'incorrect', points: -3 });
-          }
+          const visibleOptions = QUESTIONS[current].options.slice(0, 3);
+          const isCorrect = visibleOptions[chosen] === QUESTIONS[current].correctAnswer;
+          setFeedback({ type: isCorrect ? 'correct' : 'incorrect', points: isCorrect ? 10 : -3 });
           setResult(isCorrect ? 'correct' : 'incorrect');
           setShowNext(true);
         }
@@ -137,32 +85,14 @@ export default function FlickFootballScreen() {
     })
   ).current;
 
-  const handleNext = async () => {
+  const handleNext = () => {
     setSelected(null);
     setResult(null);
     setShowNext(false);
-    if (current + 1 < questions.length) {
-      setCurrent(current + 1);
-    } else {
-      // Save score and streak to Firestore if user is logged in
-      if (user && user.uid) {
-        try {
-          const db = getFirestore(app);
-          const userRef = doc(db, 'users', user.uid);
-          await setDoc(userRef, {
-            totalPoints: score,
-            longestStreak: maxStreak,
-            updatedAt: serverTimestamp(),
-          }, { merge: true });
-        } catch (e) {
-          console.error('Error updating user stats:', e);
-        }
-      }
-      navigation.goBack();
-    }
+    setCurrent((prev) => (prev + 1) % QUESTIONS.length);
   };
 
-  const q = questions[current] || { question: '', options: [] };
+  const q = QUESTIONS[current];
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.background, touchAction: 'none' }}>
