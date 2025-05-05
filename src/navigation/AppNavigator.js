@@ -62,7 +62,7 @@ export default function AppNavigator() {
   return (
     <NavigationContainer
       linking={{
-        prefixes: ['https://knowball.app', 'http://knowball.app', 'knowball://'],
+        prefixes: ['https://knowball-app.vercel.app', 'http://knowball-app.vercel.app', 'knowball://'],
         config: {
           screens: {
             ChallengeAccept: 'challenge/:challengeId',
