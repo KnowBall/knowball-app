@@ -73,7 +73,7 @@ export default function FlickFootballScreen() {
   const q = QUESTIONS[current];
 
   return (
-    <View style={{ flex: 1, backgroundColor: colors.background }}>
+    <View style={{ flex: 1, backgroundColor: colors.background, touchAction: 'none' }}>
       <ImageBackground
         source={require('../assets/football-field.jpg')} // Placeholder image
         style={{ flex: 1, width: '100%', height: '100%' }}
@@ -88,8 +88,27 @@ export default function FlickFootballScreen() {
         </TouchableOpacity>
 
         {/* Question */}
-        <View style={{ marginTop: 100, marginBottom: 40, alignItems: 'center', paddingHorizontal: 24 }}>
-          <Text style={{ color: colors.text, fontSize: 22, fontWeight: '700', textAlign: 'center' }}>{q.question}</Text>
+        <View style={{
+          marginTop: 100,
+          marginBottom: 40,
+          alignItems: 'center',
+          paddingHorizontal: 24,
+        }}>
+          <View style={{
+            backgroundColor: 'rgba(0,0,0,0.7)',
+            padding: 16,
+            borderRadius: 12,
+            maxWidth: 500,
+            alignSelf: 'center',
+          }}>
+            <Text style={{
+              color: '#fff',
+              fontSize: 24,
+              fontWeight: '700',
+              textAlign: 'center',
+              letterSpacing: 0.2,
+            }}>{q.question}</Text>
+          </View>
         </View>
 
         {/* Targets/Goals */}
