@@ -118,47 +118,20 @@ export default function HomeScreen() {
           <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', padding: 24 }}>
             {/* Header Section */}
             <View style={{ paddingTop: 48, paddingBottom: 24, alignItems: 'flex-end', flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Text style={{ color: colors.text, fontSize: 16, textAlign: 'right', opacity: 0.9 }}>
-                {userEmail}
-              </Text>
-              {/* Dark Mode Switch */}
-              <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 12 }}>
-                <Text style={{ color: colors.text, marginRight: 6 }}>Dark Mode</Text>
-                <Switch
-                  value={theme === 'dark'}
-                  onValueChange={toggleTheme}
-                  thumbColor={theme === 'dark' ? colors.primary : '#ccc'}
-                  trackColor={{ false: '#ccc', true: colors.primary }}
-                />
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 16, justifyContent: 'flex-end' }}>
+                <Text style={{ color: colors.text, fontSize: 16 }}>{user.email}</Text>
+                <TouchableOpacity
+                  onPress={handleSignOut}
+                  style={{
+                    backgroundColor: colors.error,
+                    paddingHorizontal: 16,
+                    paddingVertical: 8,
+                    borderRadius: 8,
+                  }}
+                >
+                  <Text style={{ color: 'white', fontWeight: '600' }}>Sign Out</Text>
+                </TouchableOpacity>
               </View>
-              <TouchableOpacity
-                style={{
-                  marginTop: 12,
-                  marginRight: 4,
-                  minWidth: 90,
-                  maxWidth: 130,
-                  width: '40%',
-                  paddingVertical: 10,
-                  borderRadius: 20,
-                  borderWidth: 1.5,
-                  borderColor: colors.text,
-                  backgroundColor: colors.card,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-                onPress={async () => {
-                  try {
-                    await signOut(auth);
-                    navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
-                  } catch (e) {
-                    console.error('Sign out error:', e);
-                  }
-                }}
-              >
-                <Text style={{ color: colors.text, fontSize: 15, fontWeight: '600', letterSpacing: 0.5 }}>
-                  Sign Out
-                </Text>
-              </TouchableOpacity>
             </View>
 
             {/* Main Content */}

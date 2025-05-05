@@ -122,7 +122,7 @@ export default function LeaderboardScreen() {
                 {error}
               </Text>
             ) : (
-              <ScrollView style={{ width: '100%', maxHeight: 400 }}>
+              <View style={{ width: '100%', maxHeight: 400 }}>
                 {users.map((user, index) => (
                   <View
                     key={user.id}
@@ -156,6 +156,13 @@ export default function LeaderboardScreen() {
                       color: '#16a34a'
                     }}>
                       {user.totalPoints || 0}
+                    </Text>
+                    <Text style={{
+                      fontSize: 16,
+                      color: '#4b5563',
+                      marginLeft: 8
+                    }}>
+                      Games: {user.gamesPlayed || 0}
                     </Text>
                   </View>
                 ))}
@@ -192,7 +199,7 @@ export default function LeaderboardScreen() {
                     </Text>
                   </View>
                 )}
-              </ScrollView>
+              </View>
             )}
 
             <View style={{ width: '100%', gap: 12, marginTop: 24 }}>
