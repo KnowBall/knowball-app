@@ -42,10 +42,11 @@ export default function FlickFootballScreen() {
         { dx: footballX, dy: footballY },
       ], { useNativeDriver: false }),
       onPanResponderRelease: (e, gesture) => {
-        // Determine which target was hit
-        const { dx, dy } = gesture;
+        // Determine which target was hit, using velocity for flicks
+        const { dx, dy, vx, vy } = gesture;
         let chosen = null;
-        if (dy < -height * 0.2) {
+        // Flick detection: fast swipe up
+        if (vy < -0.7 || dy < -height * 0.18) {
           if (dx < -width * 0.15) chosen = 0; // left
           else if (dx > width * 0.15) chosen = 2; // right
           else chosen = 1; // center
@@ -125,10 +126,10 @@ export default function FlickFootballScreen() {
           {...panResponder.panHandlers}
           style={{
             position: 'absolute',
-            left: width / 2 - 30,
-            bottom: 60,
-            width: 60,
-            height: 60,
+            left: width / 2 - 40,
+            bottom: 50,
+            width: 80,
+            height: 80,
             zIndex: 10,
             transform: [
               { translateX: footballX },
@@ -138,7 +139,7 @@ export default function FlickFootballScreen() {
         >
           <Image
             source={require('../assets/football.png')} // Placeholder football image
-            style={{ width: 60, height: 60 }}
+            style={{ width: 80, height: 80 }}
             resizeMode="contain"
           />
         </Animated.View>
