@@ -107,6 +107,15 @@ export default function HomeScreen() {
     }
   }
 
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
+    } catch (e) {
+      console.error('Sign out error:', e);
+    }
+  };
+
   return (
     <View style={{ flex: 1, minHeight: '100%', backgroundColor: colors.background }}>
       <ImageBackground
