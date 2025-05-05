@@ -10,10 +10,18 @@ import { useTheme } from '../contexts/ThemeContext';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
-  const { user, userStats } = useUser();
+  const { user } = useUser();
   const { theme, colors, toggleTheme } = useTheme();
   const [loading, setLoading] = useState(true);
   const auth = getAuth(app);
+
+  const [userStats, setUserStats] = useState({
+    totalPoints: 0,
+    totalGamesPlayed: 0,
+    longestStreak: 0,
+    rank: 0,
+    totalUsers: 0
+  });
 
   useEffect(() => {
     async function fetchUserStats() {
@@ -163,15 +171,15 @@ export default function HomeScreen() {
                   <Text style={{ fontSize: 22, fontWeight: '700', color: colors.text, marginBottom: 12, textAlign: 'center', alignSelf: 'center' }}>Your Lifetime Stats</Text>
                   <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#FFD700', textAlign: 'center' }}>🏆 {userStats?.totalPoints}</Text>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: '#FFD700', textAlign: 'center' }}>🏆 {userStats?.totalPoints ?? 0}</Text>
                       <Text style={{ color: '#fff', fontSize: 15, textAlign: 'center', fontWeight: '700' }}>Total Points</Text>
                     </View>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-                      <Text style={{ fontSize: 24, fontWeight: '800', color: colors.secondary, textAlign: 'center' }}>🎮 {userStats?.totalGamesPlayed}</Text>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: colors.secondary, textAlign: 'center' }}>🎮 {userStats?.totalGamesPlayed ?? 0}</Text>
                       <Text style={{ color: '#fff', fontSize: 15, textAlign: 'center', fontWeight: '700' }}>Games Played</Text>
                     </View>
                     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-                      <Text style={{ fontSize: 24, fontWeight: '800', color: colors.error, textAlign: 'center' }}>🔥 {userStats?.longestStreak}</Text>
+                      <Text style={{ fontSize: 24, fontWeight: '800', color: colors.error, textAlign: 'center' }}>🔥 {userStats?.longestStreak ?? 0}</Text>
                       <Text style={{ color: '#fff', fontSize: 15, textAlign: 'center', fontWeight: '700' }}>Longest Streak</Text>
                     </View>
                   </View>
