@@ -112,7 +112,9 @@ export default function FlickFootballScreen() {
         }
         if (chosen !== null && !showNext) {
           setSelected(chosen);
-          const isCorrect = questions[current].options[chosen] === questions[current].correctAnswer;
+          // Only allow answers for the three visible buckets
+          const visibleOptions = questions[current].options.slice(0, 3);
+          const isCorrect = visibleOptions[chosen] === questions[current].correctAnswer;
           if (isCorrect) {
             setScore(s => s + 10);
             setStreak(s => {
@@ -239,7 +241,7 @@ export default function FlickFootballScreen() {
 
         {/* Targets/Goals */}
         <View style={{ position: 'absolute', bottom: 160, left: 0, right: 0, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 32 }}>
-          {q.options.map((choice, idx) => (
+          {q.options.slice(0, 3).map((choice, idx) => (
             <View key={choice} style={{ alignItems: 'center', width: '30%' }}>
               <View style={{
                 width: 70, height: 70, borderRadius: 35, backgroundColor: '#222', justifyContent: 'center', alignItems: 'center',
