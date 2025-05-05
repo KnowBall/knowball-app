@@ -3,10 +3,12 @@ import { View, Text, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { app } from '../lib/firebase';
+import { useUser } from '../contexts/UserContext';
 
 export default function ChallengeAcceptScreen({ route }) {
   const { challengeId } = route.params || {};
   const navigation = useNavigation();
+  const { user } = useUser();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -27,7 +29,11 @@ export default function ChallengeAcceptScreen({ route }) {
           return;
         }
         const challengeData = challengeDoc.data();
-        navigation.navigate('Game', { questions: challengeData.questions, challengeId, isChallenge: true });
+        if (user) {
+          navigation.navigate('Game', { questions: challengeData.questions, challengeId, isChallenge: true });
+        } else {
+          navigation.navigate('Login', { challengeId });
+        }
       } catch (err) {
         console.error('Error fetching challenge:', err);
         setError('Error loading challenge. Please try again.');
@@ -35,7 +41,7 @@ export default function ChallengeAcceptScreen({ route }) {
       }
     }
     fetchChallenge();
-  }, [challengeId, navigation]);
+  }, [challengeId, navigation, user]);
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>

@@ -66,6 +66,7 @@ export default function AppNavigator() {
         config: {
           screens: {
             ChallengeAccept: 'challenge/:challengeId',
+            Game: 'challenge/:challengeId',
             // ...other screens can be added here if needed
           },
         },

@@ -7,7 +7,7 @@ import { app } from '../lib/firebase';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/ThemeContext';
 
-export default function SignUpScreen() {
+export default function SignUpScreen({ route }) {
   const navigation = useNavigation();
   const { setUser } = useUser();
   const { colors } = useTheme();
@@ -15,6 +15,7 @@ export default function SignUpScreen() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const { challengeId } = route.params || {};
 
   const handleSignUp = async () => {
     if (!email || !password) {
@@ -47,8 +48,11 @@ export default function SignUpScreen() {
         ...userProfile
       });
 
-      // Navigate to Username screen
-      navigation.replace('Username');
+      if (challengeId) {
+        navigation.navigate('ChallengeAccept', { challengeId });
+      } else {
+        navigation.reset({ index: 0, routes: [{ name: 'Home' }] });
+      }
     } catch (err) {
       console.error('Signup error:', err);
       setError(err.message);
@@ -160,7 +164,7 @@ export default function SignUpScreen() {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => navigation.navigate('Login')}
+              onPress={() => navigation.navigate('Login', { challengeId })}
               style={{ padding: 8 }}
             >
               <Text style={{

@@ -8,7 +8,7 @@ import { app } from '../lib/firebase';
 import { useUser } from '../contexts/UserContext';
 import { useTheme } from '../contexts/ThemeContext';
 
-export default function LoginScreen() {
+export default function LoginScreen({ route }) {
   const navigation = useNavigation();
   const { setUser } = useUser();
   const { colors } = useTheme();
@@ -16,6 +16,7 @@ export default function LoginScreen() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const { challengeId } = route.params || {};
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -46,8 +47,11 @@ export default function LoginScreen() {
         setUser(firebaseUser);
       }
 
-      // Navigate to Home screen
-      navigation.replace('Home');
+      if (challengeId) {
+        navigation.navigate('ChallengeAccept', { challengeId });
+      } else {
+        navigation.reset({ index: 0, routes: [{ name: 'Home' }] });
+      }
     } catch (err) {
       console.error('Login error:', err);
       setError(
@@ -89,7 +93,7 @@ export default function LoginScreen() {
               marginBottom: 32
             }}>
               Welcome Back!
-        </Text>
+            </Text>
 
             {error ? (
               <Text style={{
@@ -101,7 +105,7 @@ export default function LoginScreen() {
               </Text>
             ) : null}
 
-        <TextInput
+            <TextInput
               style={{
                 width: '100%',
                 padding: 16,
@@ -111,15 +115,15 @@ export default function LoginScreen() {
                 fontSize: 16,
                 color: colors.text
               }}
-          placeholder="Email"
+              placeholder="Email"
               placeholderTextColor={colors.text + '99'}
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
-          keyboardType="email-address"
-        />
+              keyboardType="email-address"
+            />
 
-        <TextInput
+            <TextInput
               style={{
                 width: '100%',
                 padding: 16,
@@ -129,14 +133,14 @@ export default function LoginScreen() {
                 fontSize: 16,
                 color: colors.text
               }}
-          placeholder="Password"
+              placeholder="Password"
               placeholderTextColor={colors.text + '99'}
               value={password}
               onChangeText={setPassword}
-          secureTextEntry
-        />
+              secureTextEntry
+            />
 
-        <TouchableOpacity
+            <TouchableOpacity
               style={{
                 width: '100%',
                 backgroundColor: colors.primary,
@@ -160,20 +164,20 @@ export default function LoginScreen() {
                   Log In
                 </Text>
               )}
-        </TouchableOpacity>
+            </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => navigation.navigate('SignUp')}
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SignUp', { challengeId })}
               style={{ padding: 8 }}
-        >
+            >
               <Text style={{
                 color: colors.text,
                 fontSize: 14
               }}>
                 Don't have an account? <Text style={{ color: colors.primary, fontWeight: '600' }}>Sign Up</Text>
-          </Text>
-        </TouchableOpacity>
-      </View>
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ImageBackground>
     </View>
